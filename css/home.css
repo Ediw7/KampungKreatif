@@ -1,0 +1,462 @@
+/* Home page specific styles */
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    background-color: var(--color-dark-bg);
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: opacity;
+    z-index: 1; /* Ensure slides are behind overlay */
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.8) 100%); /* Stronger, more dramatic overlay */
+    z-index: 2; /* Overlay on top of image, under content */
+}
+
+.slide-content {
+    text-align: center;
+    max-width: 1000px;
+    padding: var(--spacing-md);
+    position: relative;
+    z-index: 3; /* Content on top of everything */
+}
+
+.hero-tagline {
+    font-family: var(--font-heading);
+    font-size: 6rem; /* Even larger, more impactful */
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.hero-subtext {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* Text Clip Animation for Hero Tagline */
+.animate-text-clip {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: textClipReveal 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.2s; /* Start after slight delay */
+}
+
+@keyframes textClipReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        clip-path: inset(0 100% 0 0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Standard Fade-in-Up Animation */
+.animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+.animate-fade-in-up.delay-02 { animation-delay: 0.4s; }
+.animate-fade-in-up.delay-04 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Navigation Arrows */
+.slideshow-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.prev-slide, .next-slide {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-text-light);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    backdrop-filter: blur(15px); /* Stronger glassmorphism */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.prev-slide:hover, .next-slide:hover {
+    background: var(--gradient-primary); /* Gradient on hover */
+    color: var(--color-dark-bg);
+    border: none;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 201, 255, 0.7); /* Glow effect */
+}
+
+/* Dot Navigation */
+.slide-dots {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.8rem;
+    z-index: 10;
+}
+
+.dot {
+    cursor: pointer;
+    height: 0.8rem;
+    width: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.dot.active, .dot:hover {
+    background: var(--gradient-primary);
+    border-color: var(--color-text-light);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 201, 255, 0.5);
+}
+
+/* Dynamic Product Spotlight Display */
+.product-spotlight-display {
+    position: absolute;
+    bottom: 6rem; /* Position above dots */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.08); /* More subtle transparent white */
+    color: var(--color-text-light);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px; /* Pill shape */
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    backdrop-filter: blur(20px); /* Very strong glassmorphism */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Hidden by default, animated by JS */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+/* --- About Kampung Section --- */
+.about-kampung {
+    background-color: var(--color-dark-bg);
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator */
+}
+
+.about-text-content {
+    padding-left: var(--spacing-md); /* Spacing for the grid */
+}
+
+.about-text-content .section-title,
+.about-text-content .section-description {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.about-text-content .section-title::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+.kampung-map {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    z-index: 1; /* For glow effect */
+}
+
+.kampung-map:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Parallax Effect for Map */
+.parallax-effect {
+    transform: translateZ(0); /* Ensure hardware acceleration */
+}
+
+/* Glow Effect for Map */
+.map-glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    background: var(--gradient-primary);
+    filter: blur(40px); /* Strong blur */
+    opacity: 0.3;
+    z-index: 0; /* Behind the image */
+    transition: opacity 0.6s ease;
+}
+
+.reveal-image.is-visible .map-glow-effect {
+    opacity: 0.6; /* Intensify glow on reveal */
+}
+
+
+/* --- Featured Categories Section --- */
+.featured-categories {
+    background-color: var(--color-dark-bg);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.category-card {
+    background-color: #1A1A1A; /* Slightly lighter dark for card */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: var(--color-text-light);
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+}
+
+.category-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+.category-card img {
+    width: 100%;
+    height: 280px; /* Taller images for better presentation */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-card .card-content {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2; /* Content above gradient border */
+}
+
+.category-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.5px;
+    background: var(--gradient-primary); /* Gradient heading */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.category-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* Card Border Gradient on Hover */
+.card-border-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: var(--gradient-primary);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: scale(0.98); /* Slightly smaller than card */
+    filter: blur(10px); /* Subtle blur for glow */
+}
+
+.category-card:hover .card-border-gradient {
+    opacity: 0.8; /* Show glow on hover */
+    transform: scale(1);
+}
+
+
+/* Reveal Animations (Scroll-triggered) */
+.reveal-text, .reveal-image, .reveal-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-text.delay-02 { transition-delay: 0.2s; }
+.reveal-text.delay-04 { transition-delay: 0.4s; }
+
+.reveal-text.is-visible, .reveal-image.is-visible, .reveal-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Responsive Adjustments for Home Page */
+@media (max-width: 1024px) {
+    .hero-tagline {
+        font-size: 4.5rem;
+    }
+    .hero-subtext {
+        font-size: 1.2rem;
+    }
+    .category-card img {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 85vh;
+    }
+    .hero-tagline {
+        font-size: 3.2rem;
+        letter-spacing: -1px;
+    }
+    .hero-subtext {
+        font-size: 1rem;
+    }
+    .slideshow-controls {
+        padding: 0 1rem;
+    }
+    .prev-slide, .next-slide {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+    .slide-dots {
+        bottom: 1.5rem;
+        gap: 0.6rem;
+    }
+    .dot {
+        height: 0.7rem;
+        width: 0.7rem;
+    }
+    .product-spotlight-display {
+        bottom: 4rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+    .category-card img {
+        height: 200px;
+    }
+    .category-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        height: 75vh;
+    }
+    .hero-tagline {
+        font-size: 2.5rem;
+    }
+    .hero-subtext {
+        font-size: 0.85rem;
+    }
+    .cta-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.8rem;
+    }
+    .category-card img {
+        height: 180px;
+    }
+    .category-card h3 {
+        font-size: 1.3rem;
+    }
+    .category-card p {
+        font-size: 0.85rem;
+    }
+}

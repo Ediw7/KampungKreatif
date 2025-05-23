@@ -1,0 +1,407 @@
+/* Jasa page specific styles */
+
+/* Hero Section for Jasa */
+.jasa-hero {
+    background-color: var(--color-dark-bg);
+    text-align: center;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Service Gallery Section */
+.service-gallery {
+    background-color: var(--color-dark-bg);
+    text-align: center;
+    padding-bottom: var(--spacing-xl);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.service-card {
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: var(--color-text-light);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+.service-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.service-card:hover img {
+    transform: scale(1.1);
+}
+
+.service-card .card-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* For testimonial hover text */
+}
+
+.service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.5px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.service-card .price {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.service-card .short-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.service-card .detail-button {
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: var(--gradient-primary);
+    color: var(--color-dark-bg);
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.service-card .detail-button:hover {
+    background: var(--gradient-cta-hover);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Testimoni Hover Effect on Card */
+.service-card .testimoni-hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.85); /* Darker overlay for text */
+    color: var(--color-text-light);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    max-width: 90%; /* Ensure text fits */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    z-index: 5; /* Above other info */
+}
+
+.service-card:hover .testimoni-hover-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) translateY(-10px); /* Slight lift */
+}
+
+/* Virtual Tour Teaser (Mini Slideshow on Card) */
+.virtual-tour-teaser {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 15px; /* Match card border radius */
+    z-index: 2; /* Below image */
+}
+
+/* Show teaser on hover over the entire card */
+.service-card:hover .virtual-tour-teaser {
+    opacity: 1; /* Fade in teaser */
+    z-index: 4; /* Bring above image when active, but below info card */
+}
+
+/* Hide original image when teaser is active */
+.service-card:hover img {
+    opacity: 0;
+}
+
+/* Card Border Gradient on Hover (from main.css) */
+.card-border-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: var(--gradient-primary);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: scale(0.98);
+    filter: blur(10px);
+}
+
+.service-card:hover .card-border-gradient {
+    opacity: 0.8;
+    transform: scale(1);
+}
+
+/* --- Customer Testimonials Section --- */
+.customer-testimonials {
+    background-color: #1A1A1A; /* Slightly different dark shade */
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.testimonial-card {
+    background-color: #2A2A2A; /* Darker card background */
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.testimonial-card .quote {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.testimonial-card .author {
+    font-weight: 600;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+/* Gradient border for testimonials */
+.testimonial-card .card-border-gradient {
+    background: var(--gradient-secondary); /* Use secondary gradient for variety */
+}
+
+/* --- Pop-up Modal for Service Details --- */
+/* Basic modal styles are in main.css, here are specifics for service detail */
+#serviceDetailModal .modal-content {
+    background-color: #1A1A1A;
+    width: 90%;
+    max-width: 700px;
+}
+
+#serviceDetailModal .modal-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#serviceDetailModal .modal-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+
+#serviceDetailModal .modal-price,
+#serviceDetailModal .modal-duration {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.modal-highlights-teaser {
+    margin-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.modal-highlights-teaser h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.highlights-slideshow {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Fixed height for slideshow */
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.highlights-slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.highlights-slideshow img.active {
+    opacity: 1;
+}
+
+.highlights-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.highlights-nav button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.highlights-nav button:hover {
+    background: var(--gradient-primary);
+    color: var(--color-dark-bg);
+    border: none;
+    transform: scale(1.1);
+}
+
+.modal-cta {
+    margin-top: var(--spacing-md);
+    display: inline-block;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .jasa-hero .section-title {
+        font-size: 3rem;
+    }
+    .service-card img {
+        height: 200px;
+    }
+    .service-card h3 {
+        font-size: 1.4rem;
+    }
+    .service-card .price {
+        font-size: 1.1rem;
+    }
+    .testimonial-card .quote {
+        font-size: 0.95rem;
+    }
+    #serviceDetailModal .modal-content {
+        width: 90%;
+        margin: 5% auto;
+    }
+    #serviceDetailModal .modal-title {
+        font-size: 2rem;
+    }
+    #serviceDetailModal .modal-text,
+    #serviceDetailModal .modal-price,
+    #serviceDetailModal .modal-duration {
+        font-size: 1rem;
+    }
+    .highlights-slideshow {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .jasa-hero .section-title {
+        font-size: 2.5rem;
+    }
+    .service-card img {
+        height: 180px;
+    }
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+    .service-card .price {
+        font-size: 1rem;
+    }
+    .service-card .detail-button {
+        font-size: 0.8rem;
+        padding: 0.7rem 1rem;
+    }
+    .highlights-slideshow {
+        height: 150px;
+    }
+    .highlights-nav button {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+}

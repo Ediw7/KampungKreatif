@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuliner Kampung Kreatif - Cita Rasa Inovatif</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/kuliner.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="navbar-brand"><span class="brand-dark">Kampung</span><span class="gradient-text">Kreatif</span></a>
+            <ul class="navbar-nav" id="navbarNav">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="kuliner.html" class="nav-link active">Kuliner</a></li>
+                <li><a href="kerajinan.html" class="nav-link">Kerajinan</a></li>
+                <li><a href="jasa.html" class="nav-link">Jasa</a></li>
+                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="kuliner-hero section-padding">
+            <div class="container">
+                <h1 class="section-title reveal-text">Kuliner <span class="gradient-text">Lokal</span></h1>
+                <p class="section-description reveal-text delay-02">Nikmati cita rasa tradisional dengan sentuhan inovasi dari kampung kami. Setiap hidangan adalah karya seni, dibuat dengan cinta dan resep turun-temurun.</p>
+            </div>
+        </section>
+
+        <section class="product-gallery section-padding">
+            <div class="container">
+                <h2 class="section-title reveal-text">Pilihan <span class="gradient-text">Favorit</span></h2>
+                <div class="gallery-grid">
+                    <div class="product-card reveal-card" data-product-id="gudeg" data-name="Gudeg Jogja Klasik" data-price="Rp20.000" data-description="Makanan khas Yogyakarta, manis dan gurih dengan nangka muda, santan, dan bumbu rempah. Dimasak perlahan untuk rasa autentik." data-funfact="Gudeg Jogja memerlukan waktu memasak minimal 8 jam untuk mencapai tekstur lembut dan rasa manis gurih yang meresap sempurna.">
+                        <img src="assets/images/gudeg.jpg" alt="Gudeg Jogja Klasik">
+                        <div class="card-info">
+                            <h3>Gudeg Jogja Klasik</h3>
+                            <p class="price">Rp20.000</p>
+                            <p class="short-desc">Manis, gurih, ikon Yogyakarta.</p>
+                            <button class="story-button cta-button outline-button">Cerita di Balik Produk</button>
+                            <button class="recipe-button cta-button">Fun Fact Resep</button>
+                        </div>
+                        <div class="card-border-gradient"></div>
+                    </div>
+
+                    <div class="product-card reveal-card" data-product-id="klepon" data-name="Klepon Pandan" data-price="Rp10.000/5 pcs" data-description="Kue tradisional kenyal dari tepung ketan berisi gula merah cair, dilapisi parutan kelapa segar. Aroma pandannya menggugah selera." data-funfact="Warna hijau alami Klepon berasal dari perasan daun pandan dan daun suji segar, bukan pewarna buatan.">
+                        <img src="assets/images/klepon.jpg" alt="Klepon Pandan">
+                        <div class="card-info">
+                            <h3>Klepon Pandan</h3>
+                            <p class="price">Rp10.000/5 pcs</p>
+                            <p class="short-desc">Manis alami, meleleh di mulut.</p>
+                            <button class="story-button cta-button outline-button">Cerita di Balik Produk</button>
+                            <button class="recipe-button cta-button">Fun Fact Resep</button>
+                        </div>
+                        <div class="card-border-gradient"></div>
+                    </div>
+
+                    <div class="product-card reveal-card" data-product-id="wedang-uwuh" data-name="Wedang Uwuh Herbal" data-price="Rp15.000" data-description="Minuman rempah hangat khas Imogiri, Yogyakarta, terbuat dari campuran kayu secang, jahe, cengkeh, kayu manis, dan gula batu. Berkhasiat menghangatkan badan." data-funfact="Nama 'Uwuh' berarti sampah dalam bahasa Jawa, merujuk pada bahan-bahan rempah yang tampak seperti daun kering berserakan namun memiliki khasiat luar biasa.">
+                        <img src="assets/images/wedang-uwuh.jpg" alt="Wedang Uwuh Herbal"> <div class="card-info">
+                            <h3>Wedang Uwuh Herbal</h3>
+                            <p class="price">Rp15.000</p>
+                            <p class="short-desc">Hangat, sehat, penuh rempah.</p>
+                            <button class="story-button cta-button outline-button">Cerita di Balik Produk</button>
+                            <button class="recipe-button cta-button">Fun Fact Resep</button>
+                        </div>
+                        <div class="card-border-gradient"></div>
+                    </div>
+
+                    <div class="product-card reveal-card" data-product-id="jamu-kunyit" data-name="Jamu Kunyit Asam Modern" data-price="Rp12.000" data-description="Minuman jamu tradisional dengan sentuhan modern, perpaduan kunyit dan asam jawa yang menyegarkan, kaya manfaat kesehatan. Dibuat tanpa pengawet." data-funfact="Kunyit asam telah menjadi minuman tradisional yang diwariskan turun-temurun, dikenal luas karena manfaatnya untuk kesehatan wanita dan sebagai detoksifikasi alami.">
+                        <img src="assets/images/jamu-kunyit.jpg" alt="Jamu Kunyit Asam Modern"> <div class="card-info">
+                            <h3>Jamu Kunyit Asam Modern</h3>
+                            <p class="price">Rp12.000</p>
+                            <p class="short-desc">Segar, sehat, penuh energi.</p>
+                            <button class="story-button cta-button outline-button">Cerita di Balik Produk</button>
+                            <button class="recipe-button cta-button">Fun Fact Resep</button>
+                        </div>
+                        <div class="card-border-gradient"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="umkm-story section-padding">
+            <div class="container-grid">
+                <div class="umkm-story-image reveal-image">
+                    <img src="assets/images/umkm-story-kuliner.jpg" alt="UMKM Kuliner Story"> </div>
+                <div class="umkm-story-content">
+                    <h2 class="section-title reveal-text">Dibalik Setiap <span class="gradient-text">Gigitan</span></h2>
+                    <p class="section-description reveal-text delay-02">Warung Gudeg Bu Sari, sebuah legenda kuliner sejak 1970, konsisten menyajikan resep gudeg turun-temurun yang telah memanjakan lidah berbagai generasi. Setiap porsi bukan hanya makanan, melainkan warisan rasa dan sejarah keluarga. Kami bangga dapat melestarikan tradisi ini melalui setiap sajian autentik.</p>
+                    <p class="section-description reveal-text delay-04">Filosofi kami sederhana: menjaga kualitas, merawat tradisi, dan berinovasi untuk masa depan. UMKM kuliner di Kampung Kreatif adalah bukti dedikasi terhadap cita rasa dan pengalaman tak terlupakan.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Kampung Kreatif. All Rights Reserved. Powered by Innovation.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Instagram"><img src="assets/images/instagram-icon.svg" alt="Instagram"></a>
+                <a href="#" aria-label="TikTok"><img src="assets/images/tiktok-icon.svg" alt="TikTok"></a>
+                <a href="#" aria-label="WhatsApp"><img src="assets/images/whatsapp-icon.svg" alt="WhatsApp"></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="productStoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="modal-title gradient-text"></h3>
+            <p class="modal-text"></p>
+        </div>
+    </div>
+
+    <div id="recipeFunFactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 class="modal-title gradient-text">Fun Fact Resep <span class="product-name-in-modal"></span></h3>
+            <p class="modal-text"></p>
+        </div>
+    </div>
+
+    <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">&#9650;</button> <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/kuliner.js"></script>
+</body>
+</html>
