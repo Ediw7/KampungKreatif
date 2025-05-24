@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampung Wisata - Area Bermain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">    <link rel="stylesheet" href="css/game.css">      </head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar container">
+            <a href="home.html" class="navbar-brand">Kampung Wisata</a>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="kuliner.html" class="nav-link">Kuliner</a></li>
+                <li><a href="kerajinan.html" class="nav-link">Kerajinan</a></li>
+                <li><a href="jasa.html" class="nav-link">Jasa</a></li>
+                <li><a href="game.html" class="nav-link active">Main Game</a></li>
+                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero-game" class="hero-game section-padding" style="background-image: url('images/game_banner.jpg');">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Ayo Bermain!</h1>
+                <p class="hero-subtitle">Uji pengetahuan dan kecepatanmu dengan game seru bertema budaya!</p>
+            </div>
+        </section>
+
+        <section id="game-selection" class="section-padding" style="background-color: var(--color-dark-bg);">
+            <div class="container">
+                <h2 class="section-title">Pilih Permainanmu!</h2>
+                <p class="section-description">Ayo, mainkan game yang paling kamu suka untuk mengenal lebih jauh budaya Indonesia!</p>
+
+                <div class="game-selection-grid">
+                    <a href="#" class="game-option reveal-item" data-game-id="quiz">
+                        <div class="game-option-content">
+                            <img src="images/game_quiz.jpg" alt="Quiz Budaya">
+                            <h3>Quiz Budaya</h3>
+                            <p>Jawab berbagai pertanyaan seputar tradisi, sejarah, dan budaya lokal.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="game-option reveal-item" data-game-id="tebak-gambar">
+                        <div class="game-option-content">
+                            <img src="images/game_tebakgambar.jpg" alt="Tebak Gambar">
+                            <h3>Tebak Gambar</h3>
+                            <p>Lihat gambar dan tebak nama makanan, alat musik, atau ikon budaya Indonesia.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="game-option reveal-item" data-game-id="memory-match">
+                        <div class="game-option-content">
+                            <img src="images/game_memory.jpg" alt="Memory Match">
+                            <h3>Memory Match</h3>
+                            <p>Pasangkan gambar-gambar budaya Indonesia dalam permainan memori klasik.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="game-area" class="section-padding" style="background-color: var(--color-light-bg); display: none;">
+            <div class="container">
+                <div id="quiz-game-section" class="game-content-wrapper" style="display: none;">
+                    <h2 class="section-title">Quiz Budaya (Segera Hadir!)</h2>
+                    <p class="section-description">Maaf, game ini masih dalam tahap pengembangan. Nantikan update selanjutnya!</p>
+                    <button class="cta-button back-to-selection">← Kembali ke Pilihan Game</button>
+                </div>
+
+                <div id="tebak-gambar-game-section" class="game-content-wrapper" style="display: none;">
+                    <h2 class="section-title">Tebak Gambar (Segera Hadir!)</h2>
+                    <p class="section-description">Maaf, game ini masih dalam tahap pengembangan. Nantikan update selanjutnya!</p>
+                    <button class="cta-button back-to-selection">← Kembali ke Pilihan Game</button>
+                </div>
+
+                <div id="memory-game-section" class="game-content-wrapper" style="display: none;">
+                    <h2 class="section-title">Memory Match: Budaya Indonesia</h2>
+                    <p class="section-description">Klik dua kartu untuk menemukan pasangan gambar yang sama. Temukan semua pasangan untuk menang!</p>
+
+                    <div class="game-controls">
+                        <div class="control-item">
+                            <span class="label">Waktu:</span> <span id="timer-display">00:00</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="label">Langkah:</span> <span id="moves-display">0</span>
+                        </div>
+                        <button id="start-game-btn" class="cta-button">Mulai Permainan</button>
+                        <button id="reset-game-btn" class="outline-button">Ulangi Permainan</button>
+                        <button class="cta-button back-to-selection">← Kembali ke Pilihan Game</button>
+                    </div>
+
+                    <div class="memory-board">
+                        </div>
+
+                    <div id="win-modal" class="game-modal">
+                        <div class="modal-content">
+                            <span class="close-game-modal">×</span>
+                            <h3>Selamat! Anda Menang!</h3>
+                            <p>Anda berhasil menyelesaikan permainan dalam <span id="final-time"></span> dan <span id="final-moves"></span> langkah!</p>
+                            <button class="cta-button play-again-btn">Main Lagi!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/global.js"></script>    <script src="js/game.js"></script>      </body>
+</html>

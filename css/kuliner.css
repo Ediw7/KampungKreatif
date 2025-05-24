@@ -1,349 +1,424 @@
-/* Kuliner page specific styles */
+/* css/kuliner.css */
 
-/* Hero Section for Kuliner */
-.kuliner-hero {
-    background-color: var(--color-dark-bg); /* Dark background */
+/* Hero Section Kuliner */
+.hero-kuliner {
+    position: relative; /* PENTING: Memungkinkan z-index bekerja untuk anak-anaknya */
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding-top: var(--spacing-xl); /* Add more padding to push content down */
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border */
-}
-
-/* Product Gallery Section */
-.product-gallery {
-    background-color: var(--color-dark-bg); /* Match body background */
-    text-align: center;
-    padding-bottom: var(--spacing-xl);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.product-card {
-    background-color: #1A1A1A; /* Slightly lighter dark for card */
-    border-radius: 15px;
+    color: var(--color-text-light);
     overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
-    color: var(--color-text-light);
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    flex-direction: column; /* Stack image and info */
 }
 
-.product-card:hover {
-    transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
-}
-
-.product-card img {
-    width: 100%;
-    height: 250px; /* Consistent image height */
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.product-card:hover img {
-    transform: scale(1.1);
-}
-
-.product-card .card-info {
-    padding: 1.5rem;
-    flex-grow: 1; /* Allow content to fill space */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Push buttons to bottom if needed */
-}
-
-.product-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    margin: 0 0 0.5rem;
-    letter-spacing: 0.5px;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
-.product-card .price {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    color: var(--color-text-light);
-    margin-bottom: 0.8rem;
-    letter-spacing: 0.5px;
-}
-
-.product-card .short-desc {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-.product-card .cta-button {
-    width: 100%;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px; /* Slightly less rounded for cards */
-    transition: all 0.3s ease;
-}
-
-/* Adjust outline button for cards */
-.product-card .cta-button.outline-button {
-    color: var(--color-text-light); /* White text on dark outline */
-    border-image: none; /* No gradient border for a cleaner look here */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
-    background: transparent;
-}
-
-.product-card .cta-button.outline-button:hover {
-    background: var(--gradient-primary);
-    color: var(--color-dark-bg);
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px); /* Lighter hover effect */
-}
-
-/* Card Border Gradient on Hover (from main.css) */
-.card-border-gradient {
+.hero-kuliner .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 15px;
-    background: var(--gradient-primary);
-    z-index: 1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1; /* Overlay berada di atas gambar latar belakang */
+}
+
+.hero-kuliner .hero-content {
+    position: relative; /* PENTING: Memungkinkan z-index bekerja */
+    z-index: 2; /* HARUS LEBIH TINGGI dari z-index overlay */
+    max-width: 900px;
+    padding: var(--spacing-md);
+    animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: scale(0.98);
-    filter: blur(10px);
 }
 
-.product-card:hover .card-border-gradient {
-    opacity: 0.8;
-    transform: scale(1);
+.hero-kuliner .hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    background: var(--gradient-);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
-/* UMKM Story Section */
-.umkm-story {
-    background-color: #1A1A1A; /* A slightly different dark shade for contrast */
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-xl);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+.hero-kuliner .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    color: var(--color-text-light);
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* Kuliner Filters */
+.kuliner-filters {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.filter-btn {
+    background-color: var(--color-light-bg);
+    border: 1px solid var(--color-border-dark);
+    color: var(--color-text-dark);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px var(--shadow-soft);
+}
+
+.filter-btn:hover {
+    background: var(--gradient-primary);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.filter-btn.active {
+    background: var(--gradient-primary);
+    color: var(--color-text-light);
+    border-color: transparent;
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+/* Kuliner Grid */
+.kuliner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 kolom desktop */
+    gap: var(--spacing-lg);
+}
+
+.kuliner-card {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--color-subtle-border);
+    cursor: pointer;
+    transform: translateY(20px); /* Untuk animasi reveal */
+    opacity: 0; /* Untuk animasi reveal */
+}
+.kuliner-card.reveal-item { /* Class added by JS for animation */
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.kuliner-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow-strong);
+}
+
+.kuliner-card img {
+    width: 100%;
+    height: 200px; /* Tinggi gambar konsisten */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    border-bottom: 5px solid var(--color-primary); /* Border utama untuk kuliner */
+}
+
+.kuliner-card:hover img {
+    transform: scale(1.1);
+}
+
+.kuliner-card-content {
+    padding: 1.2rem 1.5rem; /* Padding lebih kecil */
+    text-align: center;
+}
+
+.kuliner-card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.kuliner-card-content .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-accent); /* Harga pakai warna accent */
+    margin-bottom: 0.5rem;
+}
+
+.kuliner-card-content .description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Batasi deskripsi singkat 2 baris */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Cerita UMKM Section */
+.umkm-story-content {
+    text-align: left; /* Teks default rata kiri */
+    margin-right: var(--spacing-lg); /* Jarak ke gambar di desktop */
 }
 
 .umkm-story-image {
-    position: relative; /* For glow effect */
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 20px 60px var(--shadow-medium);
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    border: 1px solid var(--color-subtle-border);
 }
 
 .umkm-story-image img {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
-    z-index: 1;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius-md); /* Agar gambar ikut rounded */
 }
 
-.umkm-story-image img:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-}
-
-/* Glow Effect for UMKM Story Image */
-.umkm-story-image::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    height: 90%;
-    transform: translate(-50%, -50%);
-    border-radius: 15px;
-    background: var(--gradient-secondary); /* A different gradient for variety */
-    filter: blur(40px);
-    opacity: 0.3;
-    z-index: 0;
-    transition: opacity 0.6s ease;
-}
-.reveal-image.is-visible .umkm-story-image::before {
-    opacity: 0.6;
-}
-
-
-.umkm-story-content {
-    padding-left: var(--spacing-md);
-    color: var(--color-text-light);
-}
-
-.umkm-story-content .section-title,
-.umkm-story-content .section-description {
-    text-align: left;
+.umkm-story-content .section-title {
+    text-align: left; /* Override center dari global */
     margin-left: 0;
     margin-right: 0;
-    color: var(--color-text-light); /* Ensure text is light on dark background */
+    color: var(--color-text-dark);
+}
+.umkm-story-content .section-title::after {
+    margin-left: 0; /* Override center dari global */
 }
 .umkm-story-content .section-description {
+    text-align: left; /* Override center dari global */
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: var(--spacing-md);
     color: var(--color-text-secondary);
 }
 
-.umkm-story-content .section-title::after {
-    left: 0;
-    transform: translateX(0);
-}
 
-/* --- Pop-up Modals --- */
-.modal {
+/* Modal Styles */
+.kuliner-modal {
     display: none; /* Hidden by default */
     position: fixed;
-    z-index: 2000; /* High z-index to be on top */
+    z-index: 10000; /* High z-index to be on top */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
-    backdrop-filter: blur(8px); /* Subtle blur behind modal */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+    backdrop-filter: blur(5px);
     padding-top: 60px;
-    animation: fadeInModal 0.3s ease-out forwards;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.kuliner-modal.active {
+    display: block;
 }
 
 .modal-content {
-    background-color: #1A1A1A; /* Dark background for modal */
-    margin: 10% auto; /* 10% from the top and centered */
-    padding: var(--spacing-md);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 80%; /* Could be responsive */
-    max-width: 600px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-light-bg);
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 20px 60px var(--shadow-strong);
+    width: 90%;
+    max-width: 800px;
     position: relative;
-    animation: slideInContent 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-    color: var(--color-text-light);
+    animation: slideInFromTop 0.4s ease-out;
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border-dark);
 }
 
 .close-button {
     color: var(--color-text-secondary);
-    float: right;
     font-size: 2.5rem;
     font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    top: 15px;
+    right: 25px;
     cursor: pointer;
-    line-height: 1; /* Adjust line height for better centering */
+    transition: color 0.3s ease;
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: var(--gradient-primary); /* Gradient color on hover */
-    text-decoration: none;
-    cursor: pointer;
-    transform: rotate(90deg);
+    color: var(--color-primary);
 }
 
-.modal-title {
+.modal-content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.modal-content h3 {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    padding-right: 2.5rem; /* Make space for close button */
-    text-align: left;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
 }
 
-.modal-text {
-    font-size: 1.05rem;
-    line-height: 1.7;
+.modal-content #modal-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-content #modal-category {
+    font-size: 1rem;
     color: var(--color-text-secondary);
-    text-align: left;
+    margin-bottom: var(--spacing-sm);
+    text-transform: capitalize;
 }
 
-.modal-content .product-name-in-modal {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+.modal-content #modal-short-description {
+    font-size: 1.05rem;
+    color: var(--color-text-dark);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
 }
 
+.modal-full-description, .modal-ingredients, .modal-umkm-info {
+    background-color: var(--color-dark-bg); /* Use creamy off-white for internal sections */
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
 
-/* Modal Animations */
-@keyframes fadeInModal {
+.modal-full-description h4, .modal-ingredients h4, .modal-umkm-info h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-full-description p, .modal-umkm-info p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.modal-ingredients ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: var(--color-text-secondary);
+}
+
+.modal-ingredients li {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+/* Animations for Modal */
+@keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes slideInContent {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
+@keyframes slideInFromTop {
+    from { transform: translateY(-50px) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Responsif untuk halaman kuliner */
+@media (max-width: 1024px) {
+    .hero-kuliner .hero-title {
+        font-size: 3.5rem;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .hero-kuliner .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .umkm-story-content {
+        margin-right: 0; /* Hapus margin di tablet */
     }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
-    .kuliner-hero .section-title {
-        font-size: 3rem;
+    .hero-kuliner {
+        height: 50vh;
     }
-    .product-card img {
+    .hero-kuliner .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-kuliner .hero-subtitle {
+        font-size: 1rem;
+    }
+    .kuliner-grid {
+        grid-template-columns: 1fr; /* 1 kolom di mobile */
+    }
+    .kuliner-card img {
         height: 200px;
     }
-    .product-card h3 {
-        font-size: 1.4rem;
+    .kuliner-card-content h3 {
+        font-size: 1.6rem;
     }
-    .product-card .price {
-        font-size: 1.1rem;
+    .kuliner-modal .modal-content {
+        margin: 2% auto; /* Kurangi margin atas di mobile */
+        padding: var(--spacing-md);
     }
-    .umkm-story-image img {
-        height: 300px;
+    .modal-content img {
+        height: 250px;
     }
-    .modal-content {
-        width: 90%;
-        margin: 5% auto;
+    .modal-content h3 {
+        font-size: 2rem;
     }
-    .modal-title {
-        font-size: 1.8rem;
+    .modal-full-description h4, .modal-ingredients h4, .modal-umkm-info h4 {
+        font-size: 1.2rem;
     }
-    .modal-text {
-        font-size: 0.95rem;
+    .container-grid { /* Re-apply for UMKM story */
+        grid-template-columns: 1fr;
+    }
+    .umkm-story-content, .umkm-story-image {
+        text-align: center;
+    }
+    .umkm-story-content .section-title,
+    .umkm-story-content .section-description,
+    .umkm-story-content .section-title::after {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    .kuliner-hero .section-title {
-        font-size: 2.5rem;
+    .hero-kuliner {
+        height: 40vh;
     }
-    .product-card img {
+    .hero-kuliner .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-kuliner .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    .kuliner-filters {
+        flex-direction: column;
+    }
+    .filter-btn {
+        width: 100%;
+    }
+    .modal-content img {
         height: 180px;
     }
-    .product-card h3 {
-        font-size: 1.2rem;
-    }
-    .product-card .price {
-        font-size: 1rem;
-    }
-    .product-card .cta-button {
-        font-size: 0.8rem;
-        padding: 0.7rem 1rem;
-    }
-    .umkm-story-image img {
-        height: 250px;
-    }
-    .modal-title {
-        font-size: 1.5rem;
+    .modal-content h3 {
+        font-size: 1.8rem;
     }
 }

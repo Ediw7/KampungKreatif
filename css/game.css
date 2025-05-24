@@ -1,0 +1,427 @@
+/* css/game.css */
+
+/* Hero Section Game */
+.hero-game {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
+    overflow: hidden;
+}
+
+.hero-game .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.hero-game .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: var(--spacing-md);
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+}
+
+.hero-game .hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    background: var(--gradient-text-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-game .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    color: var(--color-text-light);
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* Game Selection Grid */
+.game-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.game-option {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--color-subtle-border);
+    cursor: pointer;
+    transform: translateY(20px);
+    opacity: 0;
+}
+.game-option.reveal-item {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.game-option:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow-strong);
+}
+
+.game-option img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    border-bottom: 5px solid var(--color-primary);
+}
+
+.game-option:hover img {
+    transform: scale(1.1);
+}
+
+.game-option-content {
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+}
+
+.game-option-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.9rem;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.game-option-content p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Game Content Wrapper */
+.game-content-wrapper {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    padding: var(--spacing-lg);
+    text-align: center;
+    border: 1px solid var(--color-subtle-border);
+}
+
+.game-content-wrapper .section-title {
+    color: var(--color-text-dark);
+}
+.game-content-wrapper .section-description {
+    color: var(--color-text-secondary);
+}
+
+.back-to-selection {
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+}
+
+
+/* Memory Game Specific Styles */
+.game-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--color-dark-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid var(--color-subtle-border);
+    color: var(--color-text-dark);
+}
+
+.game-controls .control-item {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+.game-controls .control-item .label {
+    color: var(--color-text-secondary);
+}
+.game-controls button {
+    margin: 0;
+}
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4x4 grid untuk 8 pasangan */
+    grid-gap: 15px;
+    max-width: 700px;
+    margin: 0 auto;
+    perspective: 1000px; /* Untuk efek 3D flip */
+    padding: var(--spacing-sm);
+    background-color: var(--color-dark-bg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 5px 20px var(--shadow-medium);
+    border: 1px solid var(--color-border-dark);
+}
+
+.memory-card {
+    width: 100%;
+    height: 120px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-soft);
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card.match {
+    transform: scale(0.9) rotateY(180deg);
+    box-shadow: 0 0 15px var(--color-accent);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.memory-card.no-match {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotateY(180deg) translateX(0); }
+    25% { transform: rotateY(180deg) translateX(-5px); }
+    75% { transform: rotateY(180deg) translateX(5px); }
+}
+
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 8px;
+    backface-visibility: hidden;
+    background-color: var(--color-light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid var(--color-subtle-border);
+}
+
+.front-face img, .back-face img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+.back-face {
+    background-image: url('images/card_back.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--color-primary);
+}
+
+/* Win Modal */
+.game-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    padding-top: 100px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.game-modal.active {
+    display: block;
+}
+
+.game-modal .modal-content {
+    background-color: var(--color-light-bg);
+    margin: 5% auto;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 20px 60px var(--shadow-strong);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+    animation: slideInFromTop 0.4s ease-out;
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border-dark);
+}
+
+.game-modal .close-game-modal {
+    color: var(--color-text-secondary);
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.game-modal .close-game-modal:hover,
+.game-modal .close-game-modal:focus {
+    color: var(--color-primary);
+}
+
+.game-modal h3 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+}
+
+.game-modal p {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.game-modal .play-again-btn {
+    font-size: 1.1rem;
+    padding: 0.9rem 2rem;
+}
+
+
+/* Responsive Styles for Game Page */
+@media (max-width: 1024px) {
+    .hero-game .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-game .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .memory-board {
+        grid-template-columns: repeat(4, 1fr); /* Tetap 4 kolom */
+        grid-gap: 10px;
+    }
+    .memory-card {
+        height: 100px; /* Kurangi tinggi kartu */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-game {
+        height: 50vh;
+    }
+    .hero-game .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-game .hero-subtitle {
+        font-size: 1rem;
+    }
+    .game-selection-grid {
+        grid-template-columns: 1fr; /* 1 kolom di mobile */
+    }
+    .game-option img {
+        height: 180px;
+    }
+    .game-content-wrapper {
+        padding: var(--spacing-md);
+    }
+    .game-controls {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm);
+    }
+    .game-controls .control-item {
+        font-size: 1rem;
+    }
+    .game-controls button {
+        width: 100%; /* Tombol full width */
+    }
+    .memory-board {
+        grid-template-columns: repeat(3, 1fr); /* 3x4 grid untuk 6 pasangan = 12 kartu */
+        grid-gap: 8px;
+    }
+    .memory-card {
+        height: 90px;
+    }
+    .front-face img, .back-face img {
+        max-width: 80%; /* Kurangi ukuran gambar di kartu */
+        max-height: 80%;
+    }
+    .game-modal .modal-content {
+        margin: 10% auto;
+        padding: var(--spacing-md);
+    }
+    .game-modal h3 {
+        font-size: 2rem;
+    }
+    .game-modal p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-game {
+        height: 40vh;
+    }
+    .hero-game .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-game .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    .memory-board {
+        grid-template-columns: repeat(2, 1fr); /* 2x6 grid untuk 6 pasangan = 12 kartu */
+        grid-gap: 6px;
+    }
+    .memory-card {
+        height: 80px;
+    }
+    .front-face img, .back-face img {
+        max-width: 70%;
+        max-height: 70%;
+    }
+    .game-modal h3 {
+        font-size: 1.8rem;
+    }
+    .game-modal p {
+        font-size: 0.9rem;
+    }
+}

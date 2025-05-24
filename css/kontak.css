@@ -1,418 +1,231 @@
-/* Kontak page specific styles */
+/* css/kontak.css */
 
-/* Hero Section for Kontak */
-.kontak-hero {
-    background-color: var(--color-dark-bg);
-    text-align: center;
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Contact Sections (Form and Map) */
-.contact-sections {
-    background-color: var(--color-dark-bg);
-    padding-bottom: var(--spacing-xl);
-}
-
-.section-subtitle {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.5px;
-    text-align: left;
-    line-height: 1.2;
-}
-
-/* Contact Form */
-.contact-form-container {
-    background-color: #1A1A1A; /* Slightly lighter dark for container */
-    border-radius: 15px;
-    padding: var(--spacing-md);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.contact-form .form-group {
-    margin-bottom: 1.5rem;
-}
-
-.contact-form label {
-    display: block;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--color-text-light);
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.2px;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 1rem;
-    background-color: #2A2A2A; /* Darker input field */
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    color: var(--color-text-light);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: var(--color-text-secondary);
-    opacity: 0.7;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: rgba(0, 201, 255, 0.5); /* Primary gradient blue */
-    box-shadow: 0 0 0 3px rgba(0, 201, 255, 0.2);
-}
-
-.contact-form textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.contact-form .cta-button {
-    width: auto; /* Allow button to size naturally */
-    min-width: 180px;
-    margin-top: 1rem;
-}
-
-/* Interactive Map */
-.kampung-map-interactive {
-    background-color: #1A1A1A;
-    border-radius: 15px;
-    padding: var(--spacing-md);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align title left */
-    text-align: left;
-}
-
-.map-container {
+/* Hero Section Kontak */
+.hero-kontak {
     position: relative;
     width: 100%;
-    padding-bottom: 75%; /* Aspect ratio 4:3 for the map image */
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
     overflow: hidden;
-    border-radius: 10px;
-    margin-top: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.interactive-map {
+.hero-kontak .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
 }
 
-.interactive-map:hover {
-    transform: scale(1.02);
-}
-
-/* Hotspots on Map */
-.hotspot {
-    position: absolute;
-    width: 30px; /* Size of the hotspot button */
-    height: 30px;
-    background-color: rgba(0, 201, 255, 0.8); /* Primary gradient color */
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 0 5px rgba(0, 201, 255, 0.3), 0 0 15px rgba(0, 201, 255, 0.5); /* Pulsing glow */
-    transition: all 0.3s ease;
-    transform: translate(-50%, -50%); /* Center the hotspot */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem; /* Placeholder icon */
-    color: var(--color-text-light);
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    animation: pulseHotspot 1.5s infinite alternate; /* Pulsing animation */
-}
-
-.hotspot:hover {
-    transform: translate(-50%, -50%) scale(1.2);
-    box-shadow: 0 0 0 8px rgba(0, 201, 255, 0.4), 0 0 25px rgba(0, 201, 255, 0.8);
-}
-
-/* You might want to use actual icons or numbers in hotspots */
-.hotspot::after {
-    content: '+'; /* Example: plus icon */
-    font-size: 1.5rem;
-}
-
-@keyframes pulseHotspot {
-    from {
-        box-shadow: 0 0 0 5px rgba(0, 201, 255, 0.3), 0 0 15px rgba(0, 201, 255, 0.5);
-    }
-    to {
-        box-shadow: 0 0 0 8px rgba(0, 201, 255, 0.5), 0 0 25px rgba(0, 201, 255, 0.8);
-    }
-}
-
-
-/* Info Section */
-.info-section {
-    background-color: #1A1A1A; /* Consistent background */
-    padding-top: var(--spacing-xl);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.contact-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.info-card {
-    background-color: #2A2A2A; /* Slightly lighter for cards */
-    border-radius: 15px;
-    padding: var(--spacing-md);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    text-align: center;
+.hero-kontak .hero-content {
     position: relative;
-    overflow: hidden; /* For hover effect */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.info-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-}
-
-.info-card .icon-wrapper {
-    background: var(--gradient-primary); /* Gradient background for icon */
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.info-card:hover .icon-wrapper {
-    transform: scale(1.1);
-}
-
-.info-card .info-icon {
-    width: 40px;
-    height: 40px;
-    filter: brightness(100%); /* Ensure icons are white */
-}
-
-.info-card .info-title {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    margin-bottom: 0.8rem;
-    color: var(--color-text-light);
-}
-
-.info-card .info-detail {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    display: block; /* For anchor links */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.info-card .info-detail:hover {
-    color: var(--gradient-primary); /* Gradient color on hover */
-}
-
-/* Contact Card Hover Effect (Visual overlay on hover) */
-.contact-card-hover-effect {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-secondary); /* Use secondary gradient */
-    border-radius: 15px;
+    z-index: 2;
+    max-width: 900px;
+    padding: var(--spacing-md);
+    animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
-    z-index: 0;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: scale(0.95);
-    filter: blur(10px);
 }
 
-.info-card:hover .contact-card-hover-effect {
-    opacity: 0.8;
-    transform: scale(1);
-}
-
-
-/* --- Pop-up Modal for Hotspot Info (similar to other modals) --- */
-#hotspotModal .modal-content {
-    background-color: #1A1A1A;
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-}
-
-#hotspotModal .modal-title {
-    font-size: 2rem;
+.hero-kontak .hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 800;
     margin-bottom: 1rem;
-    text-align: center;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    background: var(--gradient-text-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
-.modal-image-wrapper {
-    width: 100%;
-    max-height: 200px;
-    overflow: hidden;
-    border-radius: 10px;
-    margin: 1rem auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.modal-location-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-#hotspotModal .modal-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    color: var(--color-text-secondary);
-    text-align: center;
-}
-
-#hotspotModal .modal-link {
-    margin-top: 1rem;
-}
-
-
-/* Scroll to Top Button */
-.scroll-to-top-btn {
-    display: none; /* Hidden by default */
-    position: fixed;
-    bottom: var(--spacing-lg); /* Slightly above accessibility toggle */
-    right: var(--spacing-md);
-    background: var(--gradient-primary);
+.hero-kontak .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
     color: var(--color-text-light);
-    border: none;
-    border-radius: 50%;
-    width: 3.5rem;
-    height: 3.5rem;
-    font-size: 1.8rem;
-    line-height: 1;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* Kontak Info Section */
+.kontak-wrapper {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: stretch; /* Agar peta dan detail memiliki tinggi yang sama */
+}
+
+#map {
+    width: 60%;
+    height: 500px;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 5px 20px var(--shadow-medium);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.kontak-details {
+    width: 40%;
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 5px 20px var(--shadow-medium);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.kontak-details .section-title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.kontak-details .section-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.umkm-list {
+    overflow-y: auto; /* Scroll jika daftar panjang */
+    max-height: 350px;
+}
+
+.umkm-item {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-subtle-border);
+    transition: background-color 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 201, 255, 0.4);
-    transition: all 0.3s ease;
-    z-index: 1050; /* Below accessibility toggle */
 }
 
-.scroll-to-top-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 201, 255, 0.6);
+.umkm-item:last-child {
+    border-bottom: none;
+}
+
+.umkm-item:hover {
+    background-color: var(--color-dark-bg);
+}
+
+.umkm-item h3 {
+    font-size: 1.2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.2rem;
+}
+
+.umkm-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
 }
 
 
-/* Responsive Adjustments */
+/* Contact Form Section */
+#contactForm {
+    background-color: var(--color-dark-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 5px 20px var(--shadow-medium);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid var(--color-subtle-border);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    background-color: var(--color-light-bg);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group select {
+    appearance: none; /* Hapus panah default di beberapa browser */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23444" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.7rem top 50%;
+    background-size: 12px;
+    padding-right: 2.5rem; /* Ruang untuk panah */
+}
+
+#form-message {
+    margin-top: var(--spacing-md);
+    text-align: center;
+    font-weight: 600;
+}
+
+.form-message.success {
+    color: var(--color-accent);
+}
+
+.form-message.error {
+    color: var(--color-error);
+}
+
+/* Responsive Styles for Kontak Page */
+@media (max-width: 1024px) {
+    .hero-kontak .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-kontak .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .kontak-wrapper {
+        flex-direction: column;
+    }
+    #map {
+        width: 100%;
+        height: 400px;
+    }
+    .kontak-details {
+        width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
-    .kontak-hero .section-title {
-        font-size: 3rem;
+    .hero-kontak {
+        height: 50vh;
     }
-    .section-subtitle {
-        font-size: 2rem;
-        text-align: center;
+    .hero-kontak .hero-title {
+        font-size: 2.8rem;
     }
-    .contact-form-container,
-    .kampung-map-interactive {
-        padding: var(--spacing-md) 1rem;
+    .hero-kontak .hero-subtitle {
+        font-size: 1rem;
     }
-    .contact-form label {
-        font-size: 0.95rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-    }
-    .hotspot {
-        width: 25px;
-        height: 25px;
-        font-size: 1.2rem;
-    }
-    .hotspot::after {
-        font-size: 1.2rem;
-    }
-    .info-card .icon-wrapper {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 1rem;
-    }
-    .info-card .info-icon {
-        width: 35px;
-        height: 35px;
-    }
-    .info-card .info-title {
-        font-size: 1.4rem;
-    }
-    .info-card .info-detail {
-        font-size: 0.9rem;
-    }
-    #hotspotModal .modal-content {
-        width: 90%;
-    }
-    #hotspotModal .modal-title {
-        font-size: 1.8rem;
-    }
-    #hotspotModal .modal-text {
-        font-size: 0.9rem;
+    #map {
+        height: 300px;
     }
 }
 
 @media (max-width: 480px) {
-    .kontak-hero .section-title {
-        font-size: 2.5rem;
+    .hero-kontak {
+        height: 40vh;
     }
-    .section-subtitle {
-        font-size: 1.8rem;
+    .hero-kontak .hero-title {
+        font-size: 2.2rem;
     }
-    .contact-form .cta-button {
-        width: 100%;
-        min-width: unset;
-    }
-    .info-card .icon-wrapper {
-        width: 60px;
-        height: 60px;
-    }
-    .info-card .info-icon {
-        width: 30px;
-        height: 30px;
-    }
-    .info-card .info-title {
-        font-size: 1.2rem;
-    }
-    .scroll-to-top-btn {
-        bottom: 1.5rem;
-        right: 1.5rem;
-        width: 3rem;
-        height: 3rem;
-        font-size: 1.5rem;
+    .hero-kontak .hero-subtitle {
+        font-size: 0.9rem;
     }
 }

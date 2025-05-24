@@ -1,469 +1,420 @@
-/* Kerajinan page specific styles */
+/* css/kerajinan.css */
 
-/* Hero Section for Kerajinan */
-.kerajinan-hero {
-    background-color: var(--color-dark-bg);
-    text-align: center;
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Craft Gallery Section */
-.craft-gallery {
-    background-color: var(--color-dark-bg);
-    text-align: center;
-    padding-bottom: var(--spacing-xl);
-}
-
-/* Dynamic Product Spotlight */
-.dynamic-spotlight {
-    background-color: #1A1A1A; /* Slightly lighter dark */
-    border-radius: 15px;
-    padding: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
+/* Hero Section Kerajinan */
+.hero-kerajinan {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden; /* For border gradient effect */
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
+    overflow: hidden;
 }
 
-.dynamic-spotlight::before {
-    content: '';
+.hero-kerajinan .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 15px;
-    background: var(--gradient-primary);
-    filter: blur(15px); /* Soft glow */
-    opacity: 0.1;
-    z-index: 0;
-    transition: opacity 0.5s ease;
-}
-
-.dynamic-spotlight:hover::before {
-    opacity: 0.3;
-}
-
-.dynamic-spotlight img {
-    width: 200px; /* Fixed size for spotlight image */
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.4s ease;
-    position: relative;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
     z-index: 1;
 }
 
-.dynamic-spotlight:hover img {
-    transform: scale(1.05);
-}
-
-.spotlight-info {
-    text-align: left;
-    flex-grow: 1;
+.hero-kerajinan .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    max-width: 900px;
+    padding: var(--spacing-md);
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
 }
 
-.spotlight-info h3 {
+.hero-kerajinan .hero-title {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.5px;
-}
-
-.spotlight-info p {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
+    font-size: 4.5rem;
+    font-weight: 800;
     margin-bottom: 1rem;
-    line-height: 1.6;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    background: var(--gradient-text-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
-.spotlight-price-tag {
-    display: inline-block;
-    background: var(--gradient-secondary); /* Different gradient for price */
+.hero-kerajinan .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
     color: var(--color-text-light);
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1rem;
+    opacity: 0.9;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Filter Buttons */
-.filter-buttons {
-    margin-bottom: var(--spacing-md);
+/* Kerajinan Filters */
+.kerajinan-filters {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
     display: flex;
     justify-content: center;
-    gap: 1rem;
     flex-wrap: wrap;
-    padding: 0 1rem;
+    gap: var(--spacing-sm);
 }
 
 .filter-btn {
-    background-color: #2A2A2A; /* Darker button for filter */
-    color: var(--color-text-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--color-light-bg);
+    border: 1px solid var(--color-border-dark);
+    color: var(--color-text-dark);
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 500;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px var(--shadow-soft);
 }
 
 .filter-btn:hover {
+    background: var(--gradient-primary);
     color: var(--color-text-light);
-    background-color: #3A3A3A;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
 .filter-btn.active {
     background: var(--gradient-primary);
-    color: var(--color-dark-bg);
-    border: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-/* Product Gallery Grid (shared with Kuliner for consistency) */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.product-card {
-    background-color: #1A1A1A;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
     color: var(--color-text-light);
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    flex-direction: column;
+    border-color: transparent;
+    box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
-.product-card:hover {
-    transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+/* Kerajinan Grid */
+.kerajinan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 kolom desktop */
+    gap: var(--spacing-lg);
 }
 
-.product-card img {
+.kerajinan-card {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--color-subtle-border);
+    cursor: pointer;
+    transform: translateY(20px); /* Untuk animasi reveal */
+    opacity: 0; /* Untuk animasi reveal */
+}
+.kerajinan-card.reveal-item { /* Class added by JS for animation */
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.kerajinan-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow-strong);
+}
+
+.kerajinan-card img {
     width: 100%;
-    height: 250px;
+    height: 200px; /* Tinggi gambar konsisten */
     object-fit: cover;
     display: block;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.6s ease;
+    border-bottom: 5px solid var(--color-secondary); /* Border utama untuk kerajinan */
 }
 
-.product-card:hover img {
+.kerajinan-card:hover img {
     transform: scale(1.1);
 }
 
-.product-card .card-info {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.product-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    margin: 0 0 0.5rem;
-    letter-spacing: 0.5px;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
-.product-card .price {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    color: var(--color-text-light);
-    margin-bottom: 0.8rem;
-    letter-spacing: 0.5px;
-}
-
-.product-card .short-desc {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-/* Additional Info on Hover (new for Kerajinan) */
-.product-card .additional-info {
-    font-size: 0.85rem;
-    color: var(--color-text-secondary);
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.3s ease, max-height 0.3s ease;
-    margin-bottom: 1rem; /* Space below if visible */
-}
-
-.product-card:hover .additional-info {
-    opacity: 1;
-    max-height: 50px; /* Adjust as needed */
-}
-
-.product-card .process-timeline-btn {
-    width: 100%;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    color: var(--color-text-light);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: transparent;
-}
-
-.product-card .process-timeline-btn:hover {
-    background: var(--gradient-primary);
-    color: var(--color-dark-bg);
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-}
-
-/* Card Border Gradient on Hover (from main.css) */
-.card-border-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background: var(--gradient-primary);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: scale(0.98);
-    filter: blur(10px);
-}
-
-.product-card:hover .card-border-gradient {
-    opacity: 0.8;
-    transform: scale(1);
-}
-
-/* Craft Process Story Section */
-.craft-process-story {
-    background-color: #1A1A1A;
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-xl);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.process-image-content {
-    position: relative;
-}
-
-.process-image-content img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
-    z-index: 1;
-}
-
-.process-image-content img:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-}
-
-/* Glow Effect for Process Image */
-.process-image-content::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    height: 90%;
-    transform: translate(-50%, -50%);
-    border-radius: 15px;
-    background: var(--gradient-secondary);
-    filter: blur(40px);
-    opacity: 0.3;
-    z-index: 0;
-    transition: opacity 0.6s ease;
-}
-.reveal-image.is-visible .process-image-content::before {
-    opacity: 0.6;
-}
-
-.process-text-content {
-    padding-left: var(--spacing-md);
-    color: var(--color-text-light);
-}
-
-.process-text-content .section-title,
-.process-text-content .section-description {
-    text-align: left;
-    margin-left: 0;
-    margin-right: 0;
-    color: var(--color-text-light);
-}
-.process-text-content .section-description {
-    color: var(--color-text-secondary);
-}
-
-.process-text-content .section-title::after {
-    left: 0;
-    transform: translateX(0);
-}
-
-/* --- Pop-up Modal (shared general styles from main.css and kuliner.css, but timeline specific elements here) --- */
-.timeline-container {
-    padding-top: 1.5rem;
-    position: relative;
-    margin: 0 auto;
-    max-width: 500px;
-}
-
-.timeline-container::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    background: var(--gradient-primary); /* Gradient timeline line */
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 0;
-}
-
-.timeline-step {
-    position: relative;
-    margin-bottom: 2rem;
-    padding: 1rem 0;
-    color: var(--color-text-light);
+.kerajinan-card-content {
+    padding: 1.2rem 1.5rem;
     text-align: center;
-    background-color: #2A2A2A;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transform: scale(0.95); /* Slight scale down */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.timeline-step:hover {
-    transform: scale(1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-.timeline-step::before {
-    content: '';
-    position: absolute;
-    width: 1.2rem;
-    height: 1.2rem;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    top: 0;
-    z-index: 1;
-    border: 3px solid #1A1A1A; /* Ring color matching card bg */
-    box-shadow: 0 0 10px rgba(0, 201, 255, 0.5);
-}
-
-.timeline-step h4 {
+.kerajinan-card-content h3 {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
 }
 
-.timeline-step p {
-    font-size: 0.9rem;
+.kerajinan-card-content .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}
+
+.kerajinan-card-content .description {
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
-    padding: 0 1rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Responsive adjustments */
+
+/* Cerita Proses Pembuatan (Proses Keren) */
+.process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.process-step-card {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 8px 30px var(--shadow-medium);
+    overflow: hidden;
+    border: 1px solid var(--color-subtle-border);
+    padding: var(--spacing-md);
+    text-align: center;
+    transform: translateY(20px); /* Untuk animasi reveal */
+    opacity: 0; /* Untuk animasi reveal */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+.process-step-card.reveal-item {
+    transform: translateY(0);
+    opacity: 1;
+}
+.process-step-card:nth-child(even).reveal-item { /* Slight delay for even cards for visual flair */
+    transition-delay: 0.1s;
+}
+
+.process-step-card img {
+    width: 100%;
+    height: 180px; /* Tinggi gambar proses */
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.process-step-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.process-step-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+
+/* Modal Styles (Mirip dengan Kuliner, tapi disesuaikan untuk Kerajinan) */
+.kerajinan-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    padding-top: 60px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.kerajinan-modal.active {
+    display: block;
+}
+
+.modal-content {
+    background-color: var(--color-light-bg);
+    margin: 5% auto;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 20px 60px var(--shadow-strong);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    animation: slideInFromTop 0.4s ease-out;
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border-dark);
+}
+
+.close-button {
+    color: var(--color-text-secondary);
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--color-primary);
+}
+
+.modal-content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.modal-content h3 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-secondary); /* Warna sekunder untuk judul kerajinan */
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-content #modal-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-content #modal-category {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+    text-transform: capitalize;
+}
+
+.modal-details, .modal-artisan-info, .modal-process-link {
+    background-color: var(--color-dark-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.modal-details h4, .modal-artisan-info h4, .modal-process-link h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-primary); /* Warna primary untuk sub judul modal */
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-details p, .modal-artisan-info p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.modal-details .detail-label {
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.modal-process-link .cta-button {
+    margin-top: var(--spacing-sm);
+}
+
+/* Animations for Modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+    from { transform: translateY(-50px) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+
+/* Responsif untuk halaman kerajinan */
+@media (max-width: 1024px) {
+    .hero-kerajinan .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-kerajinan .hero-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .dynamic-spotlight {
-        flex-direction: column;
-        text-align: center;
+    .hero-kerajinan {
+        height: 50vh;
     }
-    .dynamic-spotlight img {
-        width: 150px;
-        height: 150px;
+    .hero-kerajinan .hero-title {
+        font-size: 2.8rem;
     }
-    .spotlight-info {
-        text-align: center;
-    }
-    .spotlight-info h3 {
-        font-size: 1.8rem;
-    }
-    .spotlight-info p {
-        font-size: 0.9rem;
-    }
-    .spotlight-price-tag {
+    .hero-kerajinan .hero-subtitle {
         font-size: 1rem;
     }
-    .filter-buttons {
-        gap: 0.8rem;
+    .kerajinan-grid {
+        grid-template-columns: 1fr; /* 1 kolom di mobile */
     }
-    .product-card img {
+    .kerajinan-card img {
         height: 200px;
     }
-    .timeline-step {
-        padding: 0.8rem;
+    .kerajinan-card-content h3 {
+        font-size: 1.6rem;
     }
-    .timeline-step h4 {
-        font-size: 1rem;
+    .process-steps-grid {
+        grid-template-columns: 1fr; /* 1 kolom di mobile */
     }
-    .timeline-step p {
-        font-size: 0.85rem;
+    .process-step-card img {
+        height: 150px;
+    }
+    .process-step-card h3 {
+        font-size: 1.8rem;
+    }
+    .process-step-card p {
+        font-size: 0.9rem;
+    }
+    .kerajinan-modal .modal-content {
+        margin: 2% auto;
+        padding: var(--spacing-md);
+    }
+    .modal-content img {
+        height: 200px;
+    }
+    .modal-content h3 {
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .dynamic-spotlight {
-        padding: var(--spacing-md) 1rem;
+    .hero-kerajinan {
+        height: 40vh;
     }
-    .dynamic-spotlight img {
-        width: 120px;
-        height: 120px;
+    .hero-kerajinan .hero-title {
+        font-size: 2.2rem;
     }
-    .spotlight-info h3 {
-        font-size: 1.5rem;
+    .hero-kerajinan .hero-subtitle {
+        font-size: 0.9rem;
     }
-    .spotlight-info p {
-        font-size: 0.85rem;
+    .kerajinan-filters {
+        flex-direction: column;
     }
-    .product-card img {
-        height: 180px;
+    .filter-btn {
+        width: 100%;
     }
-    .product-card .cta-button {
-        font-size: 0.8rem;
-        padding: 0.7rem 1rem;
+    .modal-content img {
+        height: 150px;
+    }
+    .modal-content h3 {
+        font-size: 1.6rem;
     }
 }

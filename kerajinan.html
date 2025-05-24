@@ -3,155 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kerajinan Kampung Kreatif - Lestarikan Karya Seni</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/kerajinan.css">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-</head>
+    <title>Kampung Wisata - Kerajinan Tangan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">    <link rel="stylesheet" href="css/kerajinan.css">   </head>
 <body>
+
+    
     <header class="main-header">
-        <nav class="navbar">
-            <a href="index.html" class="navbar-brand"><span class="brand-dark">Kampung</span><span class="gradient-text">Kreatif</span></a>
-            <ul class="navbar-nav" id="navbarNav">
-                <li><a href="index.html" class="nav-link">Beranda</a></li>
-                <li><a href="kuliner.html" class="nav-link">Kuliner</a></li>
-                <li><a href="kerajinan.html" class="nav-link active">Kerajinan</a></li>
-                <li><a href="jasa.html" class="nav-link">Jasa</a></li>
-                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
-            </ul>
+        <nav class="navbar container">
+            <a href="home.html" class="navbar-brand">Kampung Wisata</a>
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="kuliner.html" class="nav-link">Kuliner</a></li>
+                <li><a href="kerajinan.html" class="nav-link active">Kerajinan</a></li>
+                <li><a href="game.html" class="nav-link">Main Game</a></li>
+                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <section class="kerajinan-hero section-padding">
-            <div class="container">
-                <h1 class="section-title reveal-text">Kerajinan <span class="gradient-text">Tangan</span></h1>
-                <p class="section-description reveal-text delay-02">Lestarikan budaya dengan karya seni lokal yang penuh makna. Setiap detail adalah narasi, setiap goresan adalah warisan.</p>
+        <section id="hero-kerajinan" class="hero-kerajinan section-padding" style="background-image: url('images/kerajinan_banner.jpg');">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Kerajinan Tangan</h1>
+                <p class="hero-subtitle">Lestarikan budaya dengan karya seni lokal</p>
             </div>
         </section>
 
-        <section class="craft-gallery section-padding">
+        <section id="kerajinan-catalog" class="section-padding" style="background-color: var(--color-dark-bg);">
             <div class="container">
-                <h2 class="section-title reveal-text">Katalog <span class="gradient-text">Karya</span></h2>
+                <h2 class="section-title">Koleksi Karya Seni Kami</h2>
+                <p class="section-description">Setiap produk kerajinan adalah hasil tangan terampil dan dedikasi seniman lokal.</p>
 
-                <div class="dynamic-spotlight reveal-card">
-                    <img id="spotlight-image" src="assets/images/batik.jpg" alt="Featured Craft">
-                    <div class="spotlight-info">
-                        <h3 id="spotlight-name" class="gradient-text">Batik Mega Mendung</h3>
-                        <p id="spotlight-desc">Motif awan yang melambangkan kesuburan dan ketenangan, dibuat dengan teknik canting tradisional.</p>
-                        <span id="spotlight-price" class="spotlight-price-tag">Rp150.000</span>
-                    </div>
-                </div>
-
-                <div class="filter-buttons reveal-text delay-02">
+                <div class="kerajinan-filters">
                     <button class="filter-btn active" data-category="all">Semua</button>
                     <button class="filter-btn" data-category="batik">Batik</button>
                     <button class="filter-btn" data-category="anyaman">Anyaman</button>
                     <button class="filter-btn" data-category="ukiran">Ukiran</button>
-                </div>
+                    <button class="filter-btn" data-category="gerabah">Gerabah</button> </div>
 
-                <div class="gallery-grid">
-                    <div class="product-card reveal-card" data-category="batik" data-name="Batik Tulis Motif Parang" data-description="Kain batik tulis klasik dengan motif Parang Rusak, melambangkan kekuatan dan perjuangan. Dibuat dengan lilin dan canting tangan oleh pengrajin ahli." data-price="Rp150.000" data-additional-info="Motif ini diyakini membawa keberuntungan dan melindungi pemakainya dari bahaya." data-process-step="Day 1: Pola & Canting Pertama, Day 2: Pewarnaan & Canting Kedua, Day 3: Pelorotan & Finishing">
-                        <img src="assets/images/batik.jpg" alt="Batik Tulis Motif Parang">
-                        <div class="card-info">
-                            <h3>Batik Tulis Motif Parang</h3>
-                            <p class="price">Rp150.000</p>
-                            <p class="short-desc">Kekuatan tradisi dalam setiap helai.</p>
-                            <span class="additional-info"></span> <button class="process-timeline-btn cta-button outline-button">Lihat Proses</button>
-                        </div>
-                        <div class="card-border-gradient"></div>
+                <div class="kerajinan-grid">
                     </div>
-
-                    <div class="product-card reveal-card" data-category="anyaman" data-name="Tas Anyaman Bambu " data-description="Tas tangan ramah lingkungan yang dibuat dari serat bambu pilihan, dianyam secara tradisional. Kuat, stylish, dan unik." data-price="Rp50.000" data-additional-info="Setiap tas anyaman adalah unik, dibuat tangan, dan membutuhkan kesabaran tinggi." data-process-step="Day 1: Pemilihan & Pembersihan Bambu, Day 2: Penganyaman Pola Dasar, Day 3: Pembentukan & Finishing">
-                        <img src="assets/images/anyaman.jpg" alt="Tas Anyaman Bambu">
-                        <div class="card-info">
-                            <h3>Tas Anyaman Bambu</h3>
-                            <p class="price">Rp50.000</p>
-                            <p class="short-desc">Ramah lingkungan, desain modern.</p>
-                            <span class="additional-info"></span>
-                            <button class="process-timeline-btn cta-button outline-button">Lihat Proses</button>
-                        </div>
-                        <div class="card-border-gradient"></div>
-                    </div>
-
-                    <div class="product-card reveal-card" data-category="ukiran" data-name="Patung Ukiran Kayu Garuda" data-description="Ukiran kayu mahakarya dengan detail Garuda, simbol keberanian dan keagungan. Dikerjakan oleh seniman ukir dari Jepara." data-price="Rp300.000" data-additional-info="Menggunakan kayu jati pilihan, tahan lama dan artistik." data-process-step="Day 1: Pemilihan Kayu & Desain, Day 2-4: Pengukiran Detail, Day 5: Penghalusan & Finishing">
-                        <img src="assets/images/ukiran.jpg" alt="Patung Ukiran Kayu Garuda"> <div class="card-info">
-                            <h3>Patung Ukiran Kayu Garuda</h3>
-                            <p class="price">Rp300.000</p>
-                            <p class="short-desc">Detail menawan, simbol keagungan.</p>
-                            <span class="additional-info"></span>
-                            <button class="process-timeline-btn cta-button outline-button">Lihat Proses</button>
-                        </div>
-                        <div class="card-border-gradient"></div>
-                    </div>
-
-                    <div class="product-card reveal-card" data-category="batik" data-name="Batik Cap Motif Kawung" data-description="Kain batik cap dengan motif Kawung, simbol kesempurnaan dan kemurnian. Metode cap memungkinkan produksi lebih cepat namun tetap otentik." data-price="Rp80.000" data-additional-info="Motif Kawung sering dikaitkan dengan makna keseimbangan dan keadilan." data-process-step="Day 1: Persiapan Kain & Lilin, Day 2: Pengecapan, Day 3: Pewarnaan & Fiksasi">
-                        <img src="assets/images/batik-cap.jpg" alt="Batik Cap Motif Kawung"> <div class="card-info">
-                            <h3>Batik Cap Motif Kawung</h3>
-                            <p class="price">Rp80.000</p>
-                            <p class="short-desc">Tradisi modern, elegan untuk setiap saat.</p>
-                            <span class="additional-info"></span>
-                            <button class="process-timeline-btn cta-button outline-button">Lihat Proses</button>
-                        </div>
-                        <div class="card-border-gradient"></div>
-                    </div>
-
-                    <div class="product-card reveal-card" data-category="anyaman" data-name="Vase Anyaman Rotan Minimalis" data-description="Vase dekoratif dari rotan alami, dianyam dengan pola minimalis modern. Cocok untuk interior kontemporer." data-price="Rp75.000" data-additional-info="Rotan yang digunakan berasal dari sumber berkelanjutan, mendukung kelestarian lingkungan." data-process-step="Day 1: Perendaman & Pembentukan Rotan, Day 2: Penganyaman Pola, Day 3: Pengeringan & Coating">
-                        <img src="assets/images/anyaman-rotan.jpg" alt="Vase Anyaman Rotan Minimalis"> <div class="card-info">
-                            <h3>Vase Anyaman Rotan Minimalis</h3>
-                            <p class="price">Rp75.000</p>
-                            <p class="short-desc">Estetika alami, ramah lingkungan.</p>
-                            <span class="additional-info"></span>
-                            <button class="process-timeline-btn cta-button outline-button">Lihat Proses</button>
-                        </div>
-                        <div class="card-border-gradient"></div>
-                    </div>
-
-                </div>
             </div>
         </section>
 
-        <section class="craft-process-story section-padding">
-            <div class="container-grid">
-                <div class="process-image-content reveal-image">
-                    <img src="assets/images/craft-process-detail.jpg" alt="Batik Making Process"> </div>
-                <div class="process-text-content">
-                    <h2 class="section-title reveal-text">Jejak Karya <span class="gradient-text">Para Seniman</span></h2>
-                    <p class="section-description reveal-text delay-02">Di Kampung Kreatif, setiap kerajinan tangan adalah hasil dari proses panjang yang penuh dedikasi dan cinta. Dari pemilihan bahan baku hingga sentuhan akhir, setiap langkah mencerminkan kekayaan warisan dan inovasi modern.</p>
-                    <p class="section-description reveal-text delay-04">Pelajari lebih dalam tentang bagaimana sebuah kain batik menjadi mahakarya, atau bagaimana sebatang bambu bertransformasi menjadi tas yang menawan. Kami mengundang Anda untuk mengapresiasi setiap jejak karya para seniman kami.</p>
-                    <a href="#" class="cta-button outline-button reveal-text delay-06">Temukan Semua Cerita Proses</a> </div>
+        <section id="process-story" class="section-padding" style="background-color: var(--color-light-bg);">
+            <div class="container">
+                <h2 class="section-title">Di Balik Setiap Karya: Proses Keren</h2>
+                <p class="section-description">Kami mengajak Anda menelusuri langkah-langkah rumit namun penuh dedikasi dalam menciptakan kerajinan tangan kami.</p>
+
+                <div class="process-steps-grid">
+                    </div>
             </div>
         </section>
+
     </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2025 Kampung Kreatif. All Rights Reserved. Powered by Innovation.</p>
-            <div class="footer-socials">
-                <a href="#" aria-label="Instagram"><img src="assets/images/instagram-icon.svg" alt="Instagram"></a>
-                <a href="#" aria-label="TikTok"><img src="assets/images/tiktok-icon.svg" alt="TikTok"></a>
-                <a href="#" aria-label="WhatsApp"><img src="assets/images/whatsapp-icon.svg" alt="WhatsApp"></a>
-            </div>
-        </div>
-    </footer>
-
-    <div id="processTimelineModal" class="modal">
+    <div id="kerajinan-modal" class="kerajinan-modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3 class="modal-title gradient-text">Proses Pembuatan <span class="craft-name-in-modal"></span></h3>
-            <div class="timeline-container">
-                </div>
+            <span class="close-button">×</span>
+            <img id="modal-image" src="" alt="Kerajinan Detail">
+            <h3 id="modal-title"></h3>
+            <p id="modal-price"></p>
+            <p id="modal-category"></p>
+            <p id="modal-short-description"></p>
+            <div class="modal-details">
+                <h4>Detail Produk:</h4>
+                <p><strong class="detail-label">Deskripsi Lengkap:</strong> <span id="modal-full-description-text"></span></p>
+                <p><strong class="detail-label">Bahan:</strong> <span id="modal-materials"></span></p>
+                <p><strong class="detail-label">Dimensi:</strong> <span id="modal-dimensions"></span></p>
+            </div>
+            <div class="modal-artisan-info">
+                <h4>Tentang Pengrajin:</h4>
+                <p id="modal-artisan-name"></p>
+                <p id="modal-artisan-story"></p>
+                <p id="modal-artisan-contact"></p>
+            </div>
+            <div class="modal-process-link" style="display: none;">
+                <h4>Lihat Proses Pembuatan:</h4>
+                <a id="modal-process-video" href="#" target="_blank" class="cta-button outline-button">Tonton Video</a>
+            </div>
         </div>
     </div>
 
-    <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">&#9650;</button> <script src="js/main.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/kerajinan.js"></script>
-</body>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/global.js"></script>    <script src="js/kerajinan.js"></script>   </body>
 </html>

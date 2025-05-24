@@ -1,177 +1,256 @@
+// js/jasa.js
+
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Service Card Hover Effect (CSS-driven for image zoom, testimoni) ---
+    console.log('Jasa page JavaScript loaded.');
 
-    // --- Pop-up Modal for Service Details ---
-    const serviceDetailModal = document.getElementById('serviceDetailModal');
-    const closeButton = serviceDetailModal.querySelector('.close-button');
-    const highlightsSlideshowContainer = serviceDetailModal.querySelector('.highlights-slideshow');
-    const highlightsPrevBtn = serviceDetailModal.querySelector('.highlights-prev');
-    const highlightsNextBtn = serviceDetailModal.querySelector('.highlights-next');
+    const jasaGrid = document.querySelector('.jasa-grid');
+    const jasaFilterButtons = document.querySelectorAll('.jasa-filters .filter-btn');
+    const whyChooseUsGrid = document.querySelector('.why-choose-us-grid');
 
-    let currentHighlightSlideIndex = 0;
-    let highlightSlideshowInterval;
+    const jasaModal = document.getElementById('jasa-modal');
+    const closeButton = document.querySelector('.jasa-modal .close-button');
 
-    function showHighlightsSlides(slides, n) {
-        if (slides.length === 0) return;
+    // Elemen modal
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalPrice = document.getElementById('modal-price');
+    const modalCategory = document.getElementById('modal-category');
+    const modalFullDescriptionText = document.getElementById('modal-full-description-text');
+    const modalDuration = document.getElementById('modal-duration');
+    const modalInclusions = document.getElementById('modal-inclusions');
+    const modalExclusions = document.getElementById('modal-exclusions');
+    const modalGuideName = document.getElementById('modal-guide-name');
+    const modalGuideBio = document.getElementById('modal-guide-bio');
+    const modalGuideContact = document.getElementById('modal-guide-contact');
+    const modalBookingLink = document.getElementById('modal-booking-link');
 
-        if (n >= slides.length) {
-            currentHighlightSlideIndex = 0;
+
+    // Data Layanan/Jasa
+    const jasaData = [
+        {
+            id: 'tur-desa',
+            name: 'Tur Wisata Desa Budaya',
+            category: 'tur-wisata',
+            image: 'images/jasa_tur_desa.jpg', // Ganti dengan gambar asli
+            price: 'Rp150.000/orang',
+            shortDescription: 'Jelajahi kehidupan desa, tradisi lokal, dan pemandangan indah.',
+            fullDescription: 'Ikuti tur desa kami yang mempesona, dipandu oleh pemandu lokal yang berpengetahuan luas. Anda akan diajak menyelami kehidupan sehari-hari masyarakat, belajar tentang pertanian tradisional, mengunjungi rumah-rumah adat, dan berinteraksi langsung dengan penduduk desa. Pengalaman autentik yang tidak akan Anda temukan di tempat lain!',
+            duration: '4 Jam',
+            inclusions: 'Pemandu lokal, snack tradisional, air mineral, transportasi lokal',
+            exclusions: 'Makan siang, oleh-oleh pribadi',
+            guide: {
+                name: 'Bapak Made - Pemandu Ahli',
+                bio: 'Bapak Made adalah penduduk asli desa yang telah menjadi pemandu wisata selama 15 tahun. Pengetahuannya tentang sejarah dan budaya desa sangat mendalam.',
+                contact: '0812-3456-7890'
+            },
+            bookingLink: 'mailto:booking@kampungwisata.com?subject=Pemesanan Tur Desa Budaya'
+        },
+        {
+            id: 'pelatihan-batik',
+            name: 'Workshop Membatik Tulis',
+            category: 'pelatihan-seni',
+            image: 'images/jasa_pelatihan_batik.jpg', // Ganti dengan gambar asli
+            price: 'Rp100.000/sesi',
+            shortDescription: 'Belajar teknik membatik tulis dari pengrajin ahli, bawa pulang karyamu!',
+            fullDescription: 'Ikuti pelatihan membatik tulis interaktif kami. Anda akan diajarkan teknik dasar menggunakan canting dan lilin panas, serta cara mewarnai batik. Pengrajin ahli kami akan memandu Anda langkah demi langkah. Di akhir sesi, Anda akan memiliki kain batik buatan tangan sendiri yang bisa dibawa pulang sebagai kenang-kenangan unik.',
+            duration: '3 Jam',
+            inclusions: 'Semua peralatan membatik, kain mori kecil, pewarna, pengajar ahli',
+            exclusions: 'Makan siang',
+            guide: {
+                name: 'Ibu Fatma - Seniman Batik',
+                bio: 'Ibu Fatma adalah seniman batik generasi keempat yang berdedikasi melestarikan seni ini. Beliau memiliki kesabaran dan keahlian luar biasa dalam mengajar.',
+                contact: '0857-1122-3344'
+            },
+            bookingLink: 'mailto:booking@kampungwisata.com?subject=Pemesanan Workshop Membatik Tulis'
+        },
+        {
+            id: 'tari-tradisional',
+            name: 'Belajar Tari Tradisional',
+            category: 'pelatihan-seni',
+            image: 'images/jasa_tari_tradisional.jpg', // Ganti dengan gambar asli
+            price: 'Rp80.000/sesi',
+            shortDescription: 'Pelatihan singkat tari tradisional Indonesia, cocok untuk pemula.',
+            fullDescription: 'Nikmati sesi singkat belajar tari tradisional. Anda akan diajarkan gerakan dasar dari salah satu tari daerah yang populer, seperti Tari Saman atau Tari Pendet. Instruktur kami akan memastikan Anda memahami makna di balik setiap gerakan dan merasakan keindahan seni tari Indonesia.',
+            duration: '2 Jam',
+            inclusions: 'Instruktur tari, musik pengiring, penggunaan kostum dasar (opsional)',
+            exclusions: 'Transportasi',
+            guide: {
+                name: 'Kak Sita - Penari Profesional',
+                bio: 'Kak Sita adalah penari profesional dengan pengalaman panggung internasional. Ia bersemangat berbagi kecintaannya pada tari tradisional Indonesia.',
+                contact: '0813-5566-7788'
+            },
+            bookingLink: 'mailto:booking@kampungwisata.com?subject=Pemesanan Pelatihan Tari Tradisional'
+        },
+        {
+            id: 'pertunjukan-wayang',
+            name: 'Nonton Pertunjukan Wayang Kulit',
+            category: 'pertunjukan-budaya',
+            image: 'images/jasa_wayang_kulit.jpg', // Ganti dengan gambar asli
+            price: 'Rp75.000/orang',
+            shortDescription: 'Saksikan kemegahan seni pertunjukan wayang kulit dengan dalang ternama.',
+            fullDescription: 'Nikmati pengalaman tak terlupakan menyaksikan pertunjukan wayang kulit klasik. Anda akan terpukau dengan keindahan boneka wayang, kemahiran dalang dalam bercerita, iringan gamelan yang syahdu, dan sinden yang merdu. Sebuah warisan budaya tak benda yang patut dilestarikan dan dinikmati.',
+            duration: '3 Jam',
+            inclusions: 'Tiket masuk pertunjukan, panduan singkat cerita',
+            exclusions: 'Makan malam, minuman',
+            guide: {
+                name: 'Dalang Ki Slamet',
+                bio: 'Ki Slamet adalah dalang kawakan yang telah mendedikasikan hidupnya untuk seni pewayangan. Cerita dan suara khasnya akan menghipnotis Anda.',
+                contact: '0878-9988-7766'
+            },
+            bookingLink: 'mailto:booking@kampungwisata.com?subject=Pemesanan Pertunjukan Wayang Kulit'
         }
-        if (n < 0) {
-            currentHighlightSlideIndex = slides.length - 1;
+        // Tambahkan lebih banyak layanan/jasa di sini...
+    ];
+
+    // Data Fitur "Mengapa Memilih Kami"
+    const whyChooseUsData = [
+        {
+            icon: 'images/icon_authentic.png', // Ganti dengan ikon yang sesuai
+            title: 'Pengalaman Autentik',
+            description: 'Kami menawarkan pengalaman yang benar-benar asli, jauh dari keramaian turis biasa.'
+        },
+        {
+            icon: 'images/icon_local_guide.png', // Ganti dengan ikon yang sesuai
+            title: 'Dipandu Ahli Lokal',
+            description: 'Pemandu dan pengajar kami adalah penduduk asli yang memiliki pengetahuan mendalam.'
+        },
+        {
+            icon: 'images/icon_community.png', // Ganti dengan ikon yang sesuai
+            title: 'Dampak Komunitas',
+            description: 'Setiap pemesanan Anda secara langsung mendukung UMKM dan komunitas lokal.'
+        },
+        {
+            icon: 'images/icon_personalized.png', // Ganti dengan ikon yang sesuai
+            title: 'Layanan Personalisasi',
+            description: 'Kami melayani dengan sepenuh hati, siap menyesuaikan pengalaman sesuai kebutuhan Anda.'
         }
+    ];
 
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[currentHighlightSlideIndex].classList.add('active');
-    }
 
-    function plusHighlightsSlides(slides, n) {
-        currentHighlightSlideIndex += n;
-        showHighlightsSlides(slides, currentHighlightSlideIndex);
-        resetHighlightSlideshow(slides);
-    }
+    // Fungsi untuk menampilkan item jasa ke dalam grid
+    function displayJasaItems(category = 'all') {
+        jasaGrid.innerHTML = ''; // Bersihkan grid sebelumnya
+        const filteredData = category === 'all'
+            ? jasaData
+            : jasaData.filter(item => item.category === category);
 
-    function startHighlightSlideshow(slides) {
-        stopHighlightSlideshow(); // Clear any existing interval
-        if (slides.length > 1) { // Only auto-slide if more than one image
-            highlightSlideshowInterval = setInterval(() => {
-                plusHighlightsSlides(slides, 1);
-            }, 3000); // Change every 3 seconds
-        }
-    }
+        filteredData.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.classList.add('jasa-card');
+            card.dataset.id = item.id;
+            card.style.animationDelay = `${index * 0.1}s`; // Stagger animation
 
-    function stopHighlightSlideshow() {
-        clearInterval(highlightSlideshowInterval);
-    }
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div class="jasa-card-content">
+                    <h3>${item.name}</h3>
+                    <p class="price">${item.price}</p>
+                    <p class="description">${item.shortDescription}</p>
+                </div>
+            `;
+            jasaGrid.appendChild(card);
 
-    function resetHighlightSlideshow(slides) {
-        stopHighlightSlideshow();
-        startHighlightSlideshow(slides);
-    }
+            // Tambahkan event listener untuk membuka modal
+            card.addEventListener('click', () => openJasaModal(item));
+        });
 
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('click', (event) => {
-            // Check if a button inside the card was clicked, prevent modal if so
-            if (event.target.tagName === 'BUTTON') {
-                return;
-            }
-
-            const serviceName = card.dataset.name;
-            const serviceDescription = card.dataset.description;
-            const servicePrice = card.dataset.price;
-            const serviceDuration = card.dataset.duration;
-            const highlightsImages = card.dataset.highlightsImages.split(',').map(img => img.trim());
-
-            // Populate modal content
-            serviceDetailModal.querySelector('.modal-title').textContent = serviceName;
-            serviceDetailModal.querySelector('.modal-text').textContent = serviceDescription;
-            serviceDetailModal.querySelector('.modal-price').textContent = `Harga: ${servicePrice}`;
-            serviceDetailModal.querySelector('.modal-duration').textContent = `Durasi: ${serviceDuration}`;
-
-            // Populate highlights slideshow
-            highlightsSlideshowContainer.innerHTML = ''; // Clear previous images
-            highlightsImages.forEach(src => {
-                const img = document.createElement('img');
-                img.src = src;
-                img.alt = `Highlight of ${serviceName}`;
-                highlightsSlideshowContainer.appendChild(img);
+        // Inisialisasi animasi reveal untuk item yang baru ditampilkan
+        const revealElements = document.querySelectorAll('.jasa-card');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-item');
+                    observer.unobserve(entry.target);
+                }
             });
+        }, observerOptions);
+        revealElements.forEach(el => observer.observe(el));
+    }
 
-            const currentHighlights = highlightsSlideshowContainer.querySelectorAll('img');
-            currentHighlightSlideIndex = 0; // Reset slide index for new modal
-            showHighlightsSlides(currentHighlights, currentHighlightSlideIndex);
-            startHighlightSlideshow(currentHighlights);
+    // Fungsi untuk menampilkan fitur "Mengapa Memilih Kami"
+    function displayWhyChooseUsFeatures() {
+        whyChooseUsGrid.innerHTML = ''; // Bersihkan grid
 
-            // Show modal
-            serviceDetailModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+        whyChooseUsData.forEach((feature, index) => {
+            const featureCard = document.createElement('div');
+            featureCard.classList.add('feature-card');
+            featureCard.style.animationDelay = `${index * 0.15}s`;
 
-            // Add event listeners for highlights nav buttons
-            highlightsNextBtn.onclick = () => plusHighlightsSlides(currentHighlights, 1);
-            highlightsPrevBtn.onclick = () => plusHighlightsSlides(currentHighlights, -1);
+            featureCard.innerHTML = `
+                <img src="${feature.icon}" alt="${feature.title} Icon">
+                <h3>${feature.title}</h3>
+                <p>${feature.description}</p>
+            `;
+            whyChooseUsGrid.appendChild(featureCard);
         });
-    });
 
-    // Close button for modal
-    closeButton.addEventListener('click', () => {
-        serviceDetailModal.style.display = 'none';
+        // Inisialisasi animasi reveal untuk kartu fitur
+        const revealFeatures = document.querySelectorAll('.feature-card');
+        const featureObserverOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const featureObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-item');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, featureObserverOptions);
+        revealFeatures.forEach(el => featureObserver.observe(el));
+    }
+
+
+    // Fungsi untuk membuka modal detail jasa
+    function openJasaModal(item) {
+        modalImage.src = item.image;
+        modalImage.alt = item.name;
+        modalTitle.textContent = item.name;
+        modalPrice.textContent = item.price;
+        modalCategory.textContent = item.category.replace(/-/g, ' ');
+        modalFullDescriptionText.textContent = item.fullDescription;
+        modalDuration.textContent = item.duration;
+        modalInclusions.textContent = item.inclusions;
+        modalExclusions.textContent = item.exclusions || 'Tidak ada'; // Handle jika tidak ada exclusions
+
+        // Info Pemandu/Pengajar
+        modalGuideName.textContent = `Pemandu/Pengajar: ${item.guide.name}`;
+        modalGuideBio.textContent = item.guide.bio;
+        modalGuideContact.textContent = `Kontak: ${item.guide.contact}`;
+
+        // Link Booking
+        modalBookingLink.href = item.bookingLink;
+
+        jasaModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Fungsi untuk menutup modal
+    function closeJasaModal() {
+        jasaModal.classList.remove('active');
         document.body.style.overflow = '';
-        stopHighlightSlideshow(); // Stop slideshow when modal closes
+    }
+
+    // Event listener untuk tombol filter kategori
+    jasaFilterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            jasaFilterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            const category = button.dataset.category;
+            displayJasaItems(category);
+        });
     });
 
-    // Close modal when clicking outside
+    // Event listener untuk tombol tutup modal (x)
+    closeButton.addEventListener('click', closeJasaModal);
+
+    // Event listener untuk menutup modal jika klik di luar area modal
     window.addEventListener('click', (event) => {
-        if (event.target === serviceDetailModal) {
-            serviceDetailModal.style.display = 'none';
-            document.body.style.overflow = '';
-            stopHighlightSlideshow();
+        if (event.target === jasaModal) {
+            closeJasaModal();
         }
     });
 
-    // Close modal on Escape key
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && serviceDetailModal.style.display === 'block') {
-            serviceDetailModal.style.display = 'none';
-            document.body.style.overflow = '';
-            stopHighlightSlideshow();
-        }
-    });
-
-    // --- Testimonial Hover Effect on Cards (CSS-driven for opacity) ---
-    // The testimonial text within the card is shown/hidden via CSS :hover on .testimoni-hover-text
-
-    // --- Virtual Tour Teaser (Mini Slideshow on Card Hover) ---
-    // This is managed purely by CSS with opacity transition on .virtual-tour-teaser
-    // and .service-card:hover img { opacity: 0; }
-    // The images for the teaser are set in data-images attribute on .virtual-tour-teaser,
-    // and JS will dynamically change the background-image of the teaser div.
-
-    document.querySelectorAll('.service-card').forEach(card => {
-        const teaserDiv = card.querySelector('.virtual-tour-teaser');
-        if (!teaserDiv) return;
-
-        const images = teaserDiv.dataset.images.split(',').map(img => img.trim());
-        let currentTeaserImageIndex = 0;
-        let teaserInterval;
-
-        function updateTeaserImage() {
-            if (images.length === 0) return;
-            teaserDiv.style.backgroundImage = `url('${images[currentTeaserImageIndex]}')`;
-            currentTeaserImageIndex = (currentTeaserImageIndex + 1) % images.length;
-        }
-
-        card.addEventListener('mouseenter', () => {
-            updateTeaserImage(); // Show first image immediately
-            if (images.length > 1) {
-                teaserInterval = setInterval(updateTeaserImage, 1500); // Fast cycle for teaser
-            }
-        });
-
-        card.addEventListener('mouseleave', () => {
-            clearInterval(teaserInterval); // Stop animation
-            teaserDiv.style.backgroundImage = ''; // Clear background
-            currentTeaserImageIndex = 0; // Reset index
-        });
-    });
-
-
-    // --- Scroll-triggered Animations ---
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal-text, .reveal-image, .reveal-card').forEach(el => {
-        observer.observe(el);
-    });
+    // Inisialisasi: Tampilkan semua item jasa dan fitur saat halaman dimuat
+    displayJasaItems('all');
+    displayWhyChooseUsFeatures();
 });

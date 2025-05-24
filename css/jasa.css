@@ -1,407 +1,412 @@
-/* Jasa page specific styles */
+/* css/jasa.css */
 
-/* Hero Section for Jasa */
-.jasa-hero {
-    background-color: var(--color-dark-bg);
-    text-align: center;
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Service Gallery Section */
-.service-gallery {
-    background-color: var(--color-dark-bg);
-    text-align: center;
-    padding-bottom: var(--spacing-xl);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.service-card {
-    background-color: #1A1A1A;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
-    color: var(--color-text-light);
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+/* Hero Section Jasa */
+.hero-jasa {
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card:hover {
-    transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
-}
-
-.service-card img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.service-card:hover img {
-    transform: scale(1.1);
-}
-
-.service-card .card-info {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative; /* For testimonial hover text */
-}
-
-.service-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    margin: 0 0 0.5rem;
-    letter-spacing: 0.5px;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
-.service-card .price {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    color: var(--color-text-light);
-    margin-bottom: 0.8rem;
-    letter-spacing: 0.5px;
-}
-
-.service-card .short-desc {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-.service-card .detail-button {
-    width: 100%;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    background: var(--gradient-primary);
-    color: var(--color-dark-bg);
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.service-card .detail-button:hover {
-    background: var(--gradient-cta-hover);
-    color: var(--color-text-light);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Testimoni Hover Effect on Card */
-.service-card .testimoni-hover-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.85); /* Darker overlay for text */
-    color: var(--color-text-light);
-    padding: 1rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    max-width: 90%; /* Ensure text fits */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    z-index: 5; /* Above other info */
-}
-
-.service-card:hover .testimoni-hover-text {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -50%) translateY(-10px); /* Slight lift */
-}
-
-/* Virtual Tour Teaser (Mini Slideshow on Card) */
-.virtual-tour-teaser {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    height: 60vh;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    border-radius: 15px; /* Match card border radius */
-    z-index: 2; /* Below image */
-}
-
-/* Show teaser on hover over the entire card */
-.service-card:hover .virtual-tour-teaser {
-    opacity: 1; /* Fade in teaser */
-    z-index: 4; /* Bring above image when active, but below info card */
-}
-
-/* Hide original image when teaser is active */
-.service-card:hover img {
-    opacity: 0;
-}
-
-/* Card Border Gradient on Hover (from main.css) */
-.card-border-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background: var(--gradient-primary);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: scale(0.98);
-    filter: blur(10px);
-}
-
-.service-card:hover .card-border-gradient {
-    opacity: 0.8;
-    transform: scale(1);
-}
-
-/* --- Customer Testimonials Section --- */
-.customer-testimonials {
-    background-color: #1A1A1A; /* Slightly different dark shade */
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-xl);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.testimonial-card {
-    background-color: #2A2A2A; /* Darker card background */
-    border-radius: 15px;
-    padding: var(--spacing-md);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-}
-
-.testimonial-card .quote {
-    font-size: 1.05rem;
-    font-style: italic;
-    color: var(--color-text-secondary);
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
-
-.testimonial-card .author {
-    font-weight: 600;
-    color: var(--color-text-light);
-    font-size: 0.95rem;
-}
-
-/* Gradient border for testimonials */
-.testimonial-card .card-border-gradient {
-    background: var(--gradient-secondary); /* Use secondary gradient for variety */
-}
-
-/* --- Pop-up Modal for Service Details --- */
-/* Basic modal styles are in main.css, here are specifics for service detail */
-#serviceDetailModal .modal-content {
-    background-color: #1A1A1A;
-    width: 90%;
-    max-width: 700px;
-}
-
-#serviceDetailModal .modal-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-#serviceDetailModal .modal-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1rem;
-    color: var(--color-text-secondary);
-    text-align: center;
-}
-
-#serviceDetailModal .modal-price,
-#serviceDetailModal .modal-duration {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    color: var(--color-text-light);
-    margin-bottom: 0.5rem;
-    text-align: center;
-}
-
-.modal-highlights-teaser {
-    margin-top: var(--spacing-md);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1.5rem;
-    text-align: center;
-}
-
-.modal-highlights-teaser h4 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--color-text-light);
-    margin-bottom: 1rem;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
-.highlights-slideshow {
-    position: relative;
-    width: 100%;
-    height: 250px; /* Fixed height for slideshow */
-    overflow: hidden;
-    margin-bottom: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-.highlights-slideshow img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.highlights-slideshow img.active {
-    opacity: 1;
-}
-
-.highlights-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 0.5rem;
-}
-
-.highlights-nav button {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--color-text-light);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+    text-align: center;
+    color: var(--color-text-light);
+    overflow: hidden;
 }
 
-.highlights-nav button:hover {
+.hero-jasa .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.hero-jasa .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: var(--spacing-md);
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+}
+
+.hero-jasa .hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    background: var(--gradient-text-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-jasa .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    color: var(--color-text-light);
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* Jasa Filters */
+.jasa-filters {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.filter-btn {
+    background-color: var(--color-light-bg);
+    border: 1px solid var(--color-border-dark);
+    color: var(--color-text-dark);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px var(--shadow-soft);
+}
+
+.filter-btn:hover {
     background: var(--gradient-primary);
-    color: var(--color-dark-bg);
-    border: none;
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.filter-btn.active {
+    background: var(--gradient-primary);
+    color: var(--color-text-light);
+    border-color: transparent;
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+/* Jasa Grid */
+.jasa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 kolom desktop */
+    gap: var(--spacing-lg);
+}
+
+.jasa-card {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--color-subtle-border);
+    cursor: pointer;
+    transform: translateY(20px); /* Untuk animasi reveal */
+    opacity: 0; /* Untuk animasi reveal */
+}
+.jasa-card.reveal-item { /* Class added by JS for animation */
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.jasa-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow-strong);
+}
+
+.jasa-card img {
+    width: 100%;
+    height: 200px; /* Tinggi gambar konsisten */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    border-bottom: 5px solid var(--color-accent); /* Border utama untuk jasa */
+}
+
+.jasa-card:hover img {
     transform: scale(1.1);
 }
 
-.modal-cta {
-    margin-top: var(--spacing-md);
-    display: inline-block;
+.jasa-card-content {
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+}
+
+.jasa-card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.jasa-card-content .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-secondary); /* Harga jasa pakai warna sekunder */
+    margin-bottom: 0.5rem;
+}
+
+.jasa-card-content .description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
-/* Responsive adjustments */
+/* Why Choose Us Section */
+.why-choose-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.feature-card {
+    background-color: var(--color-dark-bg); /* Creamy off-white background */
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 8px 30px var(--shadow-medium);
+    overflow: hidden;
+    border: 1px solid var(--color-subtle-border);
+    padding: var(--spacing-md);
+    text-align: center;
+    transform: translateY(20px); /* Untuk animasi reveal */
+    opacity: 0; /* Untuk animasi reveal */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+.feature-card.reveal-item {
+    transform: translateY(0);
+    opacity: 1;
+}
+.feature-card:nth-child(even).reveal-item { /* Slight delay for even cards for visual flair */
+    transition-delay: 0.1s;
+}
+
+.feature-card img { /* Untuk ikon atau gambar fitur */
+    max-width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto var(--spacing-sm);
+    filter: brightness(0) saturate(100%) invert(27%) sepia(35%) saturate(543%) hue-rotate(95deg) brightness(97%) contrast(90%); /* Icon color primary green */
+}
+
+.feature-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+
+/* Modal Styles (Mirip dengan Kuliner/Kerajinan, disesuaikan untuk Jasa) */
+.jasa-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    padding-top: 60px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.jasa-modal.active {
+    display: block;
+}
+
+.modal-content {
+    background-color: var(--color-light-bg);
+    margin: 5% auto;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 20px 60px var(--shadow-strong);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    animation: slideInFromTop 0.4s ease-out;
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border-dark);
+}
+
+.close-button {
+    color: var(--color-text-secondary);
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--color-primary);
+}
+
+.modal-content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.modal-content h3 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-secondary); /* Warna sekunder untuk judul jasa */
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-content #modal-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-content #modal-category {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+    text-transform: capitalize;
+}
+
+.modal-details-jasa, .modal-guide-info, .modal-cta-booking {
+    background-color: var(--color-dark-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.modal-details-jasa h4, .modal-guide-info h4, .modal-cta-booking h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-details-jasa p, .modal-guide-info p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.modal-details-jasa .detail-label {
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.modal-cta-booking .cta-button {
+    margin: var(--spacing-sm) auto; /* Tombol di tengah */
+    display: block; /* Agar cta-button berlaku sebagai block dan margin auto berfungsi */
+    max-width: 250px; /* Batasi lebar tombol */
+}
+.modal-cta-booking .small-text {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-xs);
+}
+
+
+/* Responsive Styles for Jasa Page */
+@media (max-width: 1024px) {
+    .hero-jasa .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-jasa .hero-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .jasa-hero .section-title {
-        font-size: 3rem;
+    .hero-jasa {
+        height: 50vh;
     }
-    .service-card img {
-        height: 200px;
+    .hero-jasa .hero-title {
+        font-size: 2.8rem;
     }
-    .service-card h3 {
-        font-size: 1.4rem;
-    }
-    .service-card .price {
-        font-size: 1.1rem;
-    }
-    .testimonial-card .quote {
-        font-size: 0.95rem;
-    }
-    #serviceDetailModal .modal-content {
-        width: 90%;
-        margin: 5% auto;
-    }
-    #serviceDetailModal .modal-title {
-        font-size: 2rem;
-    }
-    #serviceDetailModal .modal-text,
-    #serviceDetailModal .modal-price,
-    #serviceDetailModal .modal-duration {
+    .hero-jasa .hero-subtitle {
         font-size: 1rem;
     }
-    .highlights-slideshow {
+    .jasa-grid {
+        grid-template-columns: 1fr;
+    }
+    .jasa-card img {
+        height: 180px;
+    }
+    .jasa-card-content h3 {
+        font-size: 1.6rem;
+    }
+    .why-choose-us-grid {
+        grid-template-columns: 1fr;
+    }
+    .feature-card img {
+        max-width: 60px;
+    }
+    .feature-card h3 {
+        font-size: 1.4rem;
+    }
+    .jasa-modal .modal-content {
+        margin: 2% auto;
+        padding: var(--spacing-md);
+    }
+    .modal-content img {
         height: 200px;
+    }
+    .modal-content h3 {
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .jasa-hero .section-title {
-        font-size: 2.5rem;
+    .hero-jasa {
+        height: 40vh;
     }
-    .service-card img {
-        height: 180px;
+    .hero-jasa .hero-title {
+        font-size: 2.2rem;
     }
-    .service-card h3 {
-        font-size: 1.2rem;
+    .hero-jasa .hero-subtitle {
+        font-size: 0.9rem;
     }
-    .service-card .price {
-        font-size: 1rem;
+    .jasa-filters {
+        flex-direction: column;
     }
-    .service-card .detail-button {
-        font-size: 0.8rem;
-        padding: 0.7rem 1rem;
+    .filter-btn {
+        width: 100%;
     }
-    .highlights-slideshow {
+    .modal-content img {
         height: 150px;
     }
-    .highlights-nav button {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
+    .modal-content h3 {
+        font-size: 1.8rem;
     }
 }
