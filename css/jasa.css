@@ -317,7 +317,7 @@
 .modal-details-jasa h4, .modal-guide-info h4, .modal-cta-booking h4 {
     font-family: var(--font-heading);
     font-size: 1.4rem;
-    color: var(--color-primary);
+    color: var(--color-secondary);
     margin-bottom: var(--spacing-xs);
 }
 

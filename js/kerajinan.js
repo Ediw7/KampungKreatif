@@ -115,46 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Data Langkah Proses Pembuatan (Contoh: Batik Tulis)
-    const processStepsData = [
-        {
-            step: 1,
-            title: 'Mempersiapkan Kain',
-            image: 'images/process_batik_1.jpg', // Ganti dengan gambar proses nyata
-            description: 'Kain mori dicuci bersih untuk menghilangkan kanji, kemudian dijemur hingga kering dan dihaluskan permukaannya.'
-        },
-        {
-            step: 2,
-            title: 'Menggambar Pola (Nyorek)',
-            image: 'images/process_batik_2.jpg',
-            description: 'Pola atau motif batik digambar di atas kain menggunakan pensil, baik secara manual maupun menjiplak.'
-        },
-        {
-            step: 3,
-            title: 'Pembatikan (Canting)',
-            image: 'images/process_batik_3.jpg',
-            description: 'Lilin panas (malam) diaplikasikan pada pola yang telah digambar menggunakan canting untuk menutupi bagian yang tidak ingin diwarnai. Ini adalah inti dari batik tulis yang memakan waktu berhari-hari.'
-        },
-        {
-            step: 4,
-            title: 'Pewarnaan',
-            image: 'images/process_batik_4.jpg',
-            description: 'Kain dicelupkan ke dalam pewarna. Bagian yang dilapisi lilin tidak akan menyerap warna. Proses ini bisa diulang beberapa kali untuk warna yang berbeda.'
-        },
-        {
-            step: 5,
-            title: 'Melepas Lilin (Ngelorot)',
-            image: 'images/process_batik_5.jpg',
-            description: 'Kain direbus dalam air panas untuk menghilangkan lilin. Setelah lilin terlepas, motif asli akan terlihat dengan jelas.'
-        },
-        {
-            step: 6,
-            title: 'Pencucian & Pengeringan',
-            image: 'images/process_batik_6.jpg',
-            description: 'Kain dicuci bersih dari sisa-sisa pewarna dan lilin, kemudian dijemur di tempat teduh hingga kering. Batik siap dipasarkan.'
-        }
-    ];
-
+    
     // Fungsi untuk menampilkan item kerajinan ke dalam grid
     function displayKerajinanItems(category = 'all') {
         kerajinanGrid.innerHTML = ''; // Bersihkan grid sebelumnya

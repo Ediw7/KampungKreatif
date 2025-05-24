@@ -1,5 +1,3 @@
-/* css/kontak.css */
-
 /* Hero Section Kontak */
 .hero-kontak {
     position: relative;
@@ -13,6 +11,8 @@
     text-align: center;
     color: var(--color-text-light);
     overflow: hidden;
+    background-color: #333; /* Fallback warna jika gambar tidak dimuat */
+    background-image: url('assets/images/kontak_banner.jpg');
 }
 
 .hero-kontak .overlay {
@@ -21,7 +21,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
     z-index: 1;
 }
 
@@ -32,6 +32,7 @@
     padding: var(--spacing-md);
     animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-kontak .hero-title {
@@ -41,95 +42,128 @@
     margin-bottom: 1rem;
     line-height: 1.1;
     letter-spacing: -1.5px;
-    background: var(--gradient-text-hero);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    color: #ffffff;
 }
 
 .hero-kontak .hero-subtitle {
     font-family: var(--font-body);
     font-size: 1.4rem;
-    color: var(--color-text-light);
+    color: #ffffff;
     opacity: 0.9;
     letter-spacing: 0.5px;
 }
 
+/* Animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Kontak Info Section */
 .kontak-wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-lg);
-    align-items: stretch; /* Agar peta dan detail memiliki tinggi yang sama */
+    align-items: stretch;
 }
 
 #map {
-    width: 60%;
-    height: 500px;
+    width: 100%;
+    height: 400px;
     border-radius: var(--border-radius-md);
-    box-shadow: 0 5px 20px var(--shadow-medium);
-    border: 1px solid var(--color-subtle-border);
+    border: 2px solid var(--color-primary);
+    overflow: hidden;
+    background-color: #f0f0f0;
 }
 
 .kontak-details {
-    width: 40%;
     background-color: var(--color-light-bg);
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 5px 20px var(--shadow-medium);
     padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 8px 30px var(--shadow-medium);
     border: 1px solid var(--color-subtle-border);
+    max-height: 400px; /* Sesuaikan dengan tinggi peta */
+    overflow-y: auto; /* Aktifkan scroll vertikal */
+    scrollbar-width: thin; /* Untuk Firefox */
+    scrollbar-color: var(--color-text-secondary) var(--color-light-bg); /* Untuk Firefox */
 }
 
-.kontak-details .section-title {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
+/* Custom scrollbar untuk Webkit (Chrome, Safari) */
+.kontak-details::-webkit-scrollbar {
+    width: 8px;
 }
 
-.kontak-details .section-description {
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-md);
+.kontak-details::-webkit-scrollbar-track {
+    background: var(--color-light-bg);
+}
+
+.kontak-details::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+}
+
+.kontak-details::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
 }
 
 .umkm-list {
-    overflow-y: auto; /* Scroll jika daftar panjang */
-    max-height: 350px;
+    margin-top: var(--spacing-md);
 }
 
 .umkm-item {
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid var(--color-subtle-border);
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.umkm-item:last-child {
-    border-bottom: none;
+    background-color: var(--color-dark-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-sm);
+    border: 1px solid var(--color-subtle-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .umkm-item:hover {
-    background-color: var(--color-dark-bg);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px var(--shadow-medium);
 }
 
 .umkm-item h3 {
-    font-size: 1.2rem;
-    color: var(--color-text-dark);
-    margin-bottom: 0.2rem;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
 }
 
 .umkm-item p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xs);
 }
 
-
 /* Contact Form Section */
+#contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#contact-form .section-title {
+    text-align: center;
+}
+
+#contact-form .section-description {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
 #contactForm {
     background-color: var(--color-dark-bg);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     border-radius: var(--border-radius-md);
-    box-shadow: 0 5px 20px var(--shadow-medium);
-    max-width: 600px;
-    margin: 0 auto;
+    box-shadow: 0 8px 30px var(--shadow-medium);
     border: 1px solid var(--color-subtle-border);
 }
 
@@ -139,51 +173,75 @@
 
 .form-group label {
     display: block;
-    font-size: 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
     color: var(--color-text-dark);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: 0.8rem 1rem;
+    padding: 0.8rem;
     border: 1px solid var(--color-border-dark);
     border-radius: var(--border-radius-sm);
-    font-size: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
     color: var(--color-text-dark);
     background-color: var(--color-light-bg);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+    outline: none;
 }
 
 .form-group textarea {
     resize: vertical;
 }
 
-.form-group select {
-    appearance: none; /* Hapus panah default di beberapa browser */
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23444" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 0.7rem top 50%;
-    background-size: 12px;
-    padding-right: 2.5rem; /* Ruang untuk panah */
+.cta-button {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: var(--spacing-md) auto 0;
+    padding: 0.8rem 1.5rem;
+    background: var(--gradient-primary);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#form-message {
-    margin-top: var(--spacing-md);
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+.form-message {
     text-align: center;
-    font-weight: 600;
+    margin-top: var(--spacing-sm);
+    font-size: 0.9rem;
 }
 
 .form-message.success {
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .form-message.error {
     color: var(--color-error);
 }
 
-/* Responsive Styles for Kontak Page */
+/* Responsive Styles */
 @media (max-width: 1024px) {
     .hero-kontak .hero-title {
         font-size: 3.5rem;
@@ -192,14 +250,13 @@
         font-size: 1.2rem;
     }
     .kontak-wrapper {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
     #map {
-        width: 100%;
-        height: 400px;
+        height: 300px;
     }
     .kontak-details {
-        width: 100%;
+        max-height: 300px; /* Sesuaikan tinggi saat responsif */
     }
 }
 
@@ -214,7 +271,13 @@
         font-size: 1rem;
     }
     #map {
-        height: 300px;
+        height: 250px;
+    }
+    .kontak-details {
+        max-height: 250px;
+    }
+    .umkm-item h3 {
+        font-size: 1.4rem;
     }
 }
 
@@ -227,5 +290,17 @@
     }
     .hero-kontak .hero-subtitle {
         font-size: 0.9rem;
+    }
+    #map {
+        height: 200px;
+    }
+    .kontak-details {
+        max-height: 200px;
+    }
+    .form-group label {
+        font-size: 1rem;
+    }
+    .cta-button {
+        max-width: 100%;
     }
 }
