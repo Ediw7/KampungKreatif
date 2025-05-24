@@ -321,7 +321,7 @@ img {
     width: 55px;
     height: 55px;
     background: var(--gradient-primary); /* Accent gradient */
-    color: var(--color-text-dark); /* Dark text on light button */
+    color: var(--color-text-light); /* Dark text on light button */
     border: none;
     border-radius: 50%;
     font-size: 1.5rem;
