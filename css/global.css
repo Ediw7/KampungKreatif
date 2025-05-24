@@ -372,27 +372,28 @@ img {
     }
 }
 
+
 @media (max-width: 768px) {
     .navbar-nav {
-        display: none;
+        display: none; /* Sembunyikan secara default untuk mobile */
         flex-direction: column;
         position: absolute;
-        top: 80px;
+        top: 80px; /* Sesuaikan dengan tinggi header Anda */
         left: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.98); /* Semi-transparent white for mobile menu */
-        box-shadow: 0 10px 20px var(--shadow-medium); /* Lighter shadow */
+        background-color: rgba(255, 255, 255, 0.98); /* Latar belakang menu mobile */
+        box-shadow: 0 10px 20px var(--shadow-medium);
         padding: var(--spacing-md) 0;
         border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
-        transform: translateY(-100%);
+        transform: translateY(-100%); /* Mulai dari atas */
         transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
         opacity: 0;
         backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--color-border-dark); /* Add border for mobile menu */
+        border-bottom: 1px solid var(--color-border-dark);
     }
     .navbar-nav.open {
-        display: flex;
-        transform: translateY(0);
+        display: flex; /* Tampilkan saat aktif */
+        transform: translateY(0); /* Geser ke posisi normal */
         opacity: 1;
     }
     .navbar-nav li {
@@ -405,7 +406,7 @@ img {
         color: var(--color-text-dark); /* Dark text for mobile links */
     }
     .menu-toggle {
-        display: flex;
+        display: flex; /* Tampilkan tombol hamburger */
     }
     .menu-toggle span {
         background: var(--color-text-dark); /* Dark lines for hamburger */
