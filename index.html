@@ -3,125 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kampung Kreatif - Jelajah Warisan Inovatif</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png"> </head>
+    <title>Kampung Wisata - Beranda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css"> <link rel="stylesheet" href="css/home.css">   </head>
 <body>
+
     <header class="main-header">
-        <nav class="navbar">
-            <a href="index.html" class="navbar-brand">Kampung<span class="brand-accent">Kreatif</span></a>
-            <ul class="navbar-nav" id="navbarNav">
-                <li><a href="index.html" class="nav-link active">Beranda</a></li>
-                <li><a href="kuliner.html" class="nav-link">Kuliner</a></li>
-                <li><a href="kerajinan.html" class="nav-link">Kerajinan</a></li>
-                <li><a href="jasa.html" class="nav-link">Jasa</a></li>
-                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
-            </ul>
+        <nav class="navbar container">
+            <a href="home.html" class="navbar-brand">Kampung Wisata</a>
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <ul class="navbar-nav">
+                <li><a href="home.html" class="nav-link active">Beranda</a></li>
+                <li><a href="kuliner.html" class="nav-link">Kuliner</a></li>
+                <li><a href="kerajinan.html" class="nav-link">Kerajinan</a></li>
+                <li><a href="game.html" class="nav-link">Main Game</a></li>
+                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero-section">
+        <section id="hero" class="hero-section">
             <div class="slideshow-container">
-                <div class="hero-slide active" data-product="Gudeg Istimewa Bu Sari" style="background-image: url('https://www.masakapahariini.com/wp-content/uploads/2021/08/Gudeg-Yogyakarta.jpg');">
-                    <div class="slide-overlay">
-                        <div class="slide-content">
-                            <h1 class="hero-tagline animate-fade-in-up">Jelajahi Kekayaan <br> Kampung Kreatif</h1>
-                            <p class="hero-subtext animate-fade-in-up delay-02">Dukung UMKM lokal dengan produk dan jasa penuh budaya!</p>
-                            <a href="kuliner.html" class="cta-button animate-fade-in-up delay-04">Lihat Aneka Kuliner</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-slide" data-product="Batik Adiwarna Sekar Jagad" style="background-image: url('assets/images/batik.jpg');">
-                    <div class="slide-overlay">
-                        <div class="slide-content">
-                            <h1 class="hero-tagline animate-fade-in-up">Warisan Nusantara <br> Dalam Setiap Karya</h1>
-                            <p class="hero-subtext animate-fade-in-up delay-02">Temukan keindahan motif tradisional dalam setiap helai kain.</p>
-                            <a href="kerajinan.html" class="cta-button animate-fade-in-up delay-04">Jelajahi Kerajinan</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-slide" data-product="Pesona Tari Sriwedari" style="background-image: url('assets/images/tari.jpg');">
-                    <div class="slide-overlay">
-                        <div class="slide-content">
-                            <h1 class="hero-tagline animate-fade-in-up">Pengalaman Budaya <br> Yang Tak Terlupakan</h1>
-                            <p class="hero-subtext animate-fade-in-up delay-02">Ikuti tur wisata dan pelatihan seni yang otentik dan inspiratif.</p>
-                            <a href="jasa.html" class="cta-button animate-fade-in-up delay-04">Temukan Jasa Budaya</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slideshow-controls">
-                    <button class="prev-slide" aria-label="Previous slide">&#10094;</button>
-                    <button class="next-slide" aria-label="Next slide">&#10095;</button>
-                </div>
+                <div class="hero-slide active" style="background-image: url('https://www.masakapahariini.com/wp-content/uploads/2021/08/Gudeg-Yogyakarta.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('https://imgx.parapuan.co/crop/0x0:0x0/x/photo/2021/10/03/mengapresiasi-warisan-budaya-den-20211003030135.jpg');">"></div>
+                <div class="hero-slide" style="background-image: url('https://1001indonesia.net/asset/2016/01/Tari-Legong.jpg');"></div>
+            </div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1 class="hero-tagline">Jelajahi Pesona Kampung Wisata</h1>
+                <p class="hero-subtext">Nikmati keindahan kuliner, keunikan kerajinan, dan kekayaan pengalaman budaya yang tak terlupakan.</p>
+                <a href="#categories" class="cta-button animate-fade-in-up">Mulai Jelajahi</a>
+            </div>
+            <div class="slideshow-controls">
+                <span class="prev-slide">❮</span>
+                <span class="next-slide">❯</span>
             </div>
             <div class="slide-dots"></div>
-            <div class="product-spotlight-display"></div> </section>
+            <div class="product-spotlight-display"></div>
+        </section>
 
-        <section class="about-kampung section-padding">
-            <div class="container-grid">
+        <section id="about" class="about-kampung section-padding">
+            <div class="container container-grid">
                 <div class="about-text-content">
-                    <h2 class="section-title">Selamat Datang di <span class="accent-text">Kampung Kreatif</span></h2>
-                    <p class="section-description">Kami adalah rumah bagi inovasi dan warisan budaya, tempat UMKM lokal berkolaborasi untuk menghadirkan produk dan jasa yang autentik dan bermakna. Setiap detail di sini menceritakan kisah, dan setiap pembelian adalah dukungan nyata bagi para pengrajin dan seniman.</p>
-                    <a href="kontak.html" class="cta-button outline-button">Terhubung Dengan Kami</a>
+                    <h2 class="section-title">Tentang Kampung Kami</h2>
+                    <p class="section-description">
+                        Selamat datang di Kampung Wisata, sebuah permata tersembunyi yang kaya akan tradisi dan keramahan lokal. Kami berkomitmen untuk melestarikan warisan budaya dan mendukung pengrajin serta petani lokal.
+                    </p>
+                    <p class="section-description">
+                        Di sini, Anda tidak hanya berwisata, tetapi juga menjadi bagian dari cerita kami, merasakan langsung kehidupan desa yang otentik dan menemukan inspirasi di setiap sudutnya.
+                    </p>
+                    <a href="#" class="cta-button">Pelajari Lebih Lanjut</a>
                 </div>
                 <div class="about-image-content">
-                    <img src="assets/images/peta-kampung.png" alt="Peta Kampung Kreatif" class="kampung-map reveal-image">
-                    <div class="map-overlay-text">
-                        <h3>Jelajahi Lokasi Kami</h3>
-                        <p>Klik peta di halaman kontak untuk tur virtual!</p>
+                    <div class="map-container-home">
+                        <div class="map-glow-effect"></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26105.55327592649!2d110.34346129472787!3d-7.110228909132271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7088457de515c9%3A0x6577539169511cc1!2sBranjang%2C%20Kec.%20Ungaran%20Bar.%2C%20Kabupaten%20Semarang%2C%20Jawa%20Tengah!5e1!3m2!1sid!2sid!4v1748064587162!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="map-overlay-text">
+                            <h3>Lokasi Kami</h3>
+                            <p>Temukan kami di sini!</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="featured-categories section-padding">
+        <section id="categories" class="featured-categories section-padding">
             <div class="container">
                 <h2 class="section-title">Telusuri Kategori Kami</h2>
                 <p class="section-description">Nikmati keindahan kuliner, keunikan kerajinan, dan kekayaan pengalaman budaya.</p>
+
                 <div class="category-grid">
-                    <a href="kuliner.html" class="category-card reveal-card">
-                        <img src="assets/images/klepon.jpg" alt="Kuliner Lokal">
+                    <a href="kuliner.html" class="category-card">
+                        <img src="https://www.masakapahariini.com/wp-content/uploads/2021/08/Gudeg-Yogyakarta.jpg" alt="Kuliner Khas">
                         <h3>Kuliner Khas</h3>
-                        <p>Manjakan lidah dengan hidangan warisan.</p>
+                        <p>Jelajahi cita rasa otentik dari hidangan tradisional yang lezat dan menggugah selera.</p>
                     </a>
-                    <a href="kerajinan.html" class="category-card reveal-card">
-                        <img src="assets/images/anyaman.jpg" alt="Kerajinan Tangan">
+                    <a href="kerajinan.html" class="category-card">
+                        <img src="https://imgx.parapuan.co/crop/0x0:0x0/x/photo/2021/10/03/mengapresiasi-warisan-budaya-den-20211003030135.jpg" alt="Kreasi Tangan">
                         <h3>Kreasi Tangan</h3>
-                        <p>Karya seni yang menceritakan kisah.</p>
+                        <p>Karya seni yang menceritakan kisah, dibuat dengan hati dan keahlian tangan pengrajin lokal.</p>
                     </a>
-                    <a href="jasa.html" class="category-card reveal-card">
-                        <img src="assets/images/tur.jpg" alt="Jasa Budaya">
+                    <a href="#" class="category-card">
+                        <img src="https://1001indonesia.net/asset/2016/01/Tari-Legong.jpg" alt="Pengalaman Budaya">
                         <h3>Pengalaman Budaya</h3>
-                        <p>Selami tradisi dalam setiap momen.</p>
+                        <p>Selami kekayaan budaya lokal melalui workshop interaktif dan pertunjukan seni yang memukau.</p>
                     </a>
                 </div>
             </div>
         </section>
+
+        <section id="game" class="memory-match-selection section-padding">
+            <div class="container">
+                <h2 class="section-title">Main Game Seru!</h2>
+                <p class="section-description">Ayo asah pengetahuan dan ketangkasanmu lewat berbagai permainan menarik bertema budaya Indonesia!</p>
+            
+                <div class="game-grid">
+                    <a href="#" class="game-option">
+                        <div class="game-option-content">
+                            <img src="images/game_quiz.jpg" alt="Quiz Budaya">
+                            <h3>Quiz Budaya</h3>
+                            <p>Jawab berbagai pertanyaan seputar tradisi, sejarah, dan budaya lokal.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="game-option">
+                        <div class="game-option-content">
+                            <img src="images/game_tebakgambar.jpg" alt="Tebak Gambar">
+                            <h3>Tebak Gambar</h3>
+                            <p>Lihat gambar dan tebak nama makanan, alat musik, atau ikon budaya Indonesia.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="game-option">
+                        <div class="game-option-content">
+                            <img src="images/game_memory.jpg" alt="Memory Match">
+                            <h3>Memory Match</h3>
+                            <p>Pasangkan gambar-gambar budaya Indonesia dalam permainan memori klasik.</p>
+                        </div>
+                    </a>
+                </div>
+             </div>
+        </section>
+
+        <section id="contact" class="section-padding" style="background-color: var(--color-light-bg); text-align: center; padding: 100px 0;">
+            <div class="container">
+                <h2 class="section-title">Hubungi Kami</h2>
+                <p class="section-description">Punya pertanyaan atau ingin tahu lebih banyak? Jangan ragu untuk menghubungi kami!</p>
+                <a href="mailto:info@kampungwisata.com" class="cta-button">Kirim Email</a>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2025 Kampung Kreatif. Didesain dengan Hati & Budaya.</p>
-            <div class="footer-socials">
-                <a href="#" aria-label="Instagram"><img src="assets/images/instagram-icon.svg" alt="Instagram"></a>
-                <a href="#" aria-label="Facebook"><img src="assets/images/facebook-icon.svg" alt="Facebook"></a>
-                <a href="#" aria-label="WhatsApp"><img src="assets/images/whatsapp-icon.svg" alt="WhatsApp"></a>
-            </div>
-        </div>
-    </footer>
-    <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">&#9650;</button> <script src="js/main.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/home.js"></script>
-</body>
+    <div id="footer-placeholder"></div>
+
+    <script src="js/global.js"></script> <script src="js/home.js"></script>   </body>
 </html>
