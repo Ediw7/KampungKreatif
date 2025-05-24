@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'tur-desa',
             name: 'Tur Wisata Desa Budaya',
             category: 'tur-wisata',
-            image: 'images/jasa_tur_desa.jpg', // Ganti dengan gambar asli
+            image: 'https://cdngnfi2.sgp1.digitaloceanspaces.com/gnfi/uploads/articles/308392361-894088318221562-393201695488218984-n-40d8f481ad540a45874f1374f49a842d.jpg', // Ganti dengan gambar asli
             price: 'Rp150.000/orang',
             shortDescription: 'Jelajahi kehidupan desa, tradisi lokal, dan pemandangan indah.',
             fullDescription: 'Ikuti tur desa kami yang mempesona, dipandu oleh pemandu lokal yang berpengetahuan luas. Anda akan diajak menyelami kehidupan sehari-hari masyarakat, belajar tentang pertanian tradisional, mengunjungi rumah-rumah adat, dan berinteraksi langsung dengan penduduk desa. Pengalaman autentik yang tidak akan Anda temukan di tempat lain!',
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'pelatihan-batik',
             name: 'Workshop Membatik Tulis',
             category: 'pelatihan-seni',
-            image: 'images/jasa_pelatihan_batik.jpg', // Ganti dengan gambar asli
+            image: 'https://imgx.parapuan.co/crop/0x0:0x0/x/photo/2021/10/03/mengapresiasi-warisan-budaya-den-20211003030135.jpg', // Ganti dengan gambar asli
             price: 'Rp100.000/sesi',
             shortDescription: 'Belajar teknik membatik tulis dari pengrajin ahli, bawa pulang karyamu!',
             fullDescription: 'Ikuti pelatihan membatik tulis interaktif kami. Anda akan diajarkan teknik dasar menggunakan canting dan lilin panas, serta cara mewarnai batik. Pengrajin ahli kami akan memandu Anda langkah demi langkah. Di akhir sesi, Anda akan memiliki kain batik buatan tangan sendiri yang bisa dibawa pulang sebagai kenang-kenangan unik.',
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'tari-tradisional',
             name: 'Belajar Tari Tradisional',
             category: 'pelatihan-seni',
-            image: 'images/jasa_tari_tradisional.jpg', // Ganti dengan gambar asli
+            image: 'https://1001indonesia.net/asset/2016/01/Tari-Legong.jpg', // Ganti dengan gambar asli
             price: 'Rp80.000/sesi',
             shortDescription: 'Pelatihan singkat tari tradisional Indonesia, cocok untuk pemula.',
             fullDescription: 'Nikmati sesi singkat belajar tari tradisional. Anda akan diajarkan gerakan dasar dari salah satu tari daerah yang populer, seperti Tari Saman atau Tari Pendet. Instruktur kami akan memastikan Anda memahami makna di balik setiap gerakan dan merasakan keindahan seni tari Indonesia.',
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'pertunjukan-wayang',
             name: 'Nonton Pertunjukan Wayang Kulit',
             category: 'pertunjukan-budaya',
-            image: 'images/jasa_wayang_kulit.jpg', // Ganti dengan gambar asli
+            image: 'https://cdn.britannica.com/90/146990-050-4F3C95E7/Wayang-kulit-puppets-performance-Indonesia-Jakarta.jpg', // Ganti dengan gambar asli
             price: 'Rp75.000/orang',
             shortDescription: 'Saksikan kemegahan seni pertunjukan wayang kulit dengan dalang ternama.',
             fullDescription: 'Nikmati pengalaman tak terlupakan menyaksikan pertunjukan wayang kulit klasik. Anda akan terpukau dengan keindahan boneka wayang, kemahiran dalang dalam bercerita, iringan gamelan yang syahdu, dan sinden yang merdu. Sebuah warisan budaya tak benda yang patut dilestarikan dan dinikmati.',

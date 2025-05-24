@@ -39,7 +39,7 @@
     margin-bottom: 1rem;
     line-height: 1.1;
     letter-spacing: -1.5px;
-    background: var(--color-light-bg); /* Diperbaiki dari var(--gradient-) */
+    background: var(--color-dark-bg); /* Diperbaiki dari var(--gradient-) */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
