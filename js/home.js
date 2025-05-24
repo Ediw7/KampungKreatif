@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     let slideInterval;
     const slideTitles = ["Kuliner Nusantara", "Kerajinan Unggul", "Petualangan Budaya"];
-    
+
     function showSlide(index) {
         slides.forEach((slide, i) => {
             slide.classList.remove('active');
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Observer untuk Animasi Reveal Bagian ---
-    const revealElements = document.querySelectorAll('.about-image-content, .category-card, .game-option');
+   const revealElements = document.querySelectorAll('.about-image-content, .category-card, .game-option, .featured-acara-image, .featured-acara-text');
 
     const observerOptions = {
         root: null,
@@ -105,13 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                if (entry.target.classList.contains('about-image-content')) {
-                    entry.target.classList.add('reveal-image');
-                } else if (entry.target.classList.contains('category-card')) {
-                    entry.target.classList.add('reveal-card');
-                } else if (entry.target.classList.contains('game-option')) {
-                     entry.target.classList.add('reveal-card'); // Menggunakan kelas yang sama untuk animasi
-                }
+                entry.target.classList.add('reveal-item');
                 observer.unobserve(entry.target);
             }
         });

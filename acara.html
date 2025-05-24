@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampung Wisata - Acara & Festival</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/acara.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar container">
+            <a href="index.html" class="navbar-brand">Kampung Wisata</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-nav" id="navbarNav">
+                <li><a href="index.html" class="nav-link active">Beranda</a></li>
+                <li><a href="kuliner.html" class="nav-link">Kuliner</a></li>
+                <li><a href="kerajinan.html" class="nav-link">Kerajinan</a></li>
+                <li><a href="jasa.html" class="nav-link">Jasa</a></li>
+                <li><a href="game.html" class="nav-link">Main Game</a></li>
+                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero-acara" class="hero-acara section-padding" style="background-image: url('images/acara_banner.jpg');">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Acara & Festival Mendatang</h1>
+                <p class="hero-subtitle">Rasakan kemeriahan budaya lokal kami secara langsung!</p>
+            </div>
+        </section>
+
+        <section id="upcoming-events" class="section-padding" style="background-color: var(--color-dark-bg);">
+            <div class="container">
+                <h2 class="section-title">Jangan Lewatkan!</h2>
+                <p class="section-description">Berbagai acara budaya dan festival menanti Anda. Pesan tiket Anda sekarang!</p>
+
+                <div class="event-filters">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="festival">Festival</button>
+                    <button class="filter-btn" data-filter="pertunjukan">Pertunjukan</button>
+                    <button class="filter-btn" data-filter="workshop">Workshop</button>
+                    <button class="filter-btn" data-filter="komunitas">Komunitas</button>
+                </div>
+
+                <div class="event-grid">
+                    </div>
+            </div>
+        </section>
+
+        <section id="about-festivals" class="section-padding" style="background-color: var(--color-light-bg);">
+            <div class="container container-grid">
+                <div class="about-festivals-content">
+                    <h2 class="section-title">Tentang Festival Kami</h2>
+                    <p class="section-description text-left">
+                        Kampung Wisata rutin mengadakan berbagai acara dan festival untuk melestarikan dan memperkenalkan kekayaan budaya lokal. Dari pertunjukan tari tradisional yang memukau, festival kuliner yang menggugah selera, hingga lokakarya seni yang interaktif, setiap acara dirancang untuk memberikan pengalaman yang tak terlupakan bagi pengunjung.
+                    </p>
+                    <p class="section-description text-left">
+                        Partisipasi Anda dalam setiap acara tidak hanya berarti menikmati kemeriahan, tetapi juga berkontribusi langsung pada keberlanjutan UMKM dan seniman lokal kami. Mari bersama-sama merayakan indahnya budaya Indonesia!
+                    </p>
+                    <a href="#upcoming-events" class="cta-button outline-button">Lihat Jadwal Lengkap</a>
+                </div>
+                <div class="about-festivals-image">
+                    <img src="images/about_festival.jpg" alt="Suasana Festival">
+                </div>
+            </div>
+        </section>
+
+        <section id="past-events-gallery" class="section-padding" style="background-color: var(--color-dark-bg);">
+            <div class="container">
+                <h2 class="section-title">Galeri Acara Terdahulu</h2>
+                <p class="section-description">Kenang kembali momen-momen indah dari acara dan festival yang telah kami selenggarakan.</p>
+
+                <div class="past-event-gallery-grid">
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="acara-modal" class="acara-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="modal-event-image" src="" alt="Poster Acara">
+            <h3 id="modal-event-title"></h3>
+            <p class="modal-event-meta"><strong class="label">Kategori:</strong> <span id="modal-event-category"></span></p>
+            <p class="modal-event-meta"><strong class="label">Tanggal:</strong> <span id="modal-event-date"></span></p>
+            <p class="modal-event-meta"><strong class="label">Waktu:</strong> <span id="modal-event-time"></span></p>
+            <p class="modal-event-meta"><strong class="label">Lokasi:</strong> <span id="modal-event-location"></span></p>
+            <p class="modal-event-meta"><strong class="label">Harga Tiket:</strong> <span id="modal-event-price"></span></p>
+
+            <div class="modal-full-description">
+                <h4>Deskripsi Acara:</h4>
+                <p id="modal-event-full-description"></p>
+            </div>
+
+            <div class="booking-section">
+                <h4>Pesan Tiket Anda!</h4>
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="booking-quantity">Jumlah Tiket:</label>
+                        <input type="number" id="booking-quantity" name="quantity" min="1" value="1" required>
+                    </div>
+                    <button type="submit" class="cta-button">Konfirmasi Pemesanan</button>
+                    <p id="booking-message" class="form-message"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="booking-confirm-modal" class="event-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Konfirmasi Pemesanan Tiket</h3>
+            <p>Anda akan memesan tiket untuk acara: <strong id="confirm-event-name"></strong></p>
+            <p>Jumlah tiket: <input type="number" id="ticket-quantity" value="1" min="1"></p>
+            <p>Total Harga: <strong id="confirm-total-price">Rp 0</strong></p>
+            <p class="small-text">Silakan masukkan nama dan email Anda untuk konfirmasi pemesanan:</p>
+            <input type="text" id="booking-name" placeholder="Nama Lengkap" required>
+            <input type="email" id="booking-email" placeholder="Email Anda" required>
+            <button id="process-booking-btn" class="cta-button">Proses Pemesanan</button>
+            <p id="booking-message-final" class="form-message"></p>
+        </div>
+    </div>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/global.js"></script>
+    <script src="js/acara.js"></script>
+</body>
+</html>
