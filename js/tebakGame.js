@@ -10,6 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultDescription = document.querySelector('.result-description');
     const restartTebakBtn = document.getElementById('restart-tebak-btn');
 
+    // Pastikan teks dropdown terlihat
+    answerSelects.forEach(select => {
+        select.style.color = '#ffffff';
+        select.style.backgroundColor = 'var(--color-dark-bg)';
+        Array.from(select.options).forEach(option => {
+            option.style.color = '#ffffff';
+            option.style.backgroundColor = 'var(--color-dark-bg)';
+        });
+    });
+
     // Kirim jawaban
     submitAnswerBtn.addEventListener('click', () => {
         let correctCount = 0;
