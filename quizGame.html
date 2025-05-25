@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampung Wisata - Quiz Budaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/quizGame.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar container">
+            <a href="index.html" class="navbar-brand">Kampung Wisata</a>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="kuliner.html" class="nav-link">Kuliner</a></li>
+                <li><a href="kerajinan.html" class="nav-link">Kerajinan</a></li>
+                <li><a href="jasa.html" class="nav-link">Jasa</a></li>
+                <li><a href="game.html" class="nav-link">Main Game</a></li>
+                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero-quiz" class="hero-quiz section-padding" style="background-image: url('https://via.placeholder.com/1200x400?text=Quiz+Budaya');">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Quiz Budaya</h1>
+                <p class="hero-subtitle">Uji pengetahuanmu tentang tradisi dan budaya Indonesia!</p>
+            </div>
+        </section>
+
+        <section id="quiz-game-area" class="section-padding" style="background-color: var(--color-light-bg);">
+            <div class="container">
+                <div class="quiz-container" style="display: none;">
+                    <div class="quiz-question"></div>
+                    <div class="quiz-options"></div>
+                    <div class="quiz-controls">
+                        <button id="next-question-btn" class="cta-button" style="display: none;">Lanjut</button>
+                        <button id="finish-quiz-btn" class="cta-button" style="display: none;">Selesai</button>
+                        <span id="score-display">Skor: 0/5</span>
+                    </div>
+                </div>
+                <div class="quiz-start" style="display: block;">
+                    <h2 class="section-title">Quiz Budaya</h2>
+                    <p class="section-description">Siap untuk menguji pengetahuan budaya Indonesia? Klik tombol di bawah untuk memulai!</p>
+                    <button id="start-quiz-btn" class="cta-button">Mulai Quiz</button>
+                </div>
+                <div class="quiz-result" style="display: none;">
+                    <h3 class="result-title"></h3>
+                    <p class="result-description"></p>
+                    <div class="result-buttons">
+                        <button id="restart-quiz-btn" class="cta-button">Mulai Lagi</button>
+                        <a href="game.html" class="cta-button">Kembali</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/global.js"></script>
+    <script src="js/quizGame.js"></script>
+</body>
+</html>
