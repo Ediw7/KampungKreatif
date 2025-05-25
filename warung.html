@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampung Wisata - Warung Kuliner</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/warung.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar container">
+            <a href="index.html" class="navbar-brand">Kampung Wisata</a>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="kuliner.html" class="nav-link active">Kuliner</a></li>
+                <li><a href="kerajinan.html" class="nav-link">Kerajinan</a></li>
+                <li><a href="jasa.html" class="nav-link">Jasa</a></li>
+                <li><a href="game.html" class="nav-link">Main Game</a></li>
+                <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Banner Section -->
+        <section id="warung-banner" class="section-padding">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1 class="banner-title">Kuliner Lokal</h1>
+                <p class="banner-subtitle">Nikmati cita rasa tradisional dari kampung kami</p>
+            </div>
+        </section>
+
+        <!-- Tentang UMKM Section -->
+        <section id="about-umkm" class="section-padding">
+            <div class="container">
+                <div class="umkm-content">
+                    <div class="umkm-text">
+                        <h2 class="section-title">Tentang UMKM</h2>
+                        <h3>Warung Gudeg Bu Sari</h3>
+                        <p class="umkm-description">
+                            Warung Gudeg Bu Sari telah menjadi warisan kuliner sejak tahun 1970, menjaga autentisitas rasa melalui resep turun-temurun yang diracik dengan penuh keahlian. Dikelola oleh keluarga dengan dedikasi tinggi, setiap hidangan disiapkan menggunakan bahan-bahan segar lokal, mencerminkan semangat komunitas kampung yang harmonis. Dengan cinta dan perhatian terhadap detail, Warung Gudeg Bu Sari menawarkan pengalaman kuliner yang tak terlupakan, menggabungkan tradisi dengan kehangatan pelayanan.
+                        </p>
+                        <p class="umkm-contact">Kontak: <a href="tel:081234567890">0812-3456-7890</a></p>
+                    </div>
+                    <div class="umkm-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.611651215421!2d110.43760927403765!3d-7.051218869094125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d3d9c55e8cb%3A0x67f23b9ef2c77c35!2sDepartemen%20Teknik%20Komputer%20FT%20UNDIP!5e1!3m2!1sid!2sid!4v1748142490185!5m2!1sid!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daftar Produk Section -->
+        <section id="product-list" class="section-padding" style="background-color: var(--color-light-bg);">
+            <div class="container">
+                <h2 class="section-title">Daftar Produk</h2>
+                <p class="section-description">Pilih produk kuliner yang Anda inginkan.</p>
+                <div class="product-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal untuk detail produk -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <img id="modal-image" src="" alt="Product Image" class="modal-image">
+            <h3 id="modal-title" class="modal-title"></h3>
+            <div class="modal-details-jasa">
+                <h4>Deskripsi:</h4>
+                <p id="modal-full-description-text" class="modal-description"></p>
+                <h4>Bahan-Bahan:</h4>
+                <ul id="modal-ingredients"></ul>
+                <h4>Harga:</h4>
+                <p id="modal-price" class="modal-price"></p>
+            </div>
+            <div class="modal-cta-booking">
+                <a id="modal-booking-link" href="" class="cta-button">Pesan Sekarang</a>
+                <p class="small-text">Klik untuk menghubungi via WhatsApp</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/global.js"></script>
+    <script src="js/warung.js"></script>
+</body>
+</html>

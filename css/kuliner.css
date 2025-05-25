@@ -1,10 +1,10 @@
 /* Hero Section Kuliner */
 .hero-kuliner {
-    position: relative; /* PENTING: Memungkinkan z-index bekerja untuk anak-anaknya */
+    position: relative;
     width: 100%;
     height: 60vh;
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,17 +19,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
-    z-index: 1; /* Overlay berada di atas gambar latar belakang */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
 }
 
 .hero-kuliner .hero-content {
-    position: relative; /* PENTING: Memungkinkan z-index bekerja */
-    z-index: 2; /* HARUS LEBIH TINGGI dari z-index overlay */
+    position: relative;
+    z-index: 2;
     max-width: 900px;
     padding: var(--spacing-md);
     animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-kuliner .hero-title {
@@ -39,22 +40,18 @@
     margin-bottom: 1rem;
     line-height: 1.1;
     letter-spacing: -1.5px;
-    background: var(--color-dark-bg); /* Diperbaiki dari var(--gradient-) */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: var(--color-text-light); /* Fallback jika gradien gagal */
+    color: #ffffff;
 }
 
 .hero-kuliner .hero-subtitle {
     font-family: var(--font-body);
     font-size: 1.4rem;
-    color: var(--color-text-light);
+    color: #ffffff;
     opacity: 0.9;
     letter-spacing: 0.5px;
 }
 
-/* Animasi fadeInUp */
+/* Animasi */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -66,7 +63,87 @@
     }
 }
 
-/* Kuliner Filters */
+/* Kuliner List Section */
+.kuliner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 kolom desktop */
+    gap: var(--spacing-lg);
+}
+
+.kuliner-card {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--color-subtle-border);
+    cursor: pointer;
+    /* Untuk debugging: hapus sementara animasi reveal */
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Aktifkan kembali animasi setelah debugging */
+.kuliner-card.reveal-item {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.kuliner-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow-strong);
+}
+
+.kuliner-image {
+    width: 100%;
+    height: 200px; /* Tinggi gambar konsisten */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    border-bottom: 5px solid var(--color-secondary); /* Border utama untuk kuliner */
+}
+
+.kuliner-card:hover .kuliner-image {
+    transform: scale(1.1);
+}
+
+.kuliner-card-content {
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+}
+
+.kuliner-card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.kuliner-card-content .rating {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}
+
+.kuliner-card-content .description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Filter Section */
 .kuliner-filters {
     text-align: center;
     margin-bottom: var(--spacing-lg);
@@ -102,256 +179,7 @@
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
-/* Kuliner Grid */
-.kuliner-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 kolom desktop */
-    gap: var(--spacing-lg);
-}
-
-.kuliner-card {
-    background-color: var(--color-light-bg);
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    box-shadow: 0 10px 40px var(--shadow-medium);
-    text-decoration: none;
-    color: var(--color-text-dark);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    border: 1px solid var(--color-subtle-border);
-    cursor: pointer;
-    transform: translateY(20px); /* Untuk animasi reveal */
-    opacity: 0; /* Untuk animasi reveal */
-}
-
-.kuliner-card.reveal-item { /* Class added by JS for animation */
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.kuliner-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 50px var(--shadow-strong);
-}
-
-.kuliner-card img {
-    width: 100%;
-    height: 200px; /* Tinggi gambar konsisten */
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-    border-bottom: 5px solid var(--color-secondary); /* Border utama untuk kuliner */
-}
-
-.kuliner-card:hover img {
-    transform: scale(1.1);
-}
-
-.kuliner-card-content {
-    padding: 1.2rem 1.5rem; /* Padding lebih kecil */
-    text-align: center;
-}
-
-.kuliner-card-content h3 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: var(--color-text-dark); /* Fallback jika gradien gagal */
-}
-
-.kuliner-card-content .price {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--color-accent); /* Harga pakai warna accent */
-    margin-bottom: 0.5rem;
-}
-
-.kuliner-card-content .description {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Batasi deskripsi singkat 2 baris */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Cerita UMKM Section */
-.umkm-story-content {
-    text-align: left; /* Teks default rata kiri */
-    margin-right: var(--spacing-lg); /* Jarak ke gambar di desktop */
-}
-
-.umkm-story-image {
-    position: relative;
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    box-shadow: 0 20px 60px var(--shadow-medium);
-    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-    border: 1px solid var(--color-subtle-border);
-}
-
-.umkm-story-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: var(--border-radius-md); /* Agar gambar ikut rounded */
-}
-
-.umkm-story-content .section-title {
-    text-align: left; /* Override center dari global */
-    margin-left: 0;
-    margin-right: 0;
-    color: var(--color-text-dark);
-}
-
-.umkm-story-content .section-title::after {
-    margin-left: 0; /* Override center dari global */
-}
-
-.umkm-story-content .section-description {
-    text-align: left; /* Override center dari global */
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: var(--spacing-md);
-    color: var(--color-text-secondary);
-}
-
-/* Modal Styles */
-.kuliner-modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 10000; /* High z-index to be on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
-    backdrop-filter: blur(5px);
-    padding-top: 60px;
-    animation: fadeIn 0.3s ease-out;
-}
-
-.kuliner-modal.active {
-    display: block;
-}
-
-.modal-content {
-    background-color: var(--color-light-bg);
-    margin: 5% auto; /* 5% from the top and centered */
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 20px 60px var(--shadow-strong);
-    width: 90%;
-    max-width: 800px;
-    position: relative;
-    animation: slideInFromTop 0.4s ease-out;
-    color: var(--color-text-dark);
-    border: 1px solid var(--color-border-dark);
-}
-
-.close-button {
-    color: var(--color-text-secondary);
-    font-size: 2.5rem;
-    font-weight: bold;
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: var(--color-primary);
-}
-
-.modal-content img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--spacing-md);
-    border: 1px solid var(--color-subtle-border);
-}
-
-.modal-content h3 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--color-secondary);
-    margin-bottom: var(--spacing-xs);
-}
-
-.modal-content #modal-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-dark);
-    margin-bottom: var(--spacing-xs);
-}
-
-.modal-content #modal-category {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-sm);
-    text-transform: capitalize;
-}
-
-.modal-content #modal-short-description {
-    font-size: 1.05rem;
-    color: var(--color-text-dark);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-md);
-}
-
-.modal-full-description, .modal-ingredients, .modal-umkm-info {
-    background-color: var(--color-dark-bg); /* Use creamy off-white for internal sections */
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--spacing-md);
-    border: 1px solid var(--color-subtle-border);
-}
-
-.modal-full-description h4, .modal-ingredients h4, .modal-umkm-info h4 {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    color: var(--color-secondary);
-    margin-bottom: var(--spacing-xs);
-}
-
-.modal-full-description p, .modal-umkm-info p {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-}
-
-.modal-ingredients ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    color: var(--color-text-secondary);
-}
-
-.modal-ingredients li {
-    margin-bottom: 5px;
-    font-size: 0.95rem;
-}
-
-/* Animations for Modal */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideInFromTop {
-    from { transform: translateY(-50px) scale(0.9); opacity: 0; }
-    to { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-/* Responsif untuk halaman kuliner */
+/* Responsive Styles */
 @media (max-width: 1024px) {
     .hero-kuliner .hero-title {
         font-size: 3.5rem;
@@ -359,8 +187,9 @@
     .hero-kuliner .hero-subtitle {
         font-size: 1.2rem;
     }
-    .umkm-story-content {
-        margin-right: 0; /* Hapus margin di tablet */
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
     }
 }
 
@@ -374,40 +203,12 @@
     .hero-kuliner .hero-subtitle {
         font-size: 1rem;
     }
-    .kuliner-grid {
-        grid-template-columns: 1fr; /* 1 kolom di mobile */
+    .kuliner-image {
+        height: 180px;
     }
-    .kuliner-card img {
-        height: 200px;
-    }
-    .kuliner-card-content h3 {
-        font-size: 1.6rem;
-    }
-    .kuliner-modal .modal-content {
-        margin: 2% auto; /* Kurangi margin atas di mobile */
-        padding: var(--spacing-md);
-    }
-    .modal-content img {
-        height: 250px;
-    }
-    .modal-content h3 {
-        font-size: 2rem;
-    }
-    .modal-full-description h4, .modal-ingredients h4, .modal-umkm-info h4 {
-        font-size: 1.2rem;
-    }
-    .container-grid { /* Re-apply for UMKM story */
-        grid-template-columns: 1fr;
-    }
-    .umkm-story-content, .umkm-story-image {
-        text-align: center;
-    }
-    .umkm-story-content .section-title,
-    .umkm-story-content .section-description,
-    .umkm-story-content .section-title::after {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -421,16 +222,11 @@
     .hero-kuliner .hero-subtitle {
         font-size: 0.9rem;
     }
-    .kuliner-filters {
-        flex-direction: column;
+    .kuliner-image {
+        height: 150px;
     }
     .filter-btn {
-        width: 100%;
-    }
-    .modal-content img {
-        height: 180px;
-    }
-    .modal-content h3 {
-        font-size: 1.8rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
     }
 }
