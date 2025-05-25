@@ -11,7 +11,7 @@
     text-align: center;
     color: var(--color-text-light);
     overflow: hidden;
-    background-color: #333; /* Fallback warna jika gambar tidak dimuat */
+    background-color: #333; 
     background-image: url('assets/images/kontak_banner.jpg');
 }
 
@@ -88,13 +88,13 @@
     border-radius: var(--border-radius-md);
     box-shadow: 0 8px 30px var(--shadow-medium);
     border: 1px solid var(--color-subtle-border);
-    max-height: 400px; /* Sesuaikan dengan tinggi peta */
-    overflow-y: auto; /* Aktifkan scroll vertikal */
-    scrollbar-width: thin; /* Untuk Firefox */
-    scrollbar-color: var(--color-text-secondary) var(--color-light-bg); /* Untuk Firefox */
+    max-height: 400px; 
+    overflow-y: auto; 
+    scrollbar-width: thin; 
+    scrollbar-color: var(--color-text-secondary) var(--color-light-bg);
 }
 
-/* Custom scrollbar untuk Webkit (Chrome, Safari) */
+
 .kontak-details::-webkit-scrollbar {
     width: 8px;
 }
@@ -144,7 +144,7 @@
     margin-bottom: var(--spacing-xs);
 }
 
-/* Contact Form Section */
+
 #contact-form {
     max-width: 800px;
     margin: 0 auto;
@@ -256,7 +256,7 @@
         height: 300px;
     }
     .kontak-details {
-        max-height: 300px; /* Sesuaikan tinggi saat responsif */
+        max-height: 300px; 
     }
 }
 

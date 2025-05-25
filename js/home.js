@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             slide.style.opacity = '0';
             slide.style.transform = 'scale(1.05)';
         });
-        if (dotsContainer) { // Pastikan dotsContainer ada sebelum query
+        if (dotsContainer) { 
             document.querySelectorAll('.slide-dots .dot').forEach(dot => dot.classList.remove('active'));
         }
 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slides[index].style.opacity = '1';
         slides[index].style.transform = 'scale(1)';
 
-        if (dotsContainer) { // Pastikan dotsContainer ada sebelum query
+        if (dotsContainer) {
             const dots = document.querySelectorAll('.slide-dots .dot');
             if (dots[index]) {
                 dots[index].classList.add('active');
@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         startSlideShow();
     }
 
-    // --- Observer untuk Animasi Reveal Bagian ---
     const revealElements = document.querySelectorAll('.about-image-content, .category-card, .game-option');
 
     const observerOptions = {
@@ -112,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (entry.target.classList.contains('category-card')) {
                     entry.target.classList.add('reveal-card');
                 } else if (entry.target.classList.contains('game-option')) {
-                     entry.target.classList.add('reveal-card'); // Menggunakan kelas yang sama untuk animasi
+                     entry.target.classList.add('reveal-card'); 
                 }
                 observer.unobserve(entry.target);
             }

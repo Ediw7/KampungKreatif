@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const kulinerGrid = document.querySelector('.kuliner-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
-    // Pastikan elemen ditemukan
+
     if (!kulinerGrid) {
         console.error('Element .kuliner-grid not found!');
         return;
@@ -44,10 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Fungsi untuk menampilkan daftar toko
     function displayToko(category = 'all') {
         console.log('Displaying toko for category:', category);
-        kulinerGrid.innerHTML = ''; // Kosongkan grid sebelum menampilkan
+        kulinerGrid.innerHTML = '';
 
         const filteredData = category === 'all' ? tokoData : tokoData.filter(toko => toko.category === category);
 
@@ -68,11 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="description">${toko.description}</p>
                 </div>
             `;
-            // Tambahkan class reveal-item dengan delay untuk animasi berurutan
+        
             setTimeout(() => {
                 tokoCard.classList.add('reveal-item');
-            }, index * 200); // Delay 200ms per card
-            // Klik card untuk redirect ke toko.html
+            }, index * 200); 
             tokoCard.addEventListener('click', () => {
                 console.log('Redirecting to toko.html for:', toko.id);
                 window.location.href = `toko.html?id=${toko.id}`;
@@ -81,10 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inisialisasi: Tampilkan semua toko
+
     displayToko();
 
-    // Event listener untuk filter
+
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             console.log('Filter button clicked:', button.dataset.category);

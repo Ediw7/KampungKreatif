@@ -61,11 +61,11 @@
 .section-title::after {
     content: "";
     display: block;
-    width: 60px; /* panjang garis bisa kamu sesuaikan */
+    width: 60px; 
     height: 3px;
-    background-color: var(--color-accent); /* sesuaikan dengan warna aksenmu */
+    background-color: var(--color-accent); 
     margin-top: 0.5rem;
-    margin-left: 0; /* pastikan garis dimulai dari kiri */
+    margin-left: 0; 
 }
 #product-list .section-title {
     text-align: center;
@@ -76,13 +76,13 @@
 #product-list .section-title::after {
     content: "";
     display: block;
-    width: 60px; /* panjang garis bawah */
+    width: 60px; 
     height: 3px;
-    background-color: var(--color-accent); /* warna garis */
-    margin: 0.5rem auto 0 auto; /* membuat garis berada di tengah */
+    background-color: var(--color-accent); 
+    margin: 0.5rem auto 0 auto; 
 }
 
-/* Tentang UMKM Section */
+
 #about-umkm {
     padding: var(--spacing-lg) 0;
 }

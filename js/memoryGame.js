@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const memoryContainer = document.querySelector('.memory-container');
     const memoryResult = document.querySelector('.memory-result');
 
-    // Daftar gambar (8 pasang untuk grid 4x4)
     const images = [
         'https://via.placeholder.com/100x100?text=Angklung',
         'https://via.placeholder.com/100x100?text=Batik',
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let matchedPairs = 0;
     const totalPairs = images.length;
 
-    // Fungsi untuk mengacak array
+
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return array;
     }
 
-    // Inisialisasi game
     function initializeGame() {
         cards = [];
         flippedCards = [];
@@ -42,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
         memoryContainer.style.display = 'block';
         memoryResult.style.display = 'none';
 
-        // Buat array kartu (duplikat setiap gambar untuk pasangan)
+
         const cardImages = [...images, ...images];
         shuffle(cardImages);
 
-        // Buat elemen kartu
+
         cardImages.forEach((image, index) => {
             const card = document.createElement('div');
             card.classList.add('memory-card');
@@ -75,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fungsi untuk membalik kartu
+
     function flipCard(card) {
         if (flippedCards.length < 2 && !flippedCards.includes(card) && !card.classList.contains('matched')) {
             const cardInner = card.querySelector('.card-inner');
@@ -88,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Fungsi untuk memeriksa kecocokan
     function checkMatch() {
         const [card1, card2] = flippedCards;
         if (card1.dataset.image === card2.dataset.image) {
@@ -109,16 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Fungsi untuk mengakhiri game
     function endGame() {
         memoryContainer.style.display = 'none';
         memoryResult.style.display = 'block';
     }
 
-    // Event listener untuk tombol restart
+
     restartMemoryBtn.addEventListener('click', initializeGame);
     restartResultBtn.addEventListener('click', initializeGame);
 
-    // Inisialisasi game saat pertama kali dimuat
     initializeGame();
 });

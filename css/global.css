@@ -1,26 +1,25 @@
 /* css/global.css */
 
 :root {
-    /* Color Palette - Adjusted for a predominantly white background */
-    --color-primary: #3d6a40; /* Darker Green - Represents nature, tradition (still good for accents) */
-    --color-secondary: #9e5b29; /* Richer Brown - Earthiness, craftsmanship (still good for accents) */
-    --color-text-dark: #1a1a1a; /* Very dark text for contrast on white */
-    --color-text-light: #ffffff; /* Pure white (for text on dark gradients/images only) */
-    --color-text-secondary: #666666; /* Medium grey for secondary text on white */
-    --color-dark-bg: #fdfaf5; /* Now the main background is light creamy off-white */
-    --color-light-bg: #ffffff; /* Pure white for card backgrounds, sections etc. */
-    --color-border-dark: #e0e0e0; /* Lighter border for consistency on light backgrounds */
-    --color-subtle-border: #f0f0f0; /* Even lighter border */
+    
+    --color-primary: #3d6a40; 
+    --color-secondary: #9e5b29; 
+    --color-text-dark: #1a1a1a;
+    --color-text-light: #ffffff;
+    --color-text-secondary: #666666; 
+    --color-light-bg: #fffffe;
+    --color-dark-bg: #fdfaf5;
+    --color-border-dark: #e0e0e0; 
+    --color-subtle-border: #f0f0f0; 
 
-    /* Gradients - Still useful for accents and interactive elements */
+  
     --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-    --gradient-text-hero: linear-gradient(45deg, #9e5b29, #3d6a40, #e5c100); /* Blend of primary, secondary, accent */
+    --gradient-text-hero: linear-gradient(45deg, #9e5b29, #3d6a40, #e5c100); 
 
     /* Fonts */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
 
-    /* Spacing Scale - Consistent and flexible */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
@@ -28,11 +27,11 @@
     --spacing-xl: 4rem;
     --spacing-xxl: 6rem;
 
-    /* Other Variables */
+
     --border-radius-sm: 8px;
     --border-radius-md: 15px;
     --transition-speed: 0.4s;
-    --shadow-soft: rgba(0, 0, 0, 0.08); /* Lighter shadows for white backgrounds */
+    --shadow-soft: rgba(0, 0, 0, 0.08); 
     --shadow-medium: rgba(0, 0, 0, 0.15);
     --shadow-strong: rgba(0, 0, 0, 0.25);
 }
@@ -51,14 +50,14 @@ html {
 body {
     font-family: var(--font-body);
     line-height: 1.6;
-    color: var(--color-text-dark); /* Default text is dark */
-    background-color: var(--color-dark-bg); /* Main background is now light creamy off-white */
+    color: var(--color-text-dark); 
+    background-color: var(--color-dark-bg); 
     overflow-x: hidden;
 }
 
 a {
     text-decoration: none;
-    color: var(--color-primary); /* Default link color (dark green) */
+    color: var(--color-primary); 
 }
 
 img {
@@ -91,7 +90,7 @@ img {
     font-weight: 700;
     text-align: center;
     margin-bottom: var(--spacing-sm);
-    color: var(--color-text-dark); /* Dark text on light background */
+    color: var(--color-text-dark);
     position: relative;
 }
 .section-title::after {
@@ -99,7 +98,7 @@ img {
     display: block;
     width: 90px;
     height: 5px;
-    background: var(--gradient-primary); /* Primary gradient for underline */
+    background: var(--gradient-primary); 
     margin: var(--spacing-xs) auto 0;
     border-radius: 3px;
 }
@@ -109,7 +108,7 @@ img {
     text-align: center;
     max-width: 800px;
     margin: 0 auto var(--spacing-lg);
-    color: var(--color-text-secondary); /* Softer grey for description */
+    color: var(--color-text-secondary);
     line-height: 1.7;
 }
 
@@ -118,7 +117,7 @@ img {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent; /* Fallback */
+    color: transparent;
     display: inline-block;
 }
 
@@ -127,7 +126,7 @@ img {
     display: inline-block;
     padding: 1rem 2.2rem;
     background: var(--gradient-primary);
-    color: var(--color-text-light); /* Light text on dark button */
+    color: var(--color-text-light); 
     border-radius: 50px;
     font-weight: 600;
     font-size: 1.05rem;
@@ -152,7 +151,7 @@ img {
 }
 .outline-button:hover {
     background: var(--gradient-primary);
-    color: var(--color-text-dark); /* Dark text on light accent background */
+    color: var(--color-text-dark);
     box-shadow: 0 4px 15px var(--shadow-soft);
 }
 
@@ -161,9 +160,9 @@ img {
     position: fixed;
     top: 0;
     width: 100%;
-    background: var(--color-light-bg); /* Now a pure white header */
+    background: var(--color-light-bg); 
     z-index: 1000;
-    border-bottom: 1px solid var(--color-border-dark); /* Lighter border */
+    border-bottom: 1px solid var(--color-border-dark);
     transition: all 0.3s ease;
 }
 
@@ -181,10 +180,10 @@ img {
     font-size: 2.1rem;
     font-weight: 700;
     text-decoration: none;
-    color: var(--color-text-dark); /* Dark text for brand on white header */
+    color: var(--color-text-dark); 
     letter-spacing: -0.5px;
 }
-.brand-dark { /* This might be redundant now if all headers are light */
+.brand-dark { 
     color: var(--color-text-dark);
 }
 
@@ -195,7 +194,7 @@ img {
 }
 
 .nav-link {
-    color: var(--color-text-dark); /* Dark text for navigation links */
+    color: var(--color-text-dark);
     text-decoration: none;
     font-weight: 500;
     padding: 0.6rem 1.2rem;
@@ -225,11 +224,11 @@ img {
 
 
 .nav-link:hover {
-    color: var(--color-primary); /* Text color changes to primary green on hover */
+    color: var(--color-primary); 
     background: none;
 }
 .nav-link.active {
-    color: var(--color-primary); /* Active text color is primary green */
+    color: var(--color-primary); 
     background: none;
 }
 
@@ -250,7 +249,7 @@ img {
 .menu-toggle span {
     width: 100%;
     height: 3px;
-    background: var(--color-text-dark); /* Dark lines for hamburger */
+    background: var(--color-text-dark);
     border-radius: 2px;
     transition: all 0.3s ease-in-out;
 }
@@ -267,8 +266,8 @@ img {
 
 /* --- Footer (Global Styles) --- */
 .main-footer {
-    background-color: var(--color-light-bg); /* White background for footer */
-    color: var(--color-text-dark); /* Dark text */
+    background-color: var(--color-light-bg);
+    color: var(--color-text-dark); 
     padding: var(--spacing-md) 0;
     border-top: 1px solid var(--color-border-dark);
 }
@@ -293,7 +292,7 @@ img {
 .footer-socials a {
     width: 38px;
     height: 38px;
-    background: var(--gradient-primary); /* Primary gradient for social icons */
+    background: var(--gradient-primary); 
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -307,7 +306,7 @@ img {
     box-shadow: 0 6px 15px var(--shadow-medium);
 }
 .footer-socials a img {
-    filter: brightness(0) invert(1); /* Keeps SVG white on dark background */
+    filter: brightness(0) invert(1); 
     width: 20px;
     height: 20px;
 }
@@ -320,8 +319,8 @@ img {
     right: var(--spacing-md);
     width: 55px;
     height: 55px;
-    background: var(--gradient-primary); /* Accent gradient */
-    color: var(--color-text-light); /* Dark text on light button */
+    background: var(--gradient-primary); 
+    color: var(--color-light-bg); 
     border: none;
     border-radius: 50%;
     font-size: 1.5rem;
@@ -343,8 +342,8 @@ img {
 .scroll-to-top-btn:hover {
     transform: translateY(-5px) scale(1.1);
     box-shadow: 0 8px 25px var(--shadow-strong);
-    background: var(--gradient-primary); /* Change gradient on hover */
-    color: var(--color-text-light); /* Light text on primary gradient */
+    background: var(--gradient-primary); 
+    color: var(--color-text-light); 
 }
 
 
@@ -375,13 +374,13 @@ img {
 
 @media (max-width: 768px) {
     .navbar-nav {
-        display: none; /* Sembunyikan secara default untuk mobile */
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 80px; /* Sesuaikan dengan tinggi header Anda */
+        top: 80px; 
         left: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.98); /* Latar belakang menu mobile */
+        background-color: rgba(255, 255, 255, 0.98); 
         box-shadow: 0 10px 20px var(--shadow-medium);
         padding: var(--spacing-md) 0;
         border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
@@ -392,8 +391,8 @@ img {
         border-bottom: 1px solid var(--color-border-dark);
     }
     .navbar-nav.open {
-        display: flex; /* Tampilkan saat aktif */
-        transform: translateY(0); /* Geser ke posisi normal */
+        display: flex; 
+        transform: translateY(0);
         opacity: 1;
     }
     .navbar-nav li {
@@ -403,13 +402,13 @@ img {
     .nav-link {
         padding: 0.8rem 0;
         font-size: 1.15rem;
-        color: var(--color-text-dark); /* Dark text for mobile links */
+        color: var(--color-text-dark); 
     }
     .menu-toggle {
-        display: flex; /* Tampilkan tombol hamburger */
+        display: flex; 
     }
     .menu-toggle span {
-        background: var(--color-text-dark); /* Dark lines for hamburger */
+        background: var(--color-text-dark); 
     }
 
     .section-padding {

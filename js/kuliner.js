@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const kulinerGrid = document.querySelector('.kuliner-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
-    // Pastikan elemen ditemukan
+  
     if (!kulinerGrid) {
         console.error('Element .kuliner-grid not found!');
         return;
@@ -44,10 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Fungsi untuk menampilkan daftar warung
     function displayWarung(category = 'all') {
         console.log('Displaying warung for category:', category);
-        kulinerGrid.innerHTML = ''; // Kosongkan grid sebelum menampilkan
+        kulinerGrid.innerHTML = ''; 
 
         const filteredData = category === 'all' ? warungData : warungData.filter(warung => warung.category === category);
 
@@ -68,11 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="description">${warung.description}</p>
                 </div>
             `;
-            // Tambahkan class reveal-item dengan delay untuk animasi berurutan
+          
             setTimeout(() => {
                 warungCard.classList.add('reveal-item');
-            }, index * 200); // Delay 200ms per card
-            // Klik card untuk redirect ke warung.html
+            }, index * 200); 
             warungCard.addEventListener('click', () => {
                 console.log('Redirecting to warung.html for:', warung.id);
                 window.location.href = `warung.html?id=${warung.id}`;
@@ -81,10 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inisialisasi: Tampilkan semua warung
     displayWarung();
 
-    // Event listener untuk filter
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             console.log('Filter button clicked:', button.dataset.category);

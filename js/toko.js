@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const tokoId = urlParams.get('id');
 
-    // Data Produk Kerajinan (hanya Anyaman sebagai contoh berdasarkan tokoId)
+  
     const kerajinanData = {
         'sanggar-anyaman': [
             {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
        
     };
 
-    // Data Toko berdasarkan ID
+ 
     const tokoInfo = {
         'sanggar-anyaman': {
             name: 'Sanggar Anyaman Lestari',
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Set informasi toko
+
     if (tokoId && tokoInfo[tokoId]) {
         document.getElementById('toko-name').textContent = tokoInfo[tokoId].name;
         document.getElementById('toko-description').textContent = tokoInfo[tokoId].description;
@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Toko ID tidak valid atau tidak ditemukan:', tokoId);
     }
 
-    // Tampilkan produk berdasarkan tokoId
     function displayProducts() {
         console.log('Displaying products for tokoId:', tokoId);
         productGrid.innerHTML = '';
@@ -108,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 productCard.addEventListener('click', () => openModal(product));
                 productGrid.appendChild(productCard);
 
-                // Animasi reveal
                 const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -125,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Fungsi Buka Modal
     function openModal(product) {
         modalImage.src = product.image;
         modalImage.alt = product.name;
@@ -140,22 +137,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
     }
 
-    // Fungsi Tutup Modal
     function closeModal() {
         productModal.classList.remove('active');
         document.body.style.overflow = '';
     }
 
-    // Event listener untuk tombol tutup
     closeButton.addEventListener('click', closeModal);
 
-    // Tutup Modal saat klik di luar
     window.addEventListener('click', (event) => {
         if (event.target === productModal) {
             closeModal();
         }
     });
 
-    // Inisialisasi: Tampilkan produk
+
     displayProducts();
 });

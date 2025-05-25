@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBookingLink = document.getElementById('modal-booking-link');
 
 
-    // Data Layanan/Jasa
+  
     const jasaData = [
         {
             id: 'tur-desa',
@@ -99,37 +99,37 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             bookingLink: 'mailto:booking@kampungwisata.com?subject=Pemesanan Pertunjukan Wayang Kulit'
         }
-        // Tambahkan lebih banyak layanan/jasa di sini...
+        // Tambahkan lebih banyak jasa di sini...
     ];
 
-    // Data Fitur "Mengapa Memilih Kami"
+
     const whyChooseUsData = [
         {
-            icon: 'images/icon_authentic.png', // Ganti dengan ikon yang sesuai
+            icon: 'images/icon_authentic.png',
             title: 'Pengalaman Autentik',
             description: 'Kami menawarkan pengalaman yang benar-benar asli, jauh dari keramaian turis biasa.'
         },
         {
-            icon: 'images/icon_local_guide.png', // Ganti dengan ikon yang sesuai
+            icon: 'images/icon_local_guide.png', 
             title: 'Dipandu Ahli Lokal',
             description: 'Pemandu dan pengajar kami adalah penduduk asli yang memiliki pengetahuan mendalam.'
         },
         {
-            icon: 'images/icon_community.png', // Ganti dengan ikon yang sesuai
+            icon: 'images/icon_community.png', 
             title: 'Dampak Komunitas',
             description: 'Setiap pemesanan Anda secara langsung mendukung UMKM dan komunitas lokal.'
         },
         {
-            icon: 'images/icon_personalized.png', // Ganti dengan ikon yang sesuai
+            icon: 'images/icon_personalized.png',
             title: 'Layanan Personalisasi',
             description: 'Kami melayani dengan sepenuh hati, siap menyesuaikan pengalaman sesuai kebutuhan Anda.'
         }
     ];
 
 
-    // Fungsi untuk menampilkan item jasa ke dalam grid
+  
     function displayJasaItems(category = 'all') {
-        jasaGrid.innerHTML = ''; // Bersihkan grid sebelumnya
+        jasaGrid.innerHTML = ''; 
         const filteredData = category === 'all'
             ? jasaData
             : jasaData.filter(item => item.category === category);
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.classList.add('jasa-card');
             card.dataset.id = item.id;
-            card.style.animationDelay = `${index * 0.1}s`; // Stagger animation
+            card.style.animationDelay = `${index * 0.1}s`; 
 
             card.innerHTML = `
                 <img src="${item.image}" alt="${item.name}">
@@ -150,11 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             jasaGrid.appendChild(card);
 
-            // Tambahkan event listener untuk membuka modal
+       
             card.addEventListener('click', () => openJasaModal(item));
         });
 
-        // Inisialisasi animasi reveal untuk item yang baru ditampilkan
+
         const revealElements = document.querySelectorAll('.jasa-card');
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, observer) => {
@@ -168,9 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => observer.observe(el));
     }
 
-    // Fungsi untuk menampilkan fitur "Mengapa Memilih Kami"
     function displayWhyChooseUsFeatures() {
-        whyChooseUsGrid.innerHTML = ''; // Bersihkan grid
+        whyChooseUsGrid.innerHTML = ''; 
 
         whyChooseUsData.forEach((feature, index) => {
             const featureCard = document.createElement('div');
@@ -185,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
             whyChooseUsGrid.appendChild(featureCard);
         });
 
-        // Inisialisasi animasi reveal untuk kartu fitur
         const revealFeatures = document.querySelectorAll('.feature-card');
         const featureObserverOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const featureObserver = new IntersectionObserver((entries, observer) => {
@@ -200,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Fungsi untuk membuka modal detail jasa
+
     function openJasaModal(item) {
         modalImage.src = item.image;
         modalImage.alt = item.name;
@@ -210,27 +208,26 @@ document.addEventListener('DOMContentLoaded', () => {
         modalFullDescriptionText.textContent = item.fullDescription;
         modalDuration.textContent = item.duration;
         modalInclusions.textContent = item.inclusions;
-        modalExclusions.textContent = item.exclusions || 'Tidak ada'; // Handle jika tidak ada exclusions
+        modalExclusions.textContent = item.exclusions || 'Tidak ada';
 
-        // Info Pemandu/Pengajar
         modalGuideName.textContent = `Pemandu/Pengajar: ${item.guide.name}`;
         modalGuideBio.textContent = item.guide.bio;
         modalGuideContact.textContent = `Kontak: ${item.guide.contact}`;
 
-        // Link Booking
+      
         modalBookingLink.href = item.bookingLink;
 
         jasaModal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
-    // Fungsi untuk menutup modal
+   
     function closeJasaModal() {
         jasaModal.classList.remove('active');
         document.body.style.overflow = '';
     }
 
-    // Event listener untuk tombol filter kategori
+   
     jasaFilterButtons.forEach(button => {
         button.addEventListener('click', () => {
             jasaFilterButtons.forEach(btn => btn.classList.remove('active'));
@@ -240,17 +237,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Event listener untuk tombol tutup modal (x)
+
     closeButton.addEventListener('click', closeJasaModal);
 
-    // Event listener untuk menutup modal jika klik di luar area modal
+
     window.addEventListener('click', (event) => {
         if (event.target === jasaModal) {
             closeJasaModal();
         }
     });
 
-    // Inisialisasi: Tampilkan semua item jasa dan fitur saat halaman dimuat
+ 
     displayJasaItems('all');
     displayWhyChooseUsFeatures();
 });

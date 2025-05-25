@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingForm = document.getElementById('booking-form');
     const processBookingBtn = document.getElementById('process-booking-btn');
 
-    // Data Acara Mendatang
+
     const upcomingEvents = [
         {
             id: 'festival-seni-kuliner',
@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Data Galeri Acara Terdahulu
     const pastEvents = [
         {
             title: 'Festival Kuliner 2024',
@@ -78,10 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Variabel untuk menyimpan acara yang sedang dipilih
     let selectedEvent = null;
 
-    // Fungsi untuk menampilkan acara mendatang
     function displayEvents(filter = 'all') {
         console.log('Displaying events for filter:', filter);
         eventGrid.innerHTML = '';
@@ -107,14 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
             eventCard.addEventListener('click', () => openAcaraModal(event));
             eventGrid.appendChild(eventCard);
 
-            // Animasi reveal
             setTimeout(() => {
                 eventCard.classList.add('reveal-item');
             }, index * 200);
         });
     }
 
-    // Fungsi untuk menampilkan galeri acara terdahulu
     function displayPastEvents() {
         pastEvents.forEach((event, index) => {
             const galleryItem = document.createElement('div');
@@ -127,14 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             pastEventGalleryGrid.appendChild(galleryItem);
 
-            // Animasi reveal
             setTimeout(() => {
                 galleryItem.classList.add('reveal-item');
             }, index * 200);
         });
     }
 
-    // Fungsi untuk membuka modal acara
     function openAcaraModal(event) {
         selectedEvent = event;
         document.getElementById('modal-event-image').src = event.image;
@@ -150,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
     }
 
-    // Fungsi untuk membuka modal konfirmasi pemesanan
     function openBookingConfirmModal(quantity) {
         document.getElementById('confirm-event-name').textContent = selectedEvent.title;
         const ticketQuantityInput = document.getElementById('ticket-quantity');
@@ -161,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
         bookingConfirmModal.classList.add('active');
     }
 
-    // Fungsi untuk menutup modal
     function closeModal(modal) {
         modal.classList.remove('active');
         document.body.style.overflow = '';
@@ -169,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('booking-message-final').textContent = '';
     }
 
-    // Event listener untuk filter
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -179,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Event listener untuk form pemesanan
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const quantity = parseInt(document.getElementById('booking-quantity').value);
@@ -190,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         openBookingConfirmModal(quantity);
     });
 
-    // Event listener untuk proses pemesanan
+
     processBookingBtn.addEventListener('click', () => {
         const name = document.getElementById('booking-name').value.trim();
         const email = document.getElementById('booking-email').value.trim();
@@ -206,7 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Simulasi proses pemesanan
         setTimeout(() => {
             document.getElementById('booking-message-final').textContent = `Pemesanan untuk ${quantity} tiket ${selectedEvent.title} berhasil! Detail telah dikirim ke ${email}.`;
             document.getElementById('booking-name').value = '';
@@ -215,14 +203,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     });
 
-    // Event listener untuk tombol tutup modal
+
     closeButtons.forEach(button => {
         button.addEventListener('click', () => {
             closeModal(button.closest('.acara-modal') || button.closest('.event-modal'));
         });
     });
 
-    // Tutup modal saat klik di luar
+
     window.addEventListener('click', (event) => {
         if (event.target === acaraModal) {
             closeModal(acaraModal);
@@ -232,7 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Inisialisasi
     displayEvents();
     displayPastEvents();
 });

@@ -101,7 +101,7 @@
     padding: var(--spacing-lg);
     box-shadow: 0 10px 40px var(--shadow-medium);
     margin-bottom: var(--spacing-lg);
-    display: none; /* Awalnya disembunyikan */
+    display: none; 
 }
 
 .quiz-start {
@@ -154,7 +154,7 @@
 }
 
 .quiz-option .option-text {
-    color: #ffffff; /* Teks selalu terlihat putih sebagai default */
+    color: #ffffff; 
     font-size: 1.1rem;
     text-align: left;
     flex-grow: 1;
@@ -192,7 +192,7 @@
 }
 
 .quiz-option.correct .option-text {
-    color: #ffffff; /* Teks tetap putih saat benar */
+    color: #ffffff; 
 }
 
 .quiz-option.incorrect {
@@ -201,7 +201,7 @@
 }
 
 .quiz-option.incorrect .option-text {
-    color: #ffffff; /* Teks tetap putih saat salah */
+    color: #ffffff;
 }
 
 .quiz-controls {
@@ -220,7 +220,7 @@
     cursor: pointer;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    display: none; /* Awalnya disembunyikan */
+    display: none;
 }
 
 #next-question-btn:hover, #finish-quiz-btn:hover {

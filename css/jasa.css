@@ -39,10 +39,10 @@
     margin-bottom: 1rem;
     line-height: 1.1;
     letter-spacing: -1.5px;
-    background: var(--color-dark-bg); /* Gunakan gradien dari global.css */
+    background: var(--color-dark-bg); 
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; /* Hapus color fallback, gunakan gradien */
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-jasa .hero-subtitle {
@@ -53,7 +53,7 @@
     letter-spacing: 0.5px;
 }
 
-/* Animasi */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -65,7 +65,7 @@
     }
 }
 
-/* Jasa Filters */
+
 .jasa-filters {
     text-align: center;
     margin-bottom: var(--spacing-lg);
@@ -101,10 +101,10 @@
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
-/* Jasa Grid */
+
 .jasa-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 kolom desktop */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
 }
 
@@ -118,10 +118,10 @@
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     border: 1px solid var(--color-subtle-border);
     cursor: pointer;
-    transform: translateY(20px); /* Untuk animasi reveal */
-    opacity: 0; /* Untuk animasi reveal */
+    transform: translateY(20px); 
+    opacity: 0; 
 }
-.jasa-card.reveal-item { /* Class added by JS for animation */
+.jasa-card.reveal-item { 
     transform: translateY(0);
     opacity: 1;
 }
@@ -133,11 +133,11 @@
 
 .jasa-card img {
     width: 100%;
-    height: 200px; /* Tinggi gambar konsisten */
+    height: 200px;
     object-fit: cover;
     display: block;
     transition: transform 0.6s ease;
-    border-bottom: 5px solid var(--color-accent); /* Border utama untuk jasa */
+    border-bottom: 5px solid var(--color-accent); 
 }
 
 .jasa-card:hover img {
@@ -162,7 +162,7 @@
 .jasa-card-content .price {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--color-text-dark); /* Harga jasa pakai warna sekunder */
+    color: var(--color-text-dark); 
     margin-bottom: 0.5rem;
 }
 
@@ -177,7 +177,7 @@
     text-overflow: ellipsis;
 }
 
-/* Why Choose Us Section */
+
 .why-choose-us-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -186,26 +186,26 @@
 }
 
 .feature-card {
-    background-color: var(--color-dark-bg); /* Creamy off-white background */
+    background-color: var(--color-dark-bg); 
     border-radius: var(--border-radius-md);
     box-shadow: 0 8px 30px var(--shadow-medium);
     overflow: hidden;
     border: 1px solid var(--color-subtle-border);
     padding: var(--spacing-md);
     text-align: center;
-    transform: translateY(20px); /* Untuk animasi reveal */
-    opacity: 0; /* Untuk animasi reveal */
+    transform: translateY(20px);
+    opacity: 0; 
     transition: transform 0.6s ease-out, opacity 0.6s ease-out;
 }
 .feature-card.reveal-item {
     transform: translateY(0);
     opacity: 1;
 }
-.feature-card:nth-child(even).reveal-item { /* Slight delay for even cards for visual flair */
+.feature-card:nth-child(even).reveal-item { 
     transition-delay: 0.1s;
 }
 
-.feature-card img { /* Untuk ikon atau gambar fitur */
+.feature-card img {
     max-width: 80px;
     height: auto;
     display: block;
@@ -226,7 +226,7 @@
     line-height: 1.6;
 }
 
-/* Modal Styles (Mirip dengan Kuliner/Kerajinan, disesuaikan untuk Jasa) */
+
 .jasa-modal {
     display: none;
     position: fixed;
@@ -288,7 +288,7 @@
 .modal-content h3 {
     font-family: var(--font-heading);
     font-size: 2.5rem;
-    color: var(--color-secondary); /* Warna sekunder untuk judul jasa */
+    color: var(--color-secondary); 
     margin-bottom: var(--spacing-xs);
 }
 
@@ -333,9 +333,9 @@
 }
 
 .modal-cta-booking .cta-button {
-    margin: var(--spacing-sm) auto; /* Tombol di tengah */
-    display: block; /* Agar cta-button berlaku sebagai block dan margin auto berfungsi */
-    max-width: 250px; /* Batasi lebar tombol */
+    margin: var(--spacing-sm) auto; 
+    display: block; 
+    max-width: 250px; 
 }
 .modal-cta-booking .small-text {
     font-size: 0.8rem;
@@ -343,7 +343,7 @@
     margin-top: var(--spacing-xs);
 }
 
-/* Animasi Tambahan */
+
 @keyframes slideInFromTop {
     from {
         transform: translateY(-20px);
@@ -364,7 +364,7 @@
     }
 }
 
-/* Responsive Styles for Jasa Page */
+
 @media (max-width: 1024px) {
     .hero-jasa .hero-title {
         font-size: 3.5rem;

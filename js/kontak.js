@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Kontak page JavaScript loaded.');
 
-    // Inisialisasi Peta Leaflet
+
     const map = L.map('map').setView([-7.800, 110.370], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Fungsi untuk menampilkan daftar UMKM dan menambahkan marker ke peta
     function displayUmkm() {
         console.log('Displaying UMKM data...');
         umkmData.forEach(umkm => {

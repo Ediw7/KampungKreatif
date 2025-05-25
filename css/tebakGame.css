@@ -51,7 +51,7 @@
     letter-spacing: 0.5px;
 }
 
-/* Animasi */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -63,7 +63,7 @@
     }
 }
 
-/* Tebak Game Area */
+
 #tebak-game-area {
     padding: var(--spacing-lg) 0;
 }
@@ -130,7 +130,7 @@
     border: 2px solid var(--color-subtle-border);
     width: 250px;
     background-color: var(--color-dark-bg);
-    color: #000; /* Pastikan teks putih dengan prioritas tinggi */
+    color: #000; 
 }
 
 .answer-select:focus {
@@ -143,9 +143,9 @@
     background-color: var(--color-dark-bg) 
 }
 
-/* Gunakan pseudo-element untuk mendukung browser */
+
 .answer-select::-ms-expand {
-    display: none; /* Hilangkan panah default di IE */
+    display: none; 
 }
 
 #submit-answer-btn {

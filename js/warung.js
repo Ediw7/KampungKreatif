@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalIngredients = document.getElementById('modal-ingredients');
     const modalBookingLink = document.getElementById('modal-booking-link');
 
-    // Data untuk Warung Gudeg Bu Sari
+
     const warungData = {
         name: 'Warung Gudeg Bu Sari',
         image: 'https://www.masakapahariini.com/wp-content/uploads/2021/08/Gudeg-Yogyakarta.jpg',
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 description: 'Gudeg dengan nasi, ayam kampung, telur, dan krecek.',
                 ingredients: ['Nangka muda', 'Kelapa', 'Ayam', 'Telur', 'Cabai'],
                 price: 'Rp 25.000',
-                contact: '6281234567890' // Nomor WhatsApp contoh
+                contact: '6281234567890'
             },
             {
                 name: 'Gudeg Solo',
@@ -42,11 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
 
-    // Tampilkan Produk dengan Animasi Reveal
     warungData.products.forEach((product, index) => {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
-        productCard.style.animationDelay = `${index * 0.1}s`; // Stagger animation
+        productCard.style.animationDelay = `${index * 0.1}s`; 
         productCard.innerHTML = `
             <img src="${product.image}" alt="${product.name}" class="product-image">
             <div class="product-content">
@@ -58,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         productCard.addEventListener('click', () => openModal(product));
         productGrid.appendChild(productCard);
 
-        // Animasi reveal menggunakan Intersection Observer
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -71,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(productCard);
     });
 
-    // Fungsi Buka Modal
     function openModal(product) {
         modalImage.src = product.image;
         modalImage.alt = product.name;
@@ -84,16 +81,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
     }
 
-    // Fungsi Tutup Modal
     function closeModal() {
         productModal.classList.remove('active');
         document.body.style.overflow = '';
     }
 
-    // Event listener untuk tombol tutup
+
     closeButton.addEventListener('click', closeModal);
 
-    // Tutup Modal saat klik di luar
+
     window.addEventListener('click', (event) => {
         if (event.target === productModal) {
             closeModal();
