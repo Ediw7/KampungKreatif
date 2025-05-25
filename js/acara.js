@@ -1,361 +1,238 @@
-// js/acara.js (Konten ini TIDAK BERUBAH dari respons sebelumnya)
-
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Acara page JavaScript loaded.');
 
     const eventGrid = document.querySelector('.event-grid');
-    const filterButtons = document.querySelectorAll('.event-filters .filter-btn');
-    const pastEventsGallery = document.querySelector('#past-events-gallery .past-event-gallery-grid'); // Fixed selector in JS
-
-    const eventDetailModal = document.getElementById('event-detail-modal');
+    const pastEventGalleryGrid = document.querySelector('.past-event-gallery-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const acaraModal = document.getElementById('acara-modal');
     const bookingConfirmModal = document.getElementById('booking-confirm-modal');
-
-    // Detail Modal Elements
-    const detailModalCloseButtons = document.querySelectorAll('.event-modal .close-button');
-    const modalEventImage = document.getElementById('modal-event-image');
-    const modalEventTitle = document.getElementById('modal-event-title');
-    const modalEventCategory = document.getElementById('modal-event-category');
-    const modalEventDate = document.getElementById('modal-event-date');
-    const modalEventTime = document.getElementById('modal-event-time');
-    const modalEventLocation = document.getElementById('modal-event-location');
-    const modalEventPrice = document.getElementById('modal-event-price');
-    const modalEventFullDescription = document.getElementById('modal-event-full-description');
-    const modalEventOrganizerName = document.getElementById('modal-event-organizer-name');
-    const modalEventOrganizerContact = document.getElementById('modal-event-organizer-contact');
-    const bookTicketBtn = document.getElementById('book-ticket-btn');
-
-    // Booking Confirm Modal Elements
-    const confirmEventName = document.getElementById('confirm-event-name');
-    const ticketQuantityInput = document.getElementById('ticket-quantity');
-    const confirmTotalPrice = document.getElementById('confirm-total-price');
-    const bookingNameInput = document.getElementById('booking-name');
-    const bookingEmailInput = document.getElementById('booking-email');
+    const closeButtons = document.querySelectorAll('.close-button');
+    const bookingForm = document.getElementById('booking-form');
     const processBookingBtn = document.getElementById('process-booking-btn');
-    const bookingMessage = document.getElementById('booking-message'); // This ID is in the first modal form-message. The second modal form-message is bookingMessageFinal. Let's make sure to use the correct one for the *second* modal.
 
-    let currentSelectedEvent = null; // Store event data for booking
-
-    // Data Acara & Festival
-    const eventData = [
+    // Data Acara Mendatang
+    const upcomingEvents = [
         {
-            id: 'festival-budaya',
-            title: 'Festival Budaya Kampung',
+            id: 'festival-seni-kuliner',
+            title: 'Festival Seni & Kuliner Tradisional',
             category: 'festival',
-            image: 'images/festival_budaya_kampung.jpg', // Pastikan gambar ini ada
+            image: 'https://wallpapercave.com/wp/wp4223905.jpg',
             date: '28 Juli 2025',
-            time: '09:00 - 22:00 WIB',
+            time: '08:00 - 17:00 WIB',
             location: 'Lapangan Utama Kampung',
-            price: 'Gratis', // Ini bisa jadi string 'Gratis' atau 'Rp. XXXXX'
-            shortDescription: 'Perayaan budaya tahunan dengan tari, musik, kuliner, dan kerajinan.',
-            fullDescription: 'Festival Budaya Kampung adalah puncak perayaan identitas dan warisan kami. Acara ini menampilkan beragam pertunjukan tari tradisional, musik daerah, pameran kerajinan tangan dari UMKM lokal, dan pasar kuliner yang menyajikan hidangan autentik. Jangan lewatkan juga workshop interaktif seperti membatik dan menganyam yang sebagian berbayar. Ajak keluarga dan teman untuk merasakan kemeriahan budaya yang tak terlupakan!',
-            organizer: { name: 'Panitia Adat Kampung', contact: 'panitia.adat@example.com' }
+            price: 50000,
+            description: 'Nikmati perpaduan memukau antara pertunjukan seni tradisional, pameran kerajinan tangan, dan aneka hidangan kuliner khas yang menggugah selera. Acara ini terbuka untuk umum dan menjanjikan pengalaman budaya yang tak terlupakan bagi seluruh keluarga.'
         },
         {
-            id: 'pertunjukan-wayang',
-            title: 'Pertunjukan Wayang Kulit "Arjuna"',
+            id: 'pertunjukan-tari',
+            title: 'Pertunjukan Tari Kecak',
             category: 'pertunjukan',
-            image: 'images/pertunjukan_wayang_kulit.jpg', // Pastikan gambar ini ada
+            image: 'https://example.com/tari_kecak.jpg',
             date: '15 Agustus 2025',
-            time: '19:00 - Selesai WIB',
-            location: 'Pendopo Agung',
-            price: 'Rp50.000',
-            shortDescription: 'Kisah epik Arjuna oleh dalang Ki Rono, diiringi gamelan syahdu.',
-            fullDescription: 'Saksikan kemegahan seni pertunjukan wayang kulit semalam suntuk bersama dalang legendaris Ki Slamet. Anda akan dibawa masuk ke dalam kisah epik Mahabarata yang penuh makna, diiringi alunan gamelan yang merdu dan sinden yang menyanyikan tembang-tembang Jawa. Sebuah pengalaman budaya yang wajib dinikmati!',
-            organizer: { name: 'Sanggar Seni Budaya', contact: 'sanggar.seni@example.com' }
+            time: '18:00 - 20:00 WIB',
+            location: 'Panggung Terbuka Kampung',
+            price: 30000,
+            description: 'Saksikan keindahan Tari Kecak yang memukau, menceritakan kisah Ramayana dengan iringan suara "cak" yang khas. Acara ini akan membawa Anda lebih dekat pada kekayaan budaya Bali.'
         },
         {
             id: 'workshop-batik',
-            title: 'Workshop Batik Tulis Dasar',
+            title: 'Workshop Membatik untuk Pemula',
             category: 'workshop',
-            image: 'images/workshop_batik_tulis.jpg', // Pastikan gambar ini ada
-            date: '20 September 2025',
-            time: '10:00 - 13:00 WIB',
-            location: 'Batik Studio Mbok Rahayu',
-            price: 'Rp100.000',
-            shortDescription: 'Pelajari teknik dasar membatik langsung dari pengrajin ahli, bawa pulang karyamu!',
-            fullDescription: 'Ikuti workshop membatik tulis dasar kami yang interaktif. Anda akan diajarkan pengenalan alat (canting), cara membuat pola, hingga teknik pewarnaan sederhana. Semua bahan sudah disediakan. Di akhir sesi, Anda akan memiliki kain batik buatan tangan sendiri yang bisa dibawa pulang sebagai kenang-kenangan unik. Sangat cocok untuk pemula dan pecinta seni!',
-            organizer: { name: 'Batik Studio Mbok Rahayu', contact: 'mbok.rahayu@example.com' }
+            image: 'https://example.com/workshop_batik.jpg',
+            date: '20 Agustus 2025',
+            time: '09:00 - 12:00 WIB',
+            location: 'Sanggar Seni Kampung',
+            price: 75000,
+            description: 'Belajar teknik dasar membatik langsung dari pengrajin berpengalaman. Setiap peserta akan membawa pulang karya batik mereka sendiri sebagai kenang-kenangan.'
         },
         {
-            id: 'festival-kuliner',
-            title: 'Festival Kuliner Nusantara',
-            category: 'festival',
-            image: 'images/festival_kuliner_nusantara.jpg',
-            date: '10 Oktober 2025',
-            time: '10:00 - 20:00 WIB',
-            location: 'Alun-alun Kampung',
-            price: 'Gratis',
-            shortDescription: 'Jelajahi kelezatan hidangan dari berbagai penjuru Nusantara dalam satu tempat.',
-            fullDescription: 'Festival Kuliner Nusantara menghadirkan cita rasa autentik dari seluruh Indonesia. Dari Sabang sampai Merauke, Anda bisa menemukan hidangan favorit dan mencoba kuliner baru. Akan ada demo masak, kompetisi makan, dan pertunjukan musik akustik untuk memeriahkan suasana.',
-            organizer: { name: 'Paguyuban Kuliner Kampung', contact: 'kuliner.kampung@example.com' }
-        },
-        {
-            id: 'gelar-musik',
-            title: 'Gelar Musik Tradisional',
-            category: 'pertunjukan',
-            image: 'images/gelar_musik_tradisional.jpg',
-            date: '25 November 2025',
-            time: '18:00 - 21:00 WIB',
-            location: 'Panggung Terbuka Kampung',
-            price: 'Rp30.000',
-            shortDescription: 'Malam yang syahdu dengan alunan gamelan, angklung, dan musik tradisional lainnya.',
-            fullDescription: 'Malam yang syahdu dengan alunan gamelan, angklung, dan musik tradisional lainnya. Berbagai alat musik seperti gamelan, angklung, siter, dan seruling akan dimainkan oleh seniman lokal. Ini adalah kesempatan sempurna untuk mengapresiasi kekayaan musik tradisional Indonesia dalam suasana yang intim dan menenangkan.',
-            organizer: { name: 'Komunitas Musik Tradisi', contact: 'komunitas.musik@example.com' }
+            id: 'komunitas-seni',
+            title: 'Pameran Komunitas Seni Lokal',
+            category: 'komunitas',
+            image: 'https://example.com/pameran_seni.jpg',
+            date: '25 Agustus 2025',
+            time: '10:00 - 16:00 WIB',
+            location: 'Balai Kampung',
+            price: 0,
+            description: 'Pameran seni yang menampilkan karya-karya dari komunitas lokal, mulai dari lukisan, ukiran, hingga anyaman. Acara ini gratis dan terbuka untuk umum.'
         }
     ];
 
-    // Data Galeri Acara Sebelumnya (Past Events)
-    const pastEventImages = [
-        'past_event_1.jpg',
-        'past_event_2.jpg',
-        'past_event_3.jpg',
-        'past_event_4.jpg',
-        'past_event_5.jpg',
-        'past_event_6.jpg',
+    // Data Galeri Acara Terdahulu
+    const pastEvents = [
+        {
+            title: 'Festival Kuliner 2024',
+            image: 'https://example.com/festival_kuliner_2024.jpg'
+        },
+        {
+            title: 'Pertunjukan Wayang Kulit 2024',
+            image: 'https://example.com/wayang_kulit_2024.jpg'
+        },
+        {
+            title: 'Workshop Anyaman 2024',
+            image: 'https://example.com/workshop_anyaman_2024.jpg'
+        },
+        {
+            title: 'Pameran Seni Rupa 2024',
+            image: 'https://example.com/pameran_seni_2024.jpg'
+        }
     ];
 
-    // Fungsi untuk menampilkan daftar acara
-    function displayEvents(filter = 'all') {
-        eventGrid.innerHTML = ''; // Clear grid
+    // Variabel untuk menyimpan acara yang sedang dipilih
+    let selectedEvent = null;
 
-        const filteredEvents = filter === 'all'
-            ? eventData
-            : eventData.filter(event => event.category === filter);
+    // Fungsi untuk menampilkan acara mendatang
+    function displayEvents(filter = 'all') {
+        console.log('Displaying events for filter:', filter);
+        eventGrid.innerHTML = '';
+
+        const filteredEvents = filter === 'all' ? upcomingEvents : upcomingEvents.filter(event => event.category === filter);
+
+        if (filteredEvents.length === 0) {
+            eventGrid.innerHTML = '<p>Tidak ada acara dalam kategori ini.</p>';
+            return;
+        }
 
         filteredEvents.forEach((event, index) => {
             const eventCard = document.createElement('div');
             eventCard.classList.add('event-card');
-            eventCard.dataset.id = event.id; // For identification
-            eventCard.style.animationDelay = `${index * 0.1}s`; // Stagger animation
-
             eventCard.innerHTML = `
-                <img src="images/${event.image.split('/').pop()}" alt="${event.title}">
-                <div class="event-card-content">
+                <img src="${event.image}" alt="${event.title}" class="event-image">
+                <div class="event-content">
                     <h3>${event.title}</h3>
-                    <p class="event-meta">${event.date} | ${event.time} | ${event.location}</p>
-                    <p class="event-price">${event.price}</p>
-                    <p class="event-description">${event.shortDescription}</p>
-                    <button class="cta-button outline-button view-detail-btn" data-event-id="${event.id}">Detail Acara</button>
+                    <p class="event-meta">${event.date} | ${event.time}</p>
+                    <p class="event-description">${event.description}</p>
                 </div>
             `;
+            eventCard.addEventListener('click', () => openAcaraModal(event));
             eventGrid.appendChild(eventCard);
-        });
 
-        // Add event listeners for "Detail Acara" buttons AFTER cards are rendered
-        document.querySelectorAll('.view-detail-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent card click from also triggering
-                const eventId = button.dataset.eventId;
-                const event = eventData.find(e => e.id === eventId);
-                if (event) {
-                    openEventDetailModal(event);
-                }
-            });
+            // Animasi reveal
+            setTimeout(() => {
+                eventCard.classList.add('reveal-item');
+            }, index * 200);
         });
-        // Add event listeners for clicking the entire card (to open modal)
-        document.querySelectorAll('.event-card').forEach(card => {
-             // Only add if not already handled by button click
-            if (!card.querySelector('.view-detail-btn')) { // Prevent double-listening
-                card.addEventListener('click', () => {
-                    const eventId = card.dataset.id;
-                    const event = eventData.find(e => e.id === eventId);
-                    if (event) openEventDetailModal(event);
-                });
-            } else {
-                // If there's a button, clicking the card background should also open modal
-                card.addEventListener('click', (e) => {
-                    if (!e.target.closest('.view-detail-btn')) { // If click isn't specifically on the button
-                        const eventId = card.dataset.id;
-                        const event = eventData.find(e => e.id === eventId);
-                        if (event) openEventDetailModal(event);
-                    }
-                });
-            }
-        });
-
-
-        // Initialize scroll reveal for newly rendered cards
-        const revealElements = document.querySelectorAll('.event-card');
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-item');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        revealElements.forEach(el => observer.observe(el));
     }
 
     // Fungsi untuk menampilkan galeri acara terdahulu
     function displayPastEvents() {
-        pastEventsGallery.innerHTML = ''; // Clear grid
+        pastEvents.forEach((event, index) => {
+            const galleryItem = document.createElement('div');
+            galleryItem.classList.add('gallery-item');
+            galleryItem.innerHTML = `
+                <img src="${event.image}" alt="${event.title}">
+                <div class="gallery-overlay">
+                    <p>${event.title}</p>
+                </div>
+            `;
+            pastEventGalleryGrid.appendChild(galleryItem);
 
-        pastEventImages.forEach((imageSrc, index) => {
-            const imgElement = document.createElement('img');
-            imgElement.src = `images/${imageSrc}`;
-            imgElement.alt = `Acara Terdahulu ${index + 1}`;
-            imgElement.classList.add('reveal-item'); // Add reveal class
-            imgElement.style.animationDelay = `${index * 0.1}s`;
-            pastEventsGallery.appendChild(imgElement);
+            // Animasi reveal
+            setTimeout(() => {
+                galleryItem.classList.add('reveal-item');
+            }, index * 200);
         });
-
-        // Initialize scroll reveal for past event images
-        const revealPastEvents = document.querySelectorAll('.past-event-gallery-grid img');
-        const pastObserverOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-        const pastObserver = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-item');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, pastObserverOptions);
-        revealPastEvents.forEach(el => pastObserver.observe(el));
     }
 
-    // Fungsi untuk membuka modal detail acara
-    function openEventDetailModal(event) {
-        currentSelectedEvent = event; // Store active event
-
-        modalEventImage.src = event.image;
-        modalEventImage.alt = event.title;
-        modalEventTitle.textContent = event.title;
-        modalEventCategory.textContent = event.category.replace(/-/g, ' ');
-        modalEventDate.textContent = event.date;
-        modalEventTime.textContent = event.time;
-        modalEventLocation.textContent = event.location;
-        modalEventPrice.textContent = event.price;
-        modalEventFullDescription.textContent = event.fullDescription;
-        modalEventOrganizerName.textContent = event.organizer.name;
-        modalEventOrganizerContact.textContent = event.organizer.contact;
-
-        eventDetailModal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Disable body scroll
+    // Fungsi untuk membuka modal acara
+    function openAcaraModal(event) {
+        selectedEvent = event;
+        document.getElementById('modal-event-image').src = event.image;
+        document.getElementById('modal-event-image').alt = event.title;
+        document.getElementById('modal-event-title').textContent = event.title;
+        document.getElementById('modal-event-category').textContent = event.category.charAt(0).toUpperCase() + event.category.slice(1);
+        document.getElementById('modal-event-date').textContent = event.date;
+        document.getElementById('modal-event-time').textContent = event.time;
+        document.getElementById('modal-event-location').textContent = event.location;
+        document.getElementById('modal-event-price').textContent = event.price === 0 ? 'Gratis' : `Rp ${event.price.toLocaleString('id-ID')}`;
+        document.getElementById('modal-event-full-description').textContent = event.description;
+        acaraModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
 
     // Fungsi untuk membuka modal konfirmasi pemesanan
-    function openBookingConfirmModal() {
-        if (!currentSelectedEvent) return;
-
-        confirmEventName.textContent = currentSelectedEvent.title;
-        ticketQuantityInput.value = 1; // Reset quantity
-        updateTotalPrice(); // Update initial total price
-        bookingNameInput.value = ''; // Clear form
-        bookingEmailInput.value = '';
-        bookingMessage.textContent = ''; // Clear messages
-        bookingMessage.classList.remove('success', 'error'); // Remove classes
-
-        eventDetailModal.classList.remove('active'); // Hide detail modal
-        bookingConfirmModal.classList.add('active'); // Show confirmation modal
+    function openBookingConfirmModal(quantity) {
+        document.getElementById('confirm-event-name').textContent = selectedEvent.title;
+        const ticketQuantityInput = document.getElementById('ticket-quantity');
+        ticketQuantityInput.value = quantity;
+        const totalPrice = selectedEvent.price * quantity;
+        document.getElementById('confirm-total-price').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+        acaraModal.classList.remove('active');
+        bookingConfirmModal.classList.add('active');
     }
 
-    // Fungsi untuk mengupdate total harga di modal konfirmasi
-    function updateTotalPrice() {
-        const quantity = parseInt(ticketQuantityInput.value);
-        let price = 0;
-        if (currentSelectedEvent.price && currentSelectedEvent.price.toLowerCase() !== 'gratis') {
-            // Remove non-numeric characters except comma for ID locale, then replace comma with dot for parsing
-            price = parseFloat(currentSelectedEvent.price.replace(/[^0-9,-]+/g, "").replace(",", "."));
-            if (isNaN(price)) price = 0; // Handle if parsing fails
-        }
-        const totalPrice = quantity * price;
-        confirmTotalPrice.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`; // Format to ID locale
-    }
-
-    // Fungsi untuk proses pemesanan (simulasi)
-    function processBooking() {
-        const name = bookingNameInput.value.trim();
-        const email = bookingEmailInput.value.trim();
-        const quantity = parseInt(ticketQuantityInput.value);
-
-        if (!name || !email || quantity <= 0) {
-            showBookingMessage('error', 'Nama, email, dan jumlah tiket harus diisi dengan benar!');
-            return;
-        }
-        if (!validateEmail(email)) {
-            showBookingMessage('error', 'Format email tidak valid!');
-            return;
-        }
-
-        // Simulate data submission
-        console.log('Pemesanan Diproses:', {
-            event: currentSelectedEvent.title,
-            name: name,
-            email: email,
-            quantity: quantity,
-            totalPrice: confirmTotalPrice.textContent
-        });
-
-        showBookingMessage('success', `Pemesanan ${quantity} tiket untuk ${currentSelectedEvent.title} berhasil! Konfirmasi akan dikirim ke email Anda.`);
-
-        // Optional: send mailto after success message
-        const mailtoSubject = encodeURIComponent(`Pemesanan Tiket: ${currentSelectedEvent.title}`);
-        const mailtoBody = encodeURIComponent(`Halo penyelenggara ${currentSelectedEvent.organizer.name},\n\nSaya ingin memesan tiket untuk acara ${currentSelectedEvent.title}.\n\nNama: ${name}\nEmail: ${email}\nJumlah Tiket: ${quantity}\nTotal Harga: ${confirmTotalPrice.textContent}\n\nTerima kasih.`);
-        setTimeout(() => {
-            // For a static site contest, we might not want to open mailto automatically
-            // console.log("Simulasi mailto link:", `mailto:${currentSelectedEvent.organizer.contact}?subject=${mailtoSubject}&body=${mailtoBody}`);
-            closeAllModals(); // Close modals after simulation
-        }, 3000); // Give user time to see success message
-    }
-
-    function showBookingMessage(type, msg) {
-        bookingMessage.textContent = msg;
-        bookingMessage.className = `form-message ${type}`;
-        bookingMessage.style.opacity = 1;
-        bookingMessage.style.transform = 'translateY(0)';
-        setTimeout(() => {
-            bookingMessage.style.opacity = 0;
-            bookingMessage.style.transform = 'translateY(10px)';
-            bookingMessage.textContent = '';
-            bookingMessage.classList.remove(type);
-        }, 5000); // Message disappears after 5 seconds
-    }
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
-
-    // Fungsi untuk menutup semua modal
-    function closeAllModals() {
-        eventDetailModal.classList.remove('active');
-        bookingConfirmModal.classList.remove('active');
+    // Fungsi untuk menutup modal
+    function closeModal(modal) {
+        modal.classList.remove('active');
         document.body.style.overflow = '';
+        document.getElementById('booking-message').textContent = '';
+        document.getElementById('booking-message-final').textContent = '';
     }
 
-    // --- Event Listeners ---
+    // Event listener untuk filter
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            displayEvents(button.dataset.filter);
+            const filter = button.dataset.filter;
+            displayEvents(filter);
         });
     });
 
-    // Tombol "Pesan Tiket Sekarang!" di modal detail
-    bookTicketBtn.addEventListener('click', openBookingConfirmModal);
-
-    // Tombol "Proses Pemesanan" di modal konfirmasi
-    processBookingBtn.addEventListener('click', processBooking);
-
-    // Update total harga saat kuantitas berubah
-    ticketQuantityInput.addEventListener('input', updateTotalPrice);
-
-    // Close buttons for both modals
-    detailModalCloseButtons.forEach(btn => {
-        btn.addEventListener('click', closeAllModals);
+    // Event listener untuk form pemesanan
+    bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const quantity = parseInt(document.getElementById('booking-quantity').value);
+        if (quantity < 1) {
+            document.getElementById('booking-message').textContent = 'Jumlah tiket minimal adalah 1.';
+            return;
+        }
+        openBookingConfirmModal(quantity);
     });
 
-    // Close modals when clicking outside
+    // Event listener untuk proses pemesanan
+    processBookingBtn.addEventListener('click', () => {
+        const name = document.getElementById('booking-name').value.trim();
+        const email = document.getElementById('booking-email').value.trim();
+        const quantity = parseInt(document.getElementById('ticket-quantity').value);
+
+        if (!name || !email) {
+            document.getElementById('booking-message-final').textContent = 'Silakan isi nama dan email.';
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            document.getElementById('booking-message-final').textContent = 'Email tidak valid.';
+            return;
+        }
+
+        // Simulasi proses pemesanan
+        setTimeout(() => {
+            document.getElementById('booking-message-final').textContent = `Pemesanan untuk ${quantity} tiket ${selectedEvent.title} berhasil! Detail telah dikirim ke ${email}.`;
+            document.getElementById('booking-name').value = '';
+            document.getElementById('booking-email').value = '';
+            document.getElementById('ticket-quantity').value = 1;
+        }, 1000);
+    });
+
+    // Event listener untuk tombol tutup modal
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            closeModal(button.closest('.acara-modal') || button.closest('.event-modal'));
+        });
+    });
+
+    // Tutup modal saat klik di luar
     window.addEventListener('click', (event) => {
-        if (event.target === eventDetailModal || event.target === bookingConfirmModal) {
-            closeAllModals();
+        if (event.target === acaraModal) {
+            closeModal(acaraModal);
+        }
+        if (event.target === bookingConfirmModal) {
+            closeModal(bookingConfirmModal);
         }
     });
 
-    // Inisialisasi: Tampilkan semua acara dan galeri saat halaman dimuat
-    displayEvents('all');
-    displayPastEvents(); // Display past events
+    // Inisialisasi
+    displayEvents();
+    displayPastEvents();
 });

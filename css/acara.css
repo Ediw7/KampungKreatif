@@ -1,6 +1,4 @@
-/* css/acara.css (Konten ini TIDAK BERUBAH dari respons sebelumnya) */
-
-/* Hero Section Acara & Festival */
+/* Hero Section Acara */
 .hero-acara {
     position: relative;
     width: 100%;
@@ -21,7 +19,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
     z-index: 1;
 }
 
@@ -32,6 +30,7 @@
     padding: var(--spacing-md);
     animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-acara .hero-title {
@@ -41,22 +40,45 @@
     margin-bottom: 1rem;
     line-height: 1.1;
     letter-spacing: -1.5px;
-    background: var(--gradient-text-hero);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    color: #ffffff;
 }
 
 .hero-acara .hero-subtitle {
     font-family: var(--font-body);
     font-size: 1.4rem;
-    color: var(--color-text-light);
+    color: #ffffff;
     opacity: 0.9;
     letter-spacing: 0.5px;
 }
 
-/* Event Filters */
+/* Animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-60%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Upcoming Events Section */
+#upcoming-events {
+    padding: var(--spacing-lg) 0;
+}
+
 .event-filters {
     text-align: center;
     margin-bottom: var(--spacing-lg);
@@ -66,7 +88,7 @@
     gap: var(--spacing-sm);
 }
 
-.event-filters .filter-btn {
+.filter-btn {
     background-color: var(--color-light-bg);
     border: 1px solid var(--color-border-dark);
     color: var(--color-text-dark);
@@ -78,24 +100,23 @@
     box-shadow: 0 2px 8px var(--shadow-soft);
 }
 
-.event-filters .filter-btn:hover {
+.filter-btn:hover {
     background: var(--gradient-primary);
     color: var(--color-text-light);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
-.event-filters .filter-btn.active {
+.filter-btn.active {
     background: var(--gradient-primary);
     color: var(--color-text-light);
     border-color: transparent;
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
-/* Event Grid */
 .event-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 kolom desktop */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
 }
 
@@ -109,12 +130,14 @@
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
     border: 1px solid var(--color-subtle-border);
     cursor: pointer;
-    transform: translateY(20px); /* Untuk animasi reveal */
-    opacity: 0; /* Untuk animasi reveal */
+    transform: translateY(20px);
+    opacity: 0;
 }
-.event-card.reveal-item { /* Class added by JS for animation */
+
+.event-card.reveal-item {
     transform: translateY(0);
     opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .event-card:hover {
@@ -122,25 +145,24 @@
     box-shadow: 0 20px 50px var(--shadow-strong);
 }
 
-.event-card img {
+.event-image {
     width: 100%;
-    height: 220px; /* Tinggi gambar poster */
+    height: 200px;
     object-fit: cover;
     display: block;
     transition: transform 0.6s ease;
-    border-bottom: 5px solid var(--color-accent); /* Border utama untuk acara */
+    border-bottom: 5px solid var(--color-secondary);
 }
 
-.event-card:hover img {
+.event-card:hover .event-image {
     transform: scale(1.1);
 }
 
-.event-card-content {
+.event-content {
     padding: 1.2rem 1.5rem;
-    text-align: center;
 }
 
-.event-card-content h3 {
+.event-content h3 {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
@@ -150,94 +172,150 @@
     background-clip: text;
 }
 
-.event-card-content .event-meta {
-    font-size: 0.9rem;
+.event-content .event-meta {
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
-    margin-bottom: 0.8rem;
-}
-.event-card-content .event-price {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
-.event-card-content .event-description {
+.event-content .event-description {
     font-size: 0.95rem;
-    color: var(--color-text-dark);
+    color: var(--color-text-secondary);
     line-height: 1.6;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+/* About Festivals Section */
+#about-festivals {
+    padding: var(--spacing-lg) 0;
+}
 
-/* Past Events Gallery */
+.container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.about-festivals-content {
+    max-width: 600px;
+}
+
+.about-festivals-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    object-fit: cover;
+    box-shadow: 0 4px 20px var(--shadow-medium);
+}
+
+.text-left {
+    text-align: left;
+}
+
+/* Past Events Gallery Section */
+#past-events-gallery {
+    padding: var(--spacing-lg) 0;
+}
+
 .past-event-gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
 }
 
-.past-event-gallery-grid img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+.gallery-item {
+    position: relative;
+    overflow: hidden;
     border-radius: var(--border-radius-md);
-    box-shadow: 0 8px 30px var(--shadow-medium);
-    border: 1px solid var(--color-subtle-border);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
     transform: translateY(20px);
     opacity: 0;
 }
-.past-event-gallery-grid img.reveal-item {
+
+.gallery-item.reveal-item {
     transform: translateY(0);
     opacity: 1;
-}
-.past-event-gallery-grid img:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 40px var(--shadow-strong);
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
 
-/* Modal Styles (General for event modals) */
-.event-modal {
-    display: none; /* Hidden by default */
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay p {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: var(--spacing-sm);
+}
+
+/* Modal Styles */
+.acara-modal, .event-modal {
+    display: none;
     position: fixed;
     z-index: 10000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Enable scroll if needed */
+    overflow: auto;
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
     padding-top: 60px;
     animation: fadeIn 0.3s ease-out;
 }
 
-.event-modal.active {
+.acara-modal.active, .event-modal.active {
     display: block;
 }
 
-.event-modal .modal-content {
+.modal-content {
     background-color: var(--color-light-bg);
     margin: 5% auto;
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-md);
     box-shadow: 0 20px 60px var(--shadow-strong);
     width: 90%;
-    max-width: 700px; /* Lebar modal acara */
+    max-width: 800px;
     position: relative;
     animation: slideInFromTop 0.4s ease-out;
     color: var(--color-text-dark);
     border: 1px solid var(--color-border-dark);
 }
 
-.event-modal .close-button {
+.close-button {
     color: var(--color-text-secondary);
     font-size: 2.5rem;
     font-weight: bold;
@@ -248,152 +326,139 @@
     transition: color 0.3s ease;
 }
 
-.event-modal .close-button:hover,
-.event-modal .close-button:focus {
+.close-button:hover,
+.close-button:focus {
     color: var(--color-primary);
 }
 
-.event-modal .modal-content img {
+.modal-image {
     width: 100%;
-    height: 250px;
+    height: 300px;
     object-fit: cover;
     border-radius: var(--border-radius-sm);
     margin-bottom: var(--spacing-md);
     border: 1px solid var(--color-subtle-border);
 }
 
-.event-modal .modal-content h3 {
+.modal-content h3 {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
-    color: var(--color-primary);
+    font-size: 2.5rem;
+    color: var(--color-secondary);
     margin-bottom: var(--spacing-xs);
 }
 
-.event-modal .modal-content #modal-event-category {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    text-transform: capitalize;
-    margin-bottom: var(--spacing-sm);
-}
-
-.event-modal .event-meta-info {
-    background-color: var(--color-dark-bg);
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--spacing-md);
-    border: 1px solid var(--color-subtle-border);
-    text-align: left;
-}
-.event-modal .event-meta-info p {
+.modal-event-meta {
     font-size: 1rem;
-    color: var(--color-text-dark);
-    margin-bottom: 5px;
-}
-.event-modal .event-meta-info p:last-child {
-    margin-bottom: 0;
-}
-.event-modal .event-meta-info strong {
-    color: var(--color-secondary);
-}
-.event-modal #modal-event-price {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-accent);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
 }
 
-.event-modal .modal-full-description, .modal-event-organizer {
+.modal-event-meta .label {
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+.modal-full-description {
     background-color: var(--color-dark-bg);
     padding: var(--spacing-md);
     border-radius: var(--border-radius-sm);
     margin-bottom: var(--spacing-md);
     border: 1px solid var(--color-subtle-border);
-    text-align: left;
 }
-.event-modal .modal-full-description h4, .modal-event-organizer h4 {
+
+.modal-full-description h4 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
-    color: var(--color-primary);
+    font-size: 1.4rem;
+    color: var(--color-secondary);
     margin-bottom: var(--spacing-xs);
 }
-.event-modal .modal-full-description p, .modal-event-organizer p {
+
+.modal-full-description p {
     font-size: 0.95rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
 }
 
-.event-modal #book-ticket-btn {
-    margin-top: var(--spacing-md);
-    font-size: 1.1rem;
-    padding: 0.9rem 2rem;
+.booking-section {
+    background-color: var(--color-dark-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-subtle-border);
 }
 
-/* Booking Confirmation Modal specific styles */
-#booking-confirm-modal .modal-content {
-    max-width: 500px;
+.booking-section h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+#booking-form, .event-modal .modal-content {
     text-align: center;
 }
-#booking-confirm-modal .modal-content h3 {
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+    text-align: left;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    background-color: var(--color-light-bg);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.event-modal input[type="number"],
+.event-modal input[type="text"],
+.event-modal input[type="email"] {
+    margin: var(--spacing-sm) 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.form-message {
+    margin-top: var(--spacing-sm);
+    font-size: 0.9rem;
     color: var(--color-accent);
 }
-#booking-confirm-modal .modal-content p {
-    color: var(--color-text-dark);
-}
-#booking-confirm-modal #ticket-quantity {
-    width: 80px;
-    padding: 0.5rem;
-    border: 1px solid var(--color-border-dark);
-    border-radius: var(--border-radius-sm);
-    text-align: center;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    background-color: var(--color-light-bg);
-    color: var(--color-text-dark);
-}
-#booking-confirm-modal input[type="text"],
-#booking-confirm-modal input[type="email"] {
-    width: calc(100% - 20px); /* Adjust for padding */
-    padding: 0.7rem 10px;
-    margin-bottom: var(--spacing-sm);
-    border: 1px solid var(--color-border-dark);
-    border-radius: var(--border-radius-sm);
-    font-size: 1rem;
-    color: var(--color-text-dark);
-    background-color: var(--color-light-bg);
-}
-#booking-confirm-modal .small-text {
-    font-size: 0.85rem;
+
+.small-text {
+    font-size: 0.8rem;
     color: var(--color-text-secondary);
-    margin-top: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
 }
 
-.form-message { /* Re-use form-message styles from contact page */
-    margin-top: var(--spacing-md);
-    padding: var(--spacing-sm);
-    border-radius: var(--border-radius-sm);
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.4s ease-out;
-}
-.form-message.success {
-    background-color: #d4edda; /* Light green */
-    color: #155724; /* Dark green text */
-    border: 1px solid #c3e6cb;
-    opacity: 1;
-    transform: translateY(0);
-}
-.form-message.error {
-    background-color: #f8d7da; /* Light red */
-    color: #721c24; /* Dark red text */
-    border: 1px solid #f5c6cb;
-    opacity: 1;
-    transform: translateY(0);
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-
-/* Responsive Styles for Acara Page */
+/* Responsive Styles */
 @media (max-width: 1024px) {
     .hero-acara .hero-title {
         font-size: 3.5rem;
@@ -401,11 +466,9 @@
     .hero-acara .hero-subtitle {
         font-size: 1.2rem;
     }
-    .event-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    .past-event-gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
     }
 }
 
@@ -419,54 +482,18 @@
     .hero-acara .hero-subtitle {
         font-size: 1rem;
     }
-    .event-grid {
-        grid-template-columns: 1fr; /* 1 kolom di mobile */
-    }
-    .event-card img {
+    .event-image, .gallery-item img {
         height: 180px;
     }
-    .event-card-content h3 {
-        font-size: 1.6rem;
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
-    /* about-festivals grid behavior */
     .container-grid {
         grid-template-columns: 1fr;
     }
-    .about-festivals-content {
-        margin-right: 0; /* Remove margin */
-    }
-    .about-festivals-content .section-title,
-    .about-festivals-content .section-description {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .about-festivals-content .section-title::after {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .past-event-gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Lebih kecil di mobile */
-    }
-    .past-event-gallery-grid img {
-        height: 120px;
-    }
-    .event-modal .modal-content {
-        margin: 2% auto;
-        padding: var(--spacing-md);
-    }
-    .event-modal .modal-content img {
-        height: 180px;
-    }
-    .event-modal .modal-content h3 {
-        font-size: 1.8rem;
-    }
-    .event-modal .event-meta-info p {
-        font-size: 0.9rem;
-    }
-    .event-modal .modal-full-description h4, .booking-section h4 {
-        font-size: 1.2rem;
+    .modal-image {
+        height: 200px;
     }
 }
 
@@ -480,33 +507,20 @@
     .hero-acara .hero-subtitle {
         font-size: 0.9rem;
     }
-    .event-filters {
-        flex-direction: column;
-    }
-    .filter-btn {
-        width: 100%;
-    }
-    .event-card img {
+    .event-image, .gallery-item img {
         height: 150px;
     }
-    .modal-content {
-        padding: var(--spacing-sm);
+    .filter-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
     }
-    #modal-event-image {
-        height: 120px;
+    .modal-image {
+        height: 150px;
     }
-    #modal-event-title {
-        font-size: 1.5rem;
+    .modal-content h3 {
+        font-size: 2rem;
     }
-    .modal-event-meta, .modal-full-description p, .booking-section p {
-        font-size: 0.85rem;
-    }
-    .booking-section input[type="number"] {
-        width: 60px;
-        padding: 0.3rem;
-    }
-    .booking-section .cta-button {
-        font-size: 0.85rem;
-        padding: 0.6rem 1.2rem;
+    .modal-full-description h4, .booking-section h4 {
+        font-size: 1.2rem;
     }
 }

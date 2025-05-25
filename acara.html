@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/acara.css">
 </head>
 <body>
-
     <header class="main-header">
         <nav class="navbar container">
             <a href="index.html" class="navbar-brand">Kampung Wisata</a>
@@ -21,7 +20,7 @@
                 <span></span>
             </button>
             <ul class="navbar-nav" id="navbarNav">
-                <li><a href="index.html" class="nav-link active">Beranda</a></li>
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
                 <li><a href="kuliner.html" class="nav-link">Kuliner</a></li>
                 <li><a href="kerajinan.html" class="nav-link">Kerajinan</a></li>
                 <li><a href="jasa.html" class="nav-link">Jasa</a></li>
@@ -32,7 +31,7 @@
     </header>
 
     <main>
-        <section id="hero-acara" class="hero-acara section-padding" style="background-image: url('images/acara_banner.jpg');">
+        <section id="hero-acara" class="hero-acara section-padding" style="background-image: url('https://wallpapercave.com/wp/wp4223905.jpg');">
             <div class="overlay"></div>
             <div class="hero-content">
                 <h1 class="hero-title">Acara & Festival Mendatang</h1>
@@ -53,8 +52,7 @@
                     <button class="filter-btn" data-filter="komunitas">Komunitas</button>
                 </div>
 
-                <div class="event-grid">
-                    </div>
+                <div class="event-grid"></div>
             </div>
         </section>
 
@@ -71,7 +69,7 @@
                     <a href="#upcoming-events" class="cta-button outline-button">Lihat Jadwal Lengkap</a>
                 </div>
                 <div class="about-festivals-image">
-                    <img src="images/about_festival.jpg" alt="Suasana Festival">
+                    <img src="https://example.com/about_festival.jpg" alt="Suasana Festival">
                 </div>
             </div>
         </section>
@@ -80,30 +78,25 @@
             <div class="container">
                 <h2 class="section-title">Galeri Acara Terdahulu</h2>
                 <p class="section-description">Kenang kembali momen-momen indah dari acara dan festival yang telah kami selenggarakan.</p>
-
-                <div class="past-event-gallery-grid">
-                    </div>
+                <div class="past-event-gallery-grid"></div>
             </div>
         </section>
-
     </main>
 
     <div id="acara-modal" class="acara-modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <img id="modal-event-image" src="" alt="Poster Acara">
+            <span class="close-button">×</span>
+            <img id="modal-event-image" src="" alt="Poster Acara" class="modal-image">
             <h3 id="modal-event-title"></h3>
             <p class="modal-event-meta"><strong class="label">Kategori:</strong> <span id="modal-event-category"></span></p>
             <p class="modal-event-meta"><strong class="label">Tanggal:</strong> <span id="modal-event-date"></span></p>
             <p class="modal-event-meta"><strong class="label">Waktu:</strong> <span id="modal-event-time"></span></p>
             <p class="modal-event-meta"><strong class="label">Lokasi:</strong> <span id="modal-event-location"></span></p>
             <p class="modal-event-meta"><strong class="label">Harga Tiket:</strong> <span id="modal-event-price"></span></p>
-
             <div class="modal-full-description">
                 <h4>Deskripsi Acara:</h4>
                 <p id="modal-event-full-description"></p>
             </div>
-
             <div class="booking-section">
                 <h4>Pesan Tiket Anda!</h4>
                 <form id="booking-form">
@@ -118,13 +111,12 @@
         </div>
     </div>
 
-
     <div id="booking-confirm-modal" class="event-modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
+            <span class="close-button">×</span>
             <h3>Konfirmasi Pemesanan Tiket</h3>
             <p>Anda akan memesan tiket untuk acara: <strong id="confirm-event-name"></strong></p>
-            <p>Jumlah tiket: <input type="number" id="ticket-quantity" value="1" min="1"></p>
+            <p>Jumlah Tiket: <input type="number" id="ticket-quantity" value="1" min="1"></p>
             <p>Total Harga: <strong id="confirm-total-price">Rp 0</strong></p>
             <p class="small-text">Silakan masukkan nama dan email Anda untuk konfirmasi pemesanan:</p>
             <input type="text" id="booking-name" placeholder="Nama Lengkap" required>
@@ -133,7 +125,6 @@
             <p id="booking-message-final" class="form-message"></p>
         </div>
     </div>
-
 
     <div id="footer-placeholder"></div>
 
