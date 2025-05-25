@@ -1,0 +1,247 @@
+/* Hero Section Tebak */
+.hero-tebak {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
+    overflow: hidden;
+}
+
+.hero-tebak .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.hero-tebak .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: var(--spacing-md);
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-tebak .hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: #ffffff;
+}
+
+.hero-tebak .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    color: #ffffff;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tebak Game Area */
+#tebak-game-area {
+    padding: var(--spacing-lg) 0;
+}
+
+#tebak-game-area .container {
+    max-width: 900px;
+    text-align: center;
+}
+
+.tebak-container {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tebak-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tebak-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.image-item {
+    width: 200px;
+    height: 200px;
+    background-color: var(--color-dark-bg);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+}
+
+.image-item.correct {
+    border: 3px solid #4caf50;
+}
+
+.image-item.incorrect {
+    border: 3px solid #f44336;
+}
+
+.answer-select {
+    padding: var(--spacing-sm);
+    font-size: 1.1rem;
+    border-radius: var(--border-radius-sm);
+    border: 2px solid var(--color-subtle-border);
+    width: 250px;
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+}
+
+.answer-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+#submit-answer-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: var(--spacing-md);
+}
+
+#submit-answer-btn:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+.tebak-result {
+    text-align: center;
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 40px var(--shadow-medium);
+}
+
+.result-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.result-description {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.result-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+#restart-tebak-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#restart-tebak-btn:hover {
+    background-color: #ff9800;
+    transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-tebak {
+        height: 50vh;
+    }
+    .hero-tebak .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-tebak .hero-subtitle {
+        font-size: 1rem;
+    }
+    .tebak-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-item {
+        width: 150px;
+        height: 150px;
+    }
+    .answer-select {
+        width: 100%;
+        margin-top: var(--spacing-sm);
+    }
+    #submit-answer-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-tebak {
+        height: 40vh;
+    }
+    .hero-tebak .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-tebak .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    .image-item {
+        width: 120px;
+        height: 120px;
+    }
+    .result-buttons {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}
