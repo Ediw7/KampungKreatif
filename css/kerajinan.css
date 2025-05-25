@@ -1,5 +1,3 @@
-/* css/kerajinan.css */
-
 /* Hero Section Kerajinan */
 .hero-kerajinan {
     position: relative;
@@ -21,7 +19,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
     z-index: 1;
 }
 
@@ -32,6 +30,7 @@
     padding: var(--spacing-md);
     animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-kerajinan .hero-title {
@@ -41,23 +40,111 @@
     margin-bottom: 1rem;
     line-height: 1.1;
     letter-spacing: -1.5px;
-    background: var(--gradient-text-hero);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+    color: #ffffff;
 }
 
 .hero-kerajinan .hero-subtitle {
     font-family: var(--font-body);
     font-size: 1.4rem;
-    color: var(--color-text-light);
+    color: #ffffff;
     opacity: 0.9;
     letter-spacing: 0.5px;
 }
 
-/* Kerajinan Filters */
-.kerajinan-filters {
+/* Animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Kerajinan List Section */
+.kuliner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 kolom desktop */
+    gap: var(--spacing-lg);
+}
+
+.kuliner-card {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--color-subtle-border);
+    cursor: pointer;
+    /* Untuk debugging: hapus sementara animasi reveal */
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Aktifkan kembali animasi setelah debugging */
+.kuliner-card.reveal-item {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.kuliner-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow-strong);
+}
+
+.kuliner-image {
+    width: 100%;
+    height: 200px; /* Tinggi gambar konsisten */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    border-bottom: 5px solid var(--color-secondary); /* Border utama untuk kuliner */
+}
+
+.kuliner-card:hover .kuliner-image {
+    transform: scale(1.1);
+}
+
+.kuliner-card-content {
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+}
+
+.kuliner-card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.kuliner-card-content .rating {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}
+
+.kuliner-card-content .description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Filter Section */
+.kuliner-filters {
     text-align: center;
     margin-bottom: var(--spacing-lg);
     display: flex;
@@ -92,263 +179,17 @@
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
-/* Kerajinan Grid */
-.kerajinan-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 kolom desktop */
-    gap: var(--spacing-lg);
-}
-
-.kerajinan-card {
-    background-color: var(--color-light-bg);
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    box-shadow: 0 10px 40px var(--shadow-medium);
-    text-decoration: none;
-    color: var(--color-text-dark);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    border: 1px solid var(--color-subtle-border);
-    cursor: pointer;
-    transform: translateY(20px); /* Untuk animasi reveal */
-    opacity: 0; /* Untuk animasi reveal */
-}
-.kerajinan-card.reveal-item { /* Class added by JS for animation */
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.kerajinan-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 50px var(--shadow-strong);
-}
-
-.kerajinan-card img {
-    width: 100%;
-    height: 200px; /* Tinggi gambar konsisten */
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-    border-bottom: 5px solid var(--color-secondary); /* Border utama untuk kerajinan */
-}
-
-.kerajinan-card:hover img {
-    transform: scale(1.1);
-}
-
-.kerajinan-card-content {
-    padding: 1.2rem 1.5rem;
-    text-align: center;
-}
-
-.kerajinan-card-content h3 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.kerajinan-card-content .price {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    margin-bottom: 0.5rem;
-}
-
-.kerajinan-card-content .description {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-
-/* Cerita Proses Pembuatan (Proses Keren) */
-.process-steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
-}
-
-.process-step-card {
-    background-color: var(--color-light-bg);
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 8px 30px var(--shadow-medium);
-    overflow: hidden;
-    border: 1px solid var(--color-subtle-border);
-    padding: var(--spacing-md);
-    text-align: center;
-    transform: translateY(20px); /* Untuk animasi reveal */
-    opacity: 0; /* Untuk animasi reveal */
-    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-}
-.process-step-card.reveal-item {
-    transform: translateY(0);
-    opacity: 1;
-}
-.process-step-card:nth-child(even).reveal-item { /* Slight delay for even cards for visual flair */
-    transition-delay: 0.1s;
-}
-
-.process-step-card img {
-    width: 100%;
-    height: 180px; /* Tinggi gambar proses */
-    object-fit: cover;
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--spacing-md);
-    border: 1px solid var(--color-subtle-border);
-}
-
-.process-step-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-xs);
-}
-
-.process-step-card p {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-}
-
-
-/* Modal Styles (Mirip dengan Kuliner, tapi disesuaikan untuk Kerajinan) */
-.kerajinan-modal {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    padding-top: 60px;
-    animation: fadeIn 0.3s ease-out;
-}
-
-.kerajinan-modal.active {
-    display: block;
-}
-
-.modal-content {
-    background-color: var(--color-light-bg);
-    margin: 5% auto;
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 20px 60px var(--shadow-strong);
-    width: 90%;
-    max-width: 800px;
-    position: relative;
-    animation: slideInFromTop 0.4s ease-out;
-    color: var(--color-text-dark);
-    border: 1px solid var(--color-border-dark);
-}
-
-.close-button {
-    color: var(--color-text-secondary);
-    font-size: 2.5rem;
-    font-weight: bold;
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: var(--color-primary);
-}
-
-.modal-content img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--spacing-md);
-    border: 1px solid var(--color-subtle-border);
-}
-
-.modal-content h3 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--color-secondary); /* Warna sekunder untuk judul kerajinan */
-    margin-bottom: var(--spacing-xs);
-}
-
-.modal-content #modal-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    margin-bottom: var(--spacing-xs);
-}
-
-.modal-content #modal-category {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-sm);
-    text-transform: capitalize;
-}
-
-.modal-details, .modal-artisan-info, .modal-process-link {
-    background-color: var(--color-dark-bg);
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--spacing-md);
-    border: 1px solid var(--color-subtle-border);
-}
-
-.modal-details h4, .modal-artisan-info h4, .modal-process-link h4 {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    color: var(--color-primary); /* Warna primary untuk sub judul modal */
-    margin-bottom: var(--spacing-xs);
-}
-
-.modal-details p, .modal-artisan-info p {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-}
-
-.modal-details .detail-label {
-    font-weight: 600;
-    color: var(--color-text-dark);
-}
-
-.modal-process-link .cta-button {
-    margin-top: var(--spacing-sm);
-}
-
-/* Animations for Modal */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideInFromTop {
-    from { transform: translateY(-50px) scale(0.9); opacity: 0; }
-    to { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-
-/* Responsif untuk halaman kerajinan */
+/* Responsive Styles */
 @media (max-width: 1024px) {
     .hero-kerajinan .hero-title {
         font-size: 3.5rem;
     }
     .hero-kerajinan .hero-subtitle {
         font-size: 1.2rem;
+    }
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
     }
 }
 
@@ -362,36 +203,12 @@
     .hero-kerajinan .hero-subtitle {
         font-size: 1rem;
     }
-    .kerajinan-grid {
-        grid-template-columns: 1fr; /* 1 kolom di mobile */
+    .kuliner-image {
+        height: 180px;
     }
-    .kerajinan-card img {
-        height: 200px;
-    }
-    .kerajinan-card-content h3 {
-        font-size: 1.6rem;
-    }
-    .process-steps-grid {
-        grid-template-columns: 1fr; /* 1 kolom di mobile */
-    }
-    .process-step-card img {
-        height: 150px;
-    }
-    .process-step-card h3 {
-        font-size: 1.8rem;
-    }
-    .process-step-card p {
+    .filter-btn {
+        padding: 0.5rem 1rem;
         font-size: 0.9rem;
-    }
-    .kerajinan-modal .modal-content {
-        margin: 2% auto;
-        padding: var(--spacing-md);
-    }
-    .modal-content img {
-        height: 200px;
-    }
-    .modal-content h3 {
-        font-size: 2rem;
     }
 }
 
@@ -405,16 +222,11 @@
     .hero-kerajinan .hero-subtitle {
         font-size: 0.9rem;
     }
-    .kerajinan-filters {
-        flex-direction: column;
-    }
-    .filter-btn {
-        width: 100%;
-    }
-    .modal-content img {
+    .kuliner-image {
         height: 150px;
     }
-    .modal-content h3 {
-        font-size: 1.6rem;
+    .filter-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
     }
 }

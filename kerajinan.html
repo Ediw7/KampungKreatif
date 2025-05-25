@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kampung Wisata - Kerajinan Tangan</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/global.css">    <link rel="stylesheet" href="css/kerajinan.css">   </head>
+    <link rel="stylesheet" href="css/global.css">    
+    <link rel="stylesheet" href="css/kerajinan.css">   
+</head>
 <body>
-
-    
     <header class="main-header">
         <nav class="navbar container">
             <a href="index.html" class="navbar-brand">Kampung Wisata</a>
-            <button class="menu-toggle" aria-label="Toggle navigation">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" id="navbarNav">
                 <li><a href="index.html" class="nav-link">Beranda</a></li>
                 <li><a href="kuliner.html" class="nav-link">Kuliner</a></li>
                 <li><a href="kerajinan.html" class="nav-link active">Kerajinan</a></li>
@@ -31,7 +28,7 @@
     </header>
 
     <main>
-        <section id="hero-kerajinan" class="hero-kerajinan section-padding" style="background-image: url('images/kerajinan_banner.jpg');">
+        <section id="hero-kerajinan" class="hero-kerajinan section-padding" style="background-image: url('https://imgx.parapuan.co/crop/0x0:0x0/x/photo/2021/10/03/mengapresiasi-warisan-budaya-den-20211003030135.jpg');">
             <div class="overlay"></div>
             <div class="hero-content">
                 <h1 class="hero-title">Kerajinan Tangan</h1>
@@ -39,54 +36,44 @@
             </div>
         </section>
 
-        <section id="kerajinan-catalog" class="section-padding" style="background-color: var(--color-dark-bg);">
+        <section id="kerajinan-gallery" class="section-padding" style="background-color: var(--color-dark-bg);">
             <div class="container">
-                <h2 class="section-title">Koleksi Karya Seni Kami</h2>
-                <p class="section-description">Setiap produk kerajinan adalah hasil tangan terampil dan dedikasi seniman lokal.</p>
+                <h2 class="section-title">Kategori Kerajinan</h2>
+                <p class="section-description">Jelajahi berbagai kategori kerajinan tangan kami.</p>
 
-                <div class="kerajinan-filters">
+                <div class="kuliner-filters">
                     <button class="filter-btn active" data-category="all">Semua</button>
                     <button class="filter-btn" data-category="batik">Batik</button>
                     <button class="filter-btn" data-category="anyaman">Anyaman</button>
                     <button class="filter-btn" data-category="ukiran">Ukiran</button>
-                    <button class="filter-btn" data-category="gerabah">Gerabah</button> </div>
+                    <button class="filter-btn" data-category="gerabah">Gerabah</button>
+                </div>
 
-                <div class="kerajinan-grid">
-                    </div>
+                <div class="kuliner-grid"></div>
             </div>
         </section>
 
+        <section id="umkm-story" class="section-padding" style="background-color: var(--color-light-bg);">
+            <div class="container container-grid">
+                <div class="umkm-story-content">
+                    <h2 class="section-title">Tentang Kerajinan Kami</h2>
+                    <p class="section-description">
+                        Kami bangga menyajikan karya kerajinan yang diwariskan dari generasi ke generasi. Sanggar Kerajinan Nusantara, contohnya, telah berdiri sejak 1985, menjaga autentisitas seni tradisional dengan sentuhan modern. Setiap karya adalah cerita, setiap detail adalah warisan budaya yang kami lestarikan.
+                    </p>
+                    <p class="section-description">
+                        Dukungan Anda tidak hanya menghargai keindahan, tetapi juga memberdayakan para pengrajin UMKM yang berdedikasi menjaga tradisi kami.
+                    </p>
+                </div>
+                <div class="umkm-story-image">
+                    <img src="https://example.com/kerajinan_story.jpg" alt="Sanggar Kerajinan Nusantara">
+                </div>
+            </div>
+        </section>
     </main>
-
-    <div id="kerajinan-modal" class="kerajinan-modal">
-        <div class="modal-content">
-            <span class="close-button">×</span>
-            <img id="modal-image" src="" alt="Kerajinan Detail">
-            <h3 id="modal-title"></h3>
-            <p id="modal-price"></p>
-            <p id="modal-category"></p>
-            <p id="modal-short-description"></p>
-            <div class="modal-details">
-                <h4>Detail Produk:</h4>
-                <p><strong class="detail-label">Deskripsi Lengkap:</strong> <span id="modal-full-description-text"></span></p>
-                <p><strong class="detail-label">Bahan:</strong> <span id="modal-materials"></span></p>
-                <p><strong class="detail-label">Dimensi:</strong> <span id="modal-dimensions"></span></p>
-            </div>
-            <div class="modal-artisan-info">
-                <h4>Tentang Pengrajin:</h4>
-                <p id="modal-artisan-name"></p>
-                <p id="modal-artisan-story"></p>
-                <p id="modal-artisan-contact"></p>
-            </div>
-            <div class="modal-process-link" style="display: none;">
-                <h4>Lihat Proses Pembuatan:</h4>
-                <a id="modal-process-video" href="#" target="_blank" class="cta-button outline-button">Tonton Video</a>
-            </div>
-        </div>
-    </div>
-
 
     <div id="footer-placeholder"></div>
 
-    <script src="js/global.js"></script>    <script src="js/kerajinan.js"></script>   </body>
+    <script src="js/global.js"></script>    
+    <script src="js/kerajinan.js"></script>   
+</body>
 </html>

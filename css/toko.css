@@ -1,0 +1,455 @@
+/* Banner Section */
+#toko-banner {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
+    overflow: hidden;
+    background-image: url('https://example.com/kerajinan_banner.jpg');
+}
+
+#toko-banner .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+#toko-banner .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: var(--spacing-md);
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.banner-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: #ffffff;
+}
+
+.banner-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    color: #ffffff;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+.section-title {
+    text-align: left;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px; /* panjang garis bisa kamu sesuaikan */
+    height: 3px;
+    background-color: var(--color-accent); /* sesuaikan dengan warna aksenmu */
+    margin-top: 0.5rem;
+    margin-left: 0; /* pastikan garis dimulai dari kiri */
+}
+#product-list .section-title {
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#product-list .section-title::after {
+    content: "";
+    display: block;
+    width: 60px; /* panjang garis bawah */
+    height: 3px;
+    background-color: var(--color-accent); /* warna garis */
+    margin: 0.5rem auto 0 auto; /* membuat garis berada di tengah */
+}
+
+/* Tentang UMKM Section */
+#about-umkm {
+    padding: var(--spacing-lg) 0;
+}
+
+.umkm-content {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+.umkm-text {
+    flex: 1;
+}
+
+.umkm-text h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.umkm-description {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.umkm-contact {
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    margin-top: var(--spacing-md);
+}
+
+.umkm-contact a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.umkm-contact a:hover {
+    text-decoration: underline;
+}
+
+.umkm-map {
+    flex: 1;
+    min-width: 0;
+}
+
+.umkm-map iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 20px var(--shadow-medium);
+}
+
+/* Product List Section */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.product-card {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    text-decoration: none;
+    color: var(--color-text-dark);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: 1px solid var(--color-subtle-border);
+    cursor: pointer;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.product-card.reveal-item {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.product-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow-strong);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    border-bottom: 5px solid var(--color-accent);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1);
+}
+
+.product-content {
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+}
+
+.product-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.product-content .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.product-content .description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    padding-top: 60px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-content {
+    background-color: var(--color-light-bg);
+    margin: 5% auto;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 20px 60px var(--shadow-strong);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    animation: slideInFromTop 0.4s ease-out;
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border-dark);
+}
+
+.close-button {
+    color: var(--color-text-secondary);
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--color-primary);
+}
+
+.modal-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-details-jasa {
+    background-color: var(--color-dark-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.modal-details-jasa h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-materials {
+    list-style: none;
+    padding-left: 0;
+}
+
+.modal-materials li {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-cta-booking {
+    background-color: var(--color-dark-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.modal-cta-booking .cta-button {
+    margin: var(--spacing-sm) auto;
+    display: block;
+    max-width: 250px;
+}
+
+.modal-cta-booking .small-text {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-xs);
+}
+
+.modal-process-link {
+    background-color: var(--color-dark-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-md);
+    border: 1px solid var(--color-subtle-border);
+}
+
+.modal-process-link h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-process-link .cta-button {
+    margin: var(--spacing-sm) auto;
+    display: block;
+    max-width: 250px;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #toko-banner {
+        height: 50vh;
+    }
+    .banner-title {
+        font-size: 3.5rem;
+    }
+    .banner-subtitle {
+        font-size: 1.2rem;
+    }
+    .umkm-content {
+        flex-direction: column;
+    }
+    .umkm-map iframe {
+        height: 300px;
+    }
+    .product-image {
+        height: 180px;
+    }
+    .modal-image {
+        height: 200px;
+    }
+    .modal-content {
+        margin: 10% auto;
+    }
+}
+
+@media (max-width: 480px) {
+    #toko-banner {
+        height: 40vh;
+    }
+    .banner-title {
+        font-size: 2.5rem;
+    }
+    .banner-subtitle {
+        font-size: 1rem;
+    }
+    .umkm-map iframe {
+        height: 250px;
+    }
+    .product-image {
+        height: 150px;
+    }
+    .modal-image {
+        height: 150px;
+    }
+    .modal-content {
+        margin: 15% auto;
+        padding: var(--spacing-md);
+    }
+    .modal-title {
+        font-size: 2rem;
+    }
+    .modal-details-jasa h4 {
+        font-size: 1.2rem;
+    }
+}
