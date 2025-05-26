@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let score = 0;
     let selectedAnswer = null;
 
-    // Fungsi untuk memuat pertanyaan
     function loadQuestion() {
         const currentQuestion = quizData[currentQuestionIndex];
         quizQuestion.textContent = currentQuestion.question;
@@ -66,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         scoreDisplay.textContent = `Skor: ${score}/${quizData.length}`;
     }
 
-    // Fungsi untuk memilih jawaban
     function selectAnswer(optionElement, answer) {
         if (selectedAnswer) return;
 
@@ -91,8 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         nextQuestionBtn.style.display = 'inline-block';
         finishQuizBtn.style.display = (currentQuestionIndex === quizData.length - 1) ? 'inline-block' : 'none';
     }
-
-    // Fungsi untuk ke pertanyaan berikutnya
     function nextQuestion() {
         if (currentQuestionIndex < quizData.length - 1) {
             currentQuestionIndex++;
@@ -101,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Fungsi untuk menyelesaikan quiz
     function finishQuiz() {
         quizContainer.style.display = 'none';
         quizResult.style.display = 'block';
@@ -110,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
         resultDescription.textContent = `Anda mendapatkan ${percentage}% poin! ${percentage >= 70 ? 'Selamat, pengetahuan budaya Anda luar biasa!' : 'Coba lagi untuk meningkatkan skor Anda!'}`;
     }
 
-    // Fungsi untuk memulai ulang quiz
     function restartQuiz() {
         currentQuestionIndex = 0;
         score = 0;
@@ -120,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loadQuestion();
     }
 
-    // Event Listener
     startQuizBtn.addEventListener('click', () => {
         quizStart.style.display = 'none';
         quizContainer.style.display = 'block';
@@ -130,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
     finishQuizBtn.addEventListener('click', finishQuiz);
     restartQuizBtn.addEventListener('click', restartQuiz);
 
-    // Inisialisasi
     quizContainer.style.display = 'none';
     quizResult.style.display = 'none';
 });

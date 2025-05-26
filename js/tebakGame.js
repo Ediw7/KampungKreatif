@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultDescription = document.querySelector('.result-description');
     const restartTebakBtn = document.getElementById('restart-tebak-btn');
 
-    // Pastikan teks dropdown terlihat
     answerSelects.forEach(select => {
         select.style.color = '#ffffff';
         select.style.backgroundColor = 'var(--color-dark-bg)';
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Kirim jawaban
     submitAnswerBtn.addEventListener('click', () => {
         let correctCount = 0;
         const totalImages = tebakRows.length;
@@ -43,18 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 imageItem.classList.add('incorrect');
             }
 
-            // Nonaktifkan dropdown setelah submit
             select.disabled = true;
         });
 
-        // Tampilkan hasil
         tebakContainer.style.display = 'none';
         tebakResult.style.display = 'block';
         resultTitle.textContent = `Hasil Tebak Gambar: ${correctCount}/${totalImages}`;
         resultDescription.textContent = `Anda menebak ${correctCount} dari ${totalImages} gambar dengan benar!`;
     });
 
-    // Mulai ulang game
     restartTebakBtn.addEventListener('click', () => {
         tebakResult.style.display = 'none';
         tebakContainer.style.display = 'block';
@@ -67,6 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Inisialisasi
+
     tebakResult.style.display = 'none';
 });

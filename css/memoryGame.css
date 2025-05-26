@@ -63,7 +63,7 @@
     }
 }
 
-/* Memory Game Area */
+
 #memory-game-area {
     padding: var(--spacing-lg) 0;
 }
@@ -204,7 +204,7 @@
     transform: translateY(-2px);
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
     .hero-memory {
         height: 50vh;
