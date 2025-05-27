@@ -13,67 +13,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const upcomingEvents = [
         {
-            id: 'festival-seni-kuliner',
-            title: 'Festival Seni & Kuliner Tradisional',
+            id: 'festival-cheng-ho',
+            title: 'Festival Arak-Arakan Cheng Ho',
             category: 'festival',
-            image: 'https://wallpapercave.com/wp/wp4223905.jpg',
-            date: '28 Juli 2025',
+            image: 'images/festival.jpg',
+            date: '03-04 Agustus 2025',
             time: '08:00 - 17:00 WIB',
-            location: 'Lapangan Utama Kampung',
+            location: 'Kota Semarang',
             price: 50000,
-            description: 'Nikmati perpaduan memukau antara pertunjukan seni tradisional, pameran kerajinan tangan, dan aneka hidangan kuliner khas yang menggugah selera. Acara ini terbuka untuk umum dan menjanjikan pengalaman budaya yang tak terlupakan bagi seluruh keluarga.'
+            description: 'Dalam rangka menyambut Hari Kedatangan Laksama Zheng He yang ke-619 tahun, maka akan diselenggarakan Festival Arak–Arakan Cheng Ho 2025.Festival Arak–Arakan Cheng Ho 2024 memiliki beragam rangkaian, di antaranya Ritual Sembahyangan sebagai wujud syukur atas kedatangan Laksamana Cheng Ho ke Indonesia, Pertunjukan Seni dan Hiburan dari kolaborasi akulturasi budaya Tiongkok dan Jawa, Arak-arakan Patung Dewa (Kimsien) dari Klenteng Tay Kak Sie menuju Klenteng Sam Poo Kong, Bazar Kuliner, dan lain-lain.'
         },
         {
-            id: 'pertunjukan-tari',
-            title: 'Pertunjukan Tari Kecak',
+            id: 'pertunjukan-wayang-orang',
+            title: 'Pertunjukan Wayang Orang',
             category: 'pertunjukan',
-            image: 'https://example.com/tari_kecak.jpg',
+            image: 'images/wayang.jpg',
             date: '15 Agustus 2025',
             time: '18:00 - 20:00 WIB',
-            location: 'Panggung Terbuka Kampung',
+            location: 'Taman Budaya Raden Saleh',
             price: 30000,
-            description: 'Saksikan keindahan Tari Kecak yang memukau, menceritakan kisah Ramayana dengan iringan suara "cak" yang khas. Acara ini akan membawa Anda lebih dekat pada kekayaan budaya Bali.'
+            description: 'Nikmati keagungan budaya Jawa dalam Pertunjukan Wayang Orang yang akan digelar di Taman Budaya Raden Saleh, Semarang. Acara ini menyuguhkan kisah-kisah epik dari Mahabharata dan Ramayana yang diperankan secara langsung oleh para seniman profesional dengan balutan kostum tradisional yang memukau. Iringan gamelan yang syahdu dan dialog berbahasa Jawa kromo alus akan membawa Anda merasakan atmosfer klasik yang sarat nilai sejarah dan filosofi kehidupan.'
         },
         {
-            id: 'workshop-batik',
-            title: 'Workshop Membatik untuk Pemula',
-            category: 'workshop',
-            image: 'https://example.com/workshop_batik.jpg',
+            id: 'semarang-night-carnival',
+            title: 'Semarang Night Carnival ',
+            category: 'festival',
+            image: 'images/nightCarnival.jpg',
             date: '20 Agustus 2025',
             time: '09:00 - 12:00 WIB',
-            location: 'Sanggar Seni Kampung',
+            location: 'Start dari Titik 0 Km, Jl. Pemuda, Semarang',
             price: 75000,
-            description: 'Belajar teknik dasar membatik langsung dari pengrajin berpengalaman. Setiap peserta akan membawa pulang karya batik mereka sendiri sebagai kenang-kenangan.'
-        },
-        {
-            id: 'komunitas-seni',
-            title: 'Pameran Komunitas Seni Lokal',
-            category: 'komunitas',
-            image: 'https://example.com/pameran_seni.jpg',
-            date: '25 Agustus 2025',
-            time: '10:00 - 16:00 WIB',
-            location: 'Balai Kampung',
-            price: 0,
-            description: 'Pameran seni yang menampilkan karya-karya dari komunitas lokal, mulai dari lukisan, ukiran, hingga anyaman. Acara ini gratis dan terbuka untuk umum.'
+            description: 'Karnaval malam spektakuler dengan parade kostum tematik, musik, dan seni jalanan yang memukau. Acara ini menjadi ikon budaya tahunan yang meriah dan penuh warna di pusat kota Semarang'
         }
     ];
 
     const pastEvents = [
         {
-            title: 'Festival Kuliner 2024',
-            image: 'https://example.com/festival_kuliner_2024.jpg'
+            title: 'Dugderan 2024',
+            image: 'images/dugder.jpg'
         },
         {
-            title: 'Pertunjukan Wayang Kulit 2024',
-            image: 'https://example.com/wayang_kulit_2024.jpg'
+            title: 'Kuda Lumping',
+            image: 'images/kudaLumping2.jpg'
         },
         {
-            title: 'Workshop Anyaman 2024',
-            image: 'https://example.com/workshop_anyaman_2024.jpg'
-        },
-        {
-            title: 'Pameran Seni Rupa 2024',
-            image: 'https://example.com/pameran_seni_2024.jpg'
+            title: 'Edu Kids Festival',
+            image: 'images/edukids.jpg'
         }
     ];
 

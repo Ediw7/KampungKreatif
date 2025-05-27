@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'pertunjukan-wayang',
             name: 'Nonton Pertunjukan Wayang Kulit',
             category: 'pertunjukan-budaya',
-            image: 'https://cdn.britannica.com/90/146990-050-4F3C95E7/Wayang-kulit-puppets-performance-Indonesia-Jakarta.jpg', // Ganti dengan gambar asli
+            image: 'https://cdn.britannica.com/90/146990-050-4F3C95E7/Wayang-kulit-puppets-performance-Indonesia-Jakarta.jpg', 
             price: 'Rp75.000/orang',
             shortDescription: 'Saksikan kemegahan seni pertunjukan wayang kulit dengan dalang ternama.',
             fullDescription: 'Nikmati pengalaman tak terlupakan menyaksikan pertunjukan wayang kulit klasik. Anda akan terpukau dengan keindahan boneka wayang, kemahiran dalang dalam bercerita, iringan gamelan yang syahdu, dan sinden yang merdu. Sebuah warisan budaya tak benda yang patut dilestarikan dan dinikmati.',
