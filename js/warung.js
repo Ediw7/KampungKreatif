@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const warungData = {
         name: 'Tahu Gimbal Pak Edi',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tahu_gimbal.jpg/320px-Tahu_gimbal.jpg',
         products: [
             {
                 name: 'Tahu Gimbal Komplit',

@@ -19,27 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Data Toko Kerajinan
     const tokoData = [
         {
-            id: 'sanggar-anyaman',
-            name: 'Sanggar Anyaman Lestari',
-            category: 'anyaman',
-            image: 'https://via.placeholder.com/300x200?text=Sanggar+Anyaman+Lestari',
-            description: 'Spesialis anyaman bambu tradisional dengan kualitas tinggi.',
+            id: 'kerajinan-resin-semarang',
+            name: 'Resin Art Semarang',
+            category: 'kerajinan resin',
+            image: 'images/jamResin.jpg',
+            description: 'Spesialis kerajinan resin seperti aksesoris unik, hiasan meja, dan souvenir kreatif khas Semarang.',
             rating: 4.7
         },
         {
-            id: 'sanggar-batik',
-            name: 'Sanggar Batik Modern',
-            category: 'batik',
-            image: 'https://via.placeholder.com/300x200?text=Sanggar+Batik+Modern',
-            description: 'Pencipta batik cap dengan motif autentik.',
+            id: 'aquascape-semarang',
+            name: 'Aquascape Semarang',
+            category: 'aquascape',
+            image: 'images/aquascape.jpg',
+            description: 'Pusat aquascape dengan desain kreatif dan tanaman air berkualitas, cocok untuk dekorasi rumah dan kantor.',
             rating: 4.8
         },
         {
-            id: 'sanggar-ukiran',
-            name: 'Ukiran Nusantara',
-            category: 'ukiran',
-            image: 'https://via.placeholder.com/300x200?text=Ukiran+Nusantara',
-            description: 'Pengrajin ukiran kayu jati klasik.',
+            id: 'toko-gerabah-semarang',
+            name: 'Toko Gerabah Semarang',
+            category: 'gerabah',
+            image: 'images/gerabah.jpg',
+            description: 'Menyediakan berbagai produk gerabah tradisional dan modern, mulai dari vas bunga hingga peralatan dapur.',
             rating: 4.6
         }
     ];
