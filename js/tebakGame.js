@@ -20,41 +20,33 @@ document.addEventListener('DOMContentLoaded', () => {
         tebakContainer.style.display = 'block';
     });
 
-    // Styling untuk dropdown
-    answerSelects.forEach(select => {
-        select.style.color = '#ffffff';
-        select.style.backgroundColor = 'var(--color-dark-bg)';
-        Array.from(select.options).forEach(option => {
-            option.style.color = '#ffffff';
-            option.style.backgroundColor = 'var(--color-dark-bg)';
-        });
-    });
-
     // Logika tombol Yakin
     submitAnswerBtn.addEventListener('click', () => {
         let correctCount = 0;
         const totalImages = tebakRows.length;
+
+        // Cek apakah semua soal sudah dijawab
+        const allAnswered = Array.from(answerSelects).every(select => select.value !== '');
+        if (!allAnswered) {
+            alert('Silakan pilih jawaban untuk semua gambar!');
+            return;
+        }
 
         // Reset daftar kunci jawaban
         answerList.innerHTML = '';
 
         // Periksa jawaban dan tambahkan kunci jawaban
         tebakRows.forEach((row, index) => {
-            const imageItem = row.querySelector('.image-item');
+            const imageItem = row.querySelector('.image-item img'); // Targetkan elemen img
             const select = row.querySelector('.answer-select');
             const correctAnswer = imageItem.dataset.answer;
             const userAnswer = select.value;
 
-            if (!userAnswer) {
-                alert('Silakan pilih jawaban untuk semua gambar!');
-                return;
-            }
-
             if (userAnswer === correctAnswer) {
-                imageItem.classList.add('correct');
+                row.classList.add('correct');
                 correctCount++;
             } else {
-                imageItem.classList.add('incorrect');
+                row.classList.add('incorrect');
             }
 
             select.disabled = true;
@@ -76,9 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         tebakResult.style.display = 'none';
         tebakContainer.style.display = 'block';
         tebakRows.forEach(row => {
-            const imageItem = row.querySelector('.image-item');
             const select = row.querySelector('.answer-select');
-            imageItem.classList.remove('correct', 'incorrect');
+            row.classList.remove('correct', 'incorrect');
             select.disabled = false;
             select.value = '';
         });

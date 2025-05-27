@@ -1,9 +1,8 @@
-/* Hero Section Tebak */
 .hero-tebak {
     position: relative;
     width: 100%;
     height: 60vh;
-    background: var(--gradient-primary); /* Gradasi warna */
+    background: var(--gradient-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +27,6 @@
     max-width: 900px;
     padding: var(--spacing-md);
     animation: fadeInUp 1s ease-out forwards;
-    opacity: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -50,7 +48,6 @@
     letter-spacing: 0.5px;
 }
 
-/* Animasi */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -62,9 +59,9 @@
     }
 }
 
-/* Tebak Game Area */
 #tebak-game-area {
     padding: var(--spacing-lg) 0;
+    background-color: var(--color-light-bg);
 }
 
 #tebak-game-area .container {
@@ -73,43 +70,10 @@
 }
 
 .tebak-start {
-    text-align: center;
     background-color: var(--color-light-bg);
     border-radius: var(--border-radius-md);
     padding: var(--spacing-lg);
     box-shadow: 0 10px 40px var(--shadow-medium);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.tebak-start .section-title {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--color-secondary);
-    margin-bottom: var(--spacing-md);
-}
-
-.tebak-start .section-description {
-    font-size: 1.2rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-lg);
-}
-
-#start-tebak-btn {
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-accent);
-    color: var(--color-text-light);
-    border: none;
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#start-tebak-btn:hover {
-    background-color: #ff9800;
-    transform: translateY(-2px);
 }
 
 .tebak-container {
@@ -121,8 +85,8 @@
 
 .tebak-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -130,60 +94,63 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
 }
 
 .image-item {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 300px;
     border: 2px solid var(--color-subtle-border);
     border-radius: var(--border-radius-sm);
     overflow: hidden;
-    background-color: var(--color-light-bg);
 }
 
 .image-item img {
     width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
-.image-item:hover img {
-    transform: scale(1.05);
+.tebak-row.correct .image-item {
+    border-color: #4caf50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.tebak-row.incorrect .image-item {
+    border-color: #f44336;
+    background-color: rgba(244, 67, 54, 0.1);
 }
 
 .answer-select {
-    width: 200px;
+    width: 100%;
+    max-width: 300px;
     padding: var(--spacing-sm);
-    font-size: 1rem;
-    border: 1px solid var(--color-border-dark);
+    border: 2px solid var(--color-subtle-border);
     border-radius: var(--border-radius-sm);
-    background-color: var(--color-subtle-bg);
+    font-size: 1rem;
     color: var(--color-text-dark);
+    background-color: var(--color-subtle-bg);
     cursor: pointer;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
-.answer-select:hover {
+.answer-select option {
+    color: var(--color-text-dark);
+    background-color: var(--color-subtle-bg);
+}
+
+.answer-select:focus {
+    outline: none;
     border-color: var(--color-primary);
-    background-color: var(--color-light-bg);
+}
+
+.answer-select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 #submit-answer-btn {
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-accent);
-    color: var(--color-text-light);
-    border: none;
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#submit-answer-btn:hover {
-    background-color: #ff9800;
-    transform: translateY(-2px);
+    margin-top: var(--spacing-lg);
 }
 
 .tebak-result {
@@ -214,7 +181,7 @@
 .answer-key h4 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: var(--color-text-dark);
+    color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -222,15 +189,23 @@
     list-style: none;
     padding: 0;
     text-align: left;
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 .answer-list li {
     font-size: 1rem;
     color: var(--color-text-secondary);
-    padding: var(--spacing-xs) 0;
-    border-bottom: 1px solid var(--color-subtle-border);
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.answer-list li::before {
+    content: "✓";
+    color: #4caf50;
+    position: absolute;
+    left: 0;
 }
 
 .result-buttons {
@@ -239,40 +214,6 @@
     gap: var(--spacing-md);
 }
 
-#restart-tebak-btn {
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-accent);
-    color: var(--color-text-light);
-    border: none;
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#restart-tebak-btn:hover {
-    background-color: #ff9800;
-    transform: translateY(-2px);
-}
-
-.cta-button {
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-accent);
-    color: var(--color-text-light);
-    border: none;
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
-}
-
-.cta-button:hover {
-    background-color: #ff9800;
-    transform: translateY(-2px);
-}
-
-/* Responsive Styles */
 @media (max-width: 768px) {
     .hero-tebak {
         height: 50vh;
@@ -284,14 +225,13 @@
         font-size: 1rem;
     }
     .tebak-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: 1fr;
     }
     .image-item {
-        width: 150px;
-        height: 150px;
+        max-width: 100%;
     }
     .answer-select {
-        width: 150px;
+        max-width: 100%;
     }
 }
 
@@ -305,15 +245,8 @@
     .hero-tebak .hero-subtitle {
         font-size: 0.9rem;
     }
-    .tebak-grid {
-        grid-template-columns: 1fr;
-    }
-    .image-item {
-        width: 120px;
-        height: 120px;
-    }
-    .answer-select {
-        width: 120px;
+    .image-item img {
+        height: 150px;
     }
     .result-buttons {
         flex-direction: column;
