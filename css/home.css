@@ -1,6 +1,4 @@
-/* css/home.css */
 
-/* --- Hero Section (Home Specific) --- */
 .hero-section {
     position: relative;
     width: 100%;
@@ -9,9 +7,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-light); /* Keep hero text light as it's on an image with dark overlay */
-    background-color: var(--color-dark-bg); /* Main body background if no image is present */
-    padding-top: 100px; /* Adjust based on your header's actual height + desired gap */
+    color: var(--color-text-light);
+    background-color: var(--color-dark-bg); 
+    padding-top: 100px; 
     box-sizing: border-box;
 }
 
@@ -394,8 +392,7 @@
     line-height: 1.7;
 }
 
-/* --- Game Section (Home Specific) --- */
-/* Game Section (Home Specific) */
+
 .memory-match-selection {
     background-color: var(--color-dark-bg);
     border-bottom: 1px solid var(--color-border-dark);
@@ -470,7 +467,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 200px; /* Tinggi tetap untuk konsistensi tanpa gambar */
+    height: 200px; 
 }
 
 .game-option::before {
@@ -533,17 +530,17 @@
     text-overflow: ellipsis;
 }
 
-/* Bagian Acara & Festival di Home.html */
+
 #featured-acara {
-    background-color: var(--color-light-bg); /* Use light background for this section */
+    background-color: var(--color-light-bg);
 }
 
 .featured-acara-content {
     display: grid;
-    grid-template-columns: 1fr 1.5fr; /* Gambar 1 bagian, teks 1.5 bagian */
+    grid-template-columns: 1fr 1.5fr; 
     gap: var(--spacing-lg);
     align-items: center;
-    background-color: var(--color-dark-bg); /* Latar belakang creamy untuk bagian ini */
+    background-color: var(--color-dark-bg); 
     border-radius: var(--border-radius-md);
     box-shadow: 0 15px 50px var(--shadow-medium);
     padding: var(--spacing-lg);
@@ -553,7 +550,7 @@
 
 .featured-acara-image {
     width: 100%;
-    height: 350px; /* Tinggi gambar acara */
+    height: 350px; 
     object-fit: cover;
     border-radius: var(--border-radius-sm);
     box-shadow: 0 5px 20px var(--shadow-soft);
@@ -572,7 +569,7 @@
     color: var(--color-text-dark);
     transform: translateY(20px);
     opacity: 0;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s, opacity 0.8s ease-out 0.1s; /* Slight delay */
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s, opacity 0.8s ease-out 0.1s; 
 }
 .featured-acara-text.reveal-item {
     transform: translateY(0);
@@ -611,7 +608,7 @@
 }
 
 
-/* Responsive adjustments specific to home page content */
+
 @media (max-width: 1024px) {
     .hero-tagline {
         font-size: 4.5rem;
@@ -620,7 +617,7 @@
         font-size: 1.25rem;
     }
     .featured-acara-content {
-        grid-template-columns: 1fr; /* Satu kolom di tablet */
+        grid-template-columns: 1fr; 
         text-align: center;
     }
     .featured-acara-image {
@@ -658,7 +655,7 @@
         padding: 0.6rem 1.2rem;
     }
     .slide-dots {
-        bottom: 2rem; /* Adjusted for smaller screens */
+        bottom: 2rem;
     }
     .featured-acara-image {
         height: 250px;

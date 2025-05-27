@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'toko-gerabah-semarang',
-            name: 'Toko Gerabah Semarang',
+            name: 'Gerabah Semarang',
             category: 'gerabah',
             image: 'images/gerabah.jpg',
             description: 'Menyediakan berbagai produk gerabah tradisional dan modern, mulai dari vas bunga hingga peralatan dapur.',

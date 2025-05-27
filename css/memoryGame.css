@@ -1,9 +1,8 @@
-/* Hero Section Memory */
 .hero-memory {
     position: relative;
     width: 100%;
     height: 60vh;
-    background: var(--gradient-primary); /* Gradasi warna */
+    background: var(--gradient-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +27,6 @@
     max-width: 900px;
     padding: var(--spacing-md);
     animation: fadeInUp 1s ease-out forwards;
-    opacity: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -50,7 +48,6 @@
     letter-spacing: 0.5px;
 }
 
-/* Animasi */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -62,9 +59,9 @@
     }
 }
 
-/* Memory Game Area */
 #memory-game-area {
     padding: var(--spacing-lg) 0;
+    background-color: var(--color-light-bg);
 }
 
 #memory-game-area .container {
@@ -81,7 +78,7 @@
 
 .memory-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 kolom untuk 16 kartu (8 pasang) */
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     max-width: 800px;
@@ -90,7 +87,7 @@
 
 .memory-card {
     width: 100%;
-    height: 150px;
+    height: 200px;
     background-color: var(--color-subtle-bg);
     border: 2px solid var(--color-subtle-border);
     border-radius: var(--border-radius-sm);
@@ -98,9 +95,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 2rem;
     color: var(--color-text-dark);
     transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
 }
 
 .memory-card.flipped {
@@ -117,6 +114,46 @@
 .memory-card:hover {
     background-color: var(--color-primary);
     color: var(--color-text-light);
+}
+
+.memory-card:hover .question-mark {
+    color: var(--color-text-light);
+}
+
+.question-mark {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    color: #333;
+    pointer-events: none; /* Pastikan elemen ini tidak mengganggu hover */
+    transition: color 0.3s ease;
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    pointer-events: none; /* Pastikan elemen ini tidak mengganggu hover */
+}
+
+.card-content img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transform: rotateY(180deg); /* Balik gambar agar orientasinya benar */
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    padding: 0 var(--spacing-sm);
+    margin: 0;
+    transform: rotateY(180deg); /* Balik teks agar orientasinya benar */
 }
 
 .memory-controls {
@@ -170,7 +207,6 @@
     transform: translateY(-2px);
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .hero-memory {
         height: 50vh;
@@ -182,9 +218,12 @@
         font-size: 1rem;
     }
     .memory-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 kolom pada layar menengah */
+        grid-template-columns: repeat(3, 1fr);
     }
     .memory-card {
+        height: 160px;
+    }
+    .card-content img {
         height: 120px;
     }
 }
@@ -200,9 +239,12 @@
         font-size: 0.9rem;
     }
     .memory-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar kecil */
+        grid-template-columns: repeat(2, 1fr);
     }
     .memory-card {
+        height: 140px;
+    }
+    .card-content img {
         height: 100px;
     }
     .result-buttons {
