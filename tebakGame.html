@@ -31,7 +31,7 @@
     </header>
 
     <main>
-        <section id="hero-tebak" class="hero-tebak section-padding" style="background-image: url('https://via.placeholder.com/1200x400?text=Tebak+Gambar');">
+        <section id="hero-tebak" class="hero-tebak section-padding">
             <div class="overlay"></div>
             <div class="hero-content">
                 <h1 class="hero-title">Tebak Gambar</h1>
@@ -41,69 +41,116 @@
 
         <section id="tebak-game-area" class="section-padding" style="background-color: var(--color-light-bg);">
             <div class="container">
-                <div class="tebak-container">
+                <div class="tebak-start" style="display: block;">
+                    <h2 class="section-title">Tebak Gambar</h2>
+                    <p class="section-description">Siap untuk menguji kemampuan tebak gambar budaya Indonesia? Klik tombol di bawah untuk memulai!</p>
+                    <button id="start-tebak-btn" class="cta-button">Mulai</button>
+                </div>
+                <div class="tebak-container" style="display: none;">
                     <div class="tebak-grid">
+
+                        <!-- Soal 1 - Kuliner -->
                         <div class="tebak-row">
-                            <div class="image-item"><img src="https://via.placeholder.com/200x200?text=Angklung" alt="Angklung" data-answer="Angklung"></div>
+                            <div class="image-item">
+                                <img src="images/tahuGimbal.jpg" alt="Tahu Gimbal" data-answer="Tahu Gimbal">
+                            </div>
                             <select class="answer-select" data-id="1">
                                 <option value="">Pilih...</option>
-                                <option value="Angklung">Angklung</option>
-                                <option value="Batik">Batik</option>
-                                <option value="Rendang">Rendang</option>
-                                <option value="Tari Kecak">Tari Kecak</option>
-                                <option value="Candi Borobudur">Candi Borobudur</option>
+                                <option value="Rendang">Tahu Gimbal</option>
+                                <option value="Gudeg">Gudeg</option>
+                                <option value="Pempek">Pempek</option>
+                                <option value="Sate Lilit">Sate Lilit</option>
+                                <option value="Kerak Telor">Kerak Telor</option>
                             </select>
                         </div>
+                    
+                        <!-- Soal 2 - Kerajinan -->
                         <div class="tebak-row">
-                            <div class="image-item"><img src="https://via.placeholder.com/200x200?text=Batik" alt="Batik" data-answer="Batik"></div>
+                            <div class="image-item">
+                                <img src="images/kalungResin.jpg" alt="Resin" data-answer="Resin">
+                            </div>
                             <select class="answer-select" data-id="2">
                                 <option value="">Pilih...</option>
-                                <option value="Angklung">Angklung</option>
-                                <option value="Batik">Batik</option>
-                                <option value="Rendang">Rendang</option>
-                                <option value="Tari Kecak">Tari Kecak</option>
-                                <option value="Candi Borobudur">Candi Borobudur</option>
+                                <option value="Anyaman Bambu">Anyaman Bambu</option>
+                                <option value="Resin">Resin</option>
+                                <option value="Tenun Ikat">Tenun Ikat</option>
+                                <option value="Tas Rotan">Tas Rotan</option>
+                                <option value="Gerabah">Gerabah</option>
                             </select>
                         </div>
+                    
+                        <!-- Soal 3 - Acara -->
                         <div class="tebak-row">
-                            <div class="image-item"><img src="https://via.placeholder.com/200x200?text=Rendang" alt="Rendang" data-answer="Rendang"></div>
+                            <div class="image-item">
+                                <img src="images/kudaLumping.jpg" alt="Kuda Lumping" data-answer="Kuda Lumping">
+                            </div>
                             <select class="answer-select" data-id="3">
                                 <option value="">Pilih...</option>
-                                <option value="Angklung">Angklung</option>
-                                <option value="Batik">Batik</option>
-                                <option value="Rendang">Rendang</option>
-                                <option value="Tari Kecak">Tari Kecak</option>
-                                <option value="Candi Borobudur">Candi Borobudur</option>
+                                <option value="Festival Danau Toba">Festival Danau Toba</option>
+                                <option value="Pekan Budaya">Pekan Budaya</option>
+                                <option value="Kuda Lumping">Kuda Lumping</option>
+                                <option value="Pameran UMKM">Pameran UMKM</option>
+                                <option value="Gebyar Kuliner">Gebyar Kuliner</option>
                             </select>
                         </div>
+                    
+                        <!-- Soal 4 - Kuliner -->
                         <div class="tebak-row">
-                            <div class="image-item"><img src="https://via.placeholder.com/200x200?text=Tari+Kecak" alt="Tari Kecak" data-answer="Tari Kecak"></div>
+                            <div class="image-item">
+                                <img src="images/sotoBangkong.jpg" alt="Soto Bangkong" data-answer="Soto Bangkong">
+                            </div>
                             <select class="answer-select" data-id="4">
                                 <option value="">Pilih...</option>
-                                <option value="Angklung">Angklung</option>
-                                <option value="Batik">Batik</option>
                                 <option value="Rendang">Rendang</option>
-                                <option value="Tari Kecak">Tari Kecak</option>
-                                <option value="Candi Borobudur">Candi Borobudur</option>
+                                <option value="Gudeg">Gudeg</option>
+                                <option value="Pempek">Pempek</option>
+                                <option value="Sate Lilit">Sate Lilit</option>
+                                <option value="Soto Bangkong">Soto Bangkong</option>
                             </select>
                         </div>
+                    
+                        <!-- Soal 5 - Kerajinan -->
                         <div class="tebak-row">
-                            <div class="image-item"><img src="https://via.placeholder.com/200x200?text=Candi+Borobudur" alt="Candi Borobudur" data-answer="Candi Borobudur"></div>
+                            <div class="image-item">
+                                <img src="images/gerabah.jpg" alt="Gerabah" data-answer="Gerabah">
+                            </div>
                             <select class="answer-select" data-id="5">
                                 <option value="">Pilih...</option>
-                                <option value="Angklung">Angklung</option>
+                                <option value="Anyaman Bambu">Anyaman Bambu</option>
                                 <option value="Batik">Batik</option>
-                                <option value="Rendang">Rendang</option>
-                                <option value="Tari Kecak">Tari Kecak</option>
-                                <option value="Candi Borobudur">Candi Borobudur</option>
+                                <option value="Tenun Ikat">Tenun Ikat</option>
+                                <option value="Tas Rotan">Tas Rotan</option>
+                                <option value="Gerabah">Gerabah</option>
                             </select>
                         </div>
+                    
+                        <!-- Soal 6 - Acara -->
+                        <div class="tebak-row">
+                            <div class="image-item">
+                                <img src="images/turWisata.jpg" alt="Tur Wisata" data-answer="Tur Wisata">
+                            </div>
+                            <select class="answer-select" data-id="6">
+                                <option value="">Pilih...</option>
+                                <option value="Festival Danau Toba">Festival Danau Toba</option>
+                                <option value="Pekan Budaya">Pekan Budaya</option>
+                                <option value="Tur Wisata">Tur Wisata</option>
+                                <option value="Pameran UMKM">Pameran UMKM</option>
+                                <option value="Gebyar Kuliner">Gebyar Kuliner</option>
+                            </select>
+                        </div>
+                    
                     </div>
+                    
                     <button id="submit-answer-btn" class="cta-button">Yakin</button>
+                    
                 </div>
                 <div class="tebak-result" style="display: none;">
                     <h3 class="result-title"></h3>
                     <p class="result-description"></p>
+                    <div class="answer-key">
+                        <h4>Kunci Jawaban:</h4>
+                        <ul class="answer-list"></ul>
+                    </div>
                     <div class="result-buttons">
                         <button id="restart-tebak-btn" class="cta-button">Main Lagi</button>
                         <a href="game.html" class="cta-button">Kembali</a>

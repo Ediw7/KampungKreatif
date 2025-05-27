@@ -3,8 +3,7 @@
     position: relative;
     width: 100%;
     height: 60vh;
-    background-size: cover;
-    background-position: center;
+    background: var(--gradient-primary); /* Gradasi warna */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +50,7 @@
     letter-spacing: 0.5px;
 }
 
-
+/* Animasi */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -63,7 +62,7 @@
     }
 }
 
-
+/* Tebak Game Area */
 #tebak-game-area {
     padding: var(--spacing-lg) 0;
 }
@@ -73,95 +72,117 @@
     text-align: center;
 }
 
-.tebak-container {
+.tebak-start {
+    text-align: center;
     background-color: var(--color-light-bg);
     border-radius: var(--border-radius-md);
     padding: var(--spacing-lg);
     box-shadow: 0 10px 40px var(--shadow-medium);
-    margin-bottom: var(--spacing-lg);
-}
-
-.tebak-grid {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.tebak-start .section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.tebak-start .section-description {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-lg);
 }
 
-.tebak-row {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.image-item {
-    width: 200px;
-    height: 200px;
-    background-color: var(--color-dark-bg);
-    border-radius: var(--border-radius-sm);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.image-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.image-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px var(--shadow-medium);
-}
-
-.image-item.correct {
-    border: 3px solid #4caf50;
-}
-
-.image-item.incorrect {
-    border: 3px solid #f44336;
-}
-
-.answer-select {
-    padding: var(--spacing-sm);
-    font-size: 1.1rem;
-    border-radius: var(--border-radius-sm);
-    border: 2px solid var(--color-subtle-border);
-    width: 250px;
-    background-color: var(--color-dark-bg);
-    color: #000; 
-}
-
-.answer-select:focus {
-    outline: none;
-    border-color: var(--color-primary);
-}
-
-.answer-select option {
-    color: #000;
-    background-color: var(--color-dark-bg) 
-}
-
-
-.answer-select::-ms-expand {
-    display: none; 
-}
-
-#submit-answer-btn {
+#start-tebak-btn {
     padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-primary);
+    background-color: var(--color-accent);
     color: var(--color-text-light);
     border: none;
     border-radius: var(--border-radius-sm);
     cursor: pointer;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: var(--spacing-md);
+}
+
+#start-tebak-btn:hover {
+    background-color: #ff9800;
+    transform: translateY(-2px);
+}
+
+.tebak-container {
+    background-color: var(--color-light-bg);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 40px var(--shadow-medium);
+}
+
+.tebak-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tebak-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.image-item {
+    width: 200px;
+    height: 200px;
+    border: 2px solid var(--color-subtle-border);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    background-color: var(--color-light-bg);
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-item:hover img {
+    transform: scale(1.05);
+}
+
+.answer-select {
+    width: 200px;
+    padding: var(--spacing-sm);
+    font-size: 1rem;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-subtle-bg);
+    color: var(--color-text-dark);
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.answer-select:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-light-bg);
+}
+
+#submit-answer-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #submit-answer-btn:hover {
-    background-color: var(--color-secondary);
+    background-color: #ff9800;
     transform: translateY(-2px);
 }
 
@@ -186,6 +207,32 @@
     margin-bottom: var(--spacing-lg);
 }
 
+.answer-key {
+    margin-bottom: var(--spacing-lg);
+}
+
+.answer-key h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.answer-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.answer-list li {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--color-subtle-border);
+}
+
 .result-buttons {
     display: flex;
     justify-content: center;
@@ -208,6 +255,23 @@
     transform: translateY(-2px);
 }
 
+.cta-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: #ff9800;
+    transform: translateY(-2px);
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .hero-tebak {
@@ -219,20 +283,15 @@
     .hero-tebak .hero-subtitle {
         font-size: 1rem;
     }
-    .tebak-row {
-        flex-direction: column;
-        align-items: center;
+    .tebak-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
     .image-item {
         width: 150px;
         height: 150px;
     }
     .answer-select {
-        width: 100%;
-        margin-top: var(--spacing-sm);
-    }
-    #submit-answer-btn {
-        width: 100%;
+        width: 150px;
     }
 }
 
@@ -246,12 +305,22 @@
     .hero-tebak .hero-subtitle {
         font-size: 0.9rem;
     }
+    .tebak-grid {
+        grid-template-columns: 1fr;
+    }
     .image-item {
         width: 120px;
         height: 120px;
     }
+    .answer-select {
+        width: 120px;
+    }
     .result-buttons {
         flex-direction: column;
         gap: var(--spacing-md);
+    }
+    #restart-tebak-btn,
+    .cta-button {
+        width: 100%;
     }
 }

@@ -17,32 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Data Pertanyaan Quiz (5 pertanyaan)
     const quizData = [
         {
-            question: 'Apa nama tarian tradisional yang berasal dari Bali dan menggambarkan kisah Ramayana?',
-            options: ['Tari Saman', 'Tari Kecak', 'Tari Jaipong', 'Tari Piring'],
-            correctAnswer: 'Tari Kecak'
+            question: 'Apa kepanjangan dari UMKM dalam konteks ekonomi Indonesia?',
+            options: ['Usaha Mikro Kecil dan Menengah', 'Usaha Mandiri Koperasi Masyarakat', 'Unit Masyarakat Kreatif Mandiri', 'Usaha Milik Komunitas Mandiri'],
+            correctAnswer: 'Usaha Mikro Kecil dan Menengah'
         },
         {
-            question: 'Alat musik tradisional Indonesia yang terbuat dari bambu dan dimainkan dengan ditiup adalah...',
-            options: ['Sasando', 'Angklung', 'Saron', 'Suling'],
-            correctAnswer: 'Angklung'
+            question: 'Bahan dasar yang sering digunakan dalam kerajinan anyaman di Indonesia adalah...',
+            options: ['Logam', 'Bambu', 'Kaca', 'Keramik'],
+            correctAnswer: 'Bambu'
         },
         {
-            question: 'Makanan khas Indonesia yang terbuat dari daging sapi dimasak dengan rempah kaya adalah...',
-            options: ['Rendang', 'Sate', 'Gado-gado', 'Nasi Goreng'],
-            correctAnswer: 'Rendang'
+            question: 'Produk UMKM berikut ini biasanya menggunakan resin sebagai bahan utama, kecuali...',
+            options: ['Gantungan kunci', 'Kalung', 'Topi bambu', 'Jam dinding'],
+            correctAnswer: 'Topi bambu'
         },
         {
-            question: 'Candi terbesar di Indonesia yang merupakan warisan budaya UNESCO adalah...',
-            options: ['Candi Prambanan', 'Candi Borobudur', 'Candi Sewu', 'Candi Kalasan'],
-            correctAnswer: 'Candi Borobudur'
+            question: 'Salah satu manfaat mendukung produk UMKM lokal adalah...',
+            options: ['Meningkatkan harga impor', 'Mengurangi lapangan kerja', 'Memajukan ekonomi lokal', 'Mengurangi produksi nasional'],
+            correctAnswer: 'Memajukan ekonomi lokal'
         },
         {
-            question: 'Apa nama kain tradisional Indonesia yang dikenal dengan motif khas dan proses tulis?',
-            options: ['Songket', 'Batik', 'Tenun Ikat', 'Ulos'],
-            correctAnswer: 'Batik'
+            question: 'Kerajinan tangan berbahan dasar batok kelapa sering dijadikan...',
+            options: ['Perhiasan emas', 'Mainan plastik', 'Lampu hias dan wadah', 'Tas kulit'],
+            correctAnswer: 'Lampu hias dan wadah'
         }
     ];
-
+    
     let currentQuestionIndex = 0;
     let score = 0;
     let selectedAnswer = null;

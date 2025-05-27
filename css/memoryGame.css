@@ -3,8 +3,7 @@
     position: relative;
     width: 100%;
     height: 60vh;
-    background-size: cover;
-    background-position: center;
+    background: var(--gradient-primary); /* Gradasi warna */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,7 +62,7 @@
     }
 }
 
-
+/* Memory Game Area */
 #memory-game-area {
     padding: var(--spacing-lg) 0;
 }
@@ -78,87 +77,53 @@
     border-radius: var(--border-radius-md);
     padding: var(--spacing-lg);
     box-shadow: 0 10px 40px var(--shadow-medium);
-    margin-bottom: var(--spacing-lg);
 }
 
 .memory-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-sm);
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom untuk 16 kartu (8 pasang) */
+    gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .memory-card {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    perspective: 1000px;
-    cursor: pointer;
-}
-
-.card-inner {
-    position: relative;
     width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
-}
-
-.card-inner.flipped {
-    transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
+    height: 150px;
+    background-color: var(--color-subtle-bg);
+    border: 2px solid var(--color-subtle-border);
     border-radius: var(--border-radius-sm);
-    box-shadow: 0 2px 5px var(--shadow-light);
-}
-
-.card-front {
-    background-color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--color-text-dark);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.card-back {
-    background-color: var(--color-dark-bg);
+.memory-card.flipped {
+    background-color: var(--color-light-bg);
     transform: rotateY(180deg);
 }
 
-.card-back img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--border-radius-sm);
+.memory-card.matched {
+    background-color: #4caf50;
+    color: var(--color-text-light);
+    cursor: default;
+}
+
+.memory-card:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .memory-controls {
     display: flex;
     justify-content: center;
     gap: var(--spacing-md);
-}
-
-#restart-memory-btn,
-.cta-button {
-    padding: var(--spacing-sm) var(--spacing-md);
-    background-color: var(--color-accent);
-    color: var(--color-text-light);
-    border: none;
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#restart-memory-btn:hover,
-.cta-button:hover {
-    background-color: #ff9800;
-    transform: translateY(-2px);
+    margin-top: var(--spacing-lg);
 }
 
 .memory-result {
@@ -188,7 +153,7 @@
     gap: var(--spacing-md);
 }
 
-#restart-result-btn {
+.cta-button {
     padding: var(--spacing-sm) var(--spacing-md);
     background-color: var(--color-accent);
     color: var(--color-text-light);
@@ -197,14 +162,15 @@
     cursor: pointer;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
 }
 
-#restart-result-btn:hover {
+.cta-button:hover {
     background-color: #ff9800;
     transform: translateY(-2px);
 }
 
-
+/* Responsive Styles */
 @media (max-width: 768px) {
     .hero-memory {
         height: 50vh;
@@ -215,12 +181,11 @@
     .hero-memory .hero-subtitle {
         font-size: 1rem;
     }
-    .memory-card {
-        width: 80px;
-        height: 80px;
-    }
     .memory-grid {
-        gap: var(--spacing-xs);
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom pada layar menengah */
+    }
+    .memory-card {
+        height: 120px;
     }
 }
 
@@ -234,9 +199,11 @@
     .hero-memory .hero-subtitle {
         font-size: 0.9rem;
     }
+    .memory-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar kecil */
+    }
     .memory-card {
-        width: 60px;
-        height: 60px;
+        height: 100px;
     }
     .result-buttons {
         flex-direction: column;
