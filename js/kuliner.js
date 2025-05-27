@@ -19,27 +19,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Data Warung
     const warungData = [
         {
-            id: 'gudeg-bu-sari',
-            name: 'Warung Gudeg Bu Sari',
+            id: 'tahu-gimbal-pak-edi',
+            name: 'Tahu Gimbal Pak Edi',
             category: 'makanan-berat',
-            image: 'https://via.placeholder.com/300x200?text=Gudeg+Bu+Sari',
-            description: 'Gudeg lezat dengan resep turun-temurun sejak 1970.',
-            rating: 4.8
-        },
-        {
-            id: 'bakpia-mbak-ani',
-            name: 'Bakpia Mbak Ani',
-            category: 'makanan-ringan',
-            image: 'https://via.placeholder.com/300x200?text=Bakpia+Mbak+Ani',
-            description: 'Bakpia isi kacang hijau dan cokelat yang manis.',
+            image: 'images/tahuGimbal.jpg',
+            description: 'Tahu gimbal dengan lontong, kol, udang goreng, dan bumbu kacang khas.',
             rating: 4.7
         },
         {
-            id: 'es-dawet-bu-wulan',
-            name: 'Es Dawet Bu Wulan',
-            category: 'minuman',
-            image: 'https://via.placeholder.com/300x200?text=Es+Dawet+Bu+Wulan',
-            description: 'Minuman segar dawet dengan gula merah asli.',
+            id: 'lumpia-gang-lombok',
+            name: 'Lumpia Gang Lombok',
+            category: 'makanan-ringan',
+            image: 'images/lumpia.jpg',
+            description: 'Lumpia legendaris khas Semarang dengan isian rebung, telur, dan ayam udang.',
+            rating: 4.7
+        },
+        
+        {
+            id: 'soto-bangkong',
+            name: 'Soto Bangkong',
+            category: 'makanan-berat',
+            image: 'images/sotoBangkong.jpg',
+            description: 'Soto ayam bening khas Semarang dengan suwiran ayam kampung dan sambal segar.',
             rating: 4.6
         }
     ];

@@ -12,35 +12,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const warungData = {
-        name: 'Warung Gudeg Bu Sari',
-        image: 'https://www.masakapahariini.com/wp-content/uploads/2021/08/Gudeg-Yogyakarta.jpg',
+        name: 'Tahu Gimbal Pak Edi',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Tahu_gimbal.jpg/320px-Tahu_gimbal.jpg',
         products: [
             {
-                name: 'Gudeg Komplit',
-                image: 'https://www.masakapahariini.com/wp-content/uploads/2021/08/Gudeg-Yogyakarta.jpg',
-                description: 'Gudeg dengan nasi, ayam kampung, telur, dan krecek.',
-                ingredients: ['Nangka muda', 'Kelapa', 'Ayam', 'Telur', 'Cabai'],
-                price: 'Rp 25.000',
-                contact: '6281234567890'
-            },
-            {
-                name: 'Gudeg Solo',
-                image: 'https://www.masakapahariini.com/wp-content/uploads/2021/08/Gudeg-Yogyakarta.jpg',
-                description: 'Gudeg manis khas Solo dengan lauk ayam.',
-                ingredients: ['Nangka muda', 'Gula merah', 'Ayam', 'Bawang'],
+                name: 'Tahu Gimbal Komplit',
+                image: 'images/tahuKomplit.jpg',
+                description: 'Tahu goreng dengan lontong, kol, udang goreng, dan bumbu kacang khas Semarang.',
+                ingredients: ['Tahu goreng', 'Lontong', 'Kol', 'Udang goreng', 'Bumbu kacang'],
                 price: 'Rp 20.000',
                 contact: '6281234567890'
             },
             {
-                name: 'Gudeg Solo',
-                image: 'https://www.masakapahariini.com/wp-content/uploads/2021/08/Gudeg-Yogyakarta.jpg',
-                description: 'Gudeg manis khas Solo dengan lauk ayam.',
-                ingredients: ['Nangka muda', 'Gula merah', 'Ayam', 'Bawang'],
-                price: 'Rp 20.000',
+                name: 'Tahu Gimbal Pedas',
+                image: 'images/tahuPedas.jpg',
+                description: 'Tahu gimbal dengan tambahan sambal pedas untuk sensasi rasa yang menggigit.',
+                ingredients: ['Tahu goreng', 'Lontong', 'Kol', 'Udang goreng', 'Bumbu kacang', 'Sambal pedas'],
+                price: 'Rp 22.000',
+                contact: '6281234567890'
+            },
+            {
+                name: 'Tahu Gimbal Original',
+                image: 'images/tahuGimbal.jpg',
+                description: 'Rasa asli tahu gimbal Semarang yang legendaris dengan bumbu kacang khas.',
+                ingredients: ['Tahu goreng', 'Lontong', 'Kol', 'Udang goreng', 'Bumbu kacang'],
+                price: 'Rp 18.000',
                 contact: '6281234567890'
             }
         ]
     };
+    
 
     warungData.products.forEach((product, index) => {
         const productCard = document.createElement('div');
