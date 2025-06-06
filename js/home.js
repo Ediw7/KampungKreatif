@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentSlide = 0;
     let slideInterval;
-    const slideTitles = ["Kuliner Khas", "Kreasi Batik", "Seni Wayang"]; // Sesuaikan dengan gambar
-
+    const slideTitles = ["Kuliner Khas", "Kreasi Batik", "Seni Wayang"]; 
     // Fungsi untuk menampilkan slide
     function showSlide(index) {
         slides.forEach((slide, i) => {
@@ -35,12 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (spotlightDisplay) {
             spotlightDisplay.textContent = slideTitles[currentSlide];
-            spotlightDisplay.style.opacity = '0'; // Reset opacity
+            spotlightDisplay.style.opacity = '0';
             setTimeout(() => {
-                spotlightDisplay.style.opacity = '1'; // Fade in
+                spotlightDisplay.style.opacity = '1'; 
             }, 100);
             setTimeout(() => {
-                spotlightDisplay.style.opacity = '0'; // Fade out setelah 4 detik
+                spotlightDisplay.style.opacity = '0'; 
             }, 4000);
         }
     }
