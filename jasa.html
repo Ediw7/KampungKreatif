@@ -7,7 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/global.css">    <link rel="stylesheet" href="css/jasa.css">      </head>
+    <link rel="stylesheet" href="css/global.css">    
+    <link rel="stylesheet" href="css/jasa.css">      
+</head>
 <body>
 
     <header class="main-header">
@@ -50,8 +52,12 @@
                     <button class="filter-btn" data-category="pertunjukan-budaya">Pertunjukan Budaya</button>
                 </div>
 
-                <div class="jasa-grid">
-                    </div>
+                <!-- Tambahkan input pencarian -->
+                <div class="jasa-search">
+                    <input type="text" id="search-input" placeholder="Cari jasa..." aria-label="Cari jasa">
+                </div>
+
+                <div class="jasa-grid"></div>
             </div>
         </section>
 
@@ -60,8 +66,7 @@
                 <h2 class="section-title">Mengapa Memilih Kami?</h2>
                 <p class="section-description">Kami menawarkan pengalaman budaya yang autentik, dipandu oleh ahli lokal.</p>
 
-                <div class="why-choose-us-grid">
-                    </div>
+                <div class="why-choose-us-grid"></div>
             </div>
         </section>
 
@@ -94,8 +99,9 @@
         </div>
     </div>
 
-
     <div id="footer-placeholder"></div>
 
-    <script src="js/global.js"></script>    <script src="js/jasa.js"></script>      </body>
+    <script src="js/global.js"></script>    
+    <script src="js/jasa.js"></script>      
+</body>
 </html>

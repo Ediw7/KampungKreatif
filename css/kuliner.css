@@ -177,6 +177,35 @@
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
+
+.kuliner-search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+#search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: var(--spacing-sm);
+    border: 2px solid var(--color-subtle-border);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    background-color: var(--color-subtle-bg);
+    transition: border-color 0.3s ease;
+}
+
+#search-input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+
 /* Responsive Styles */
 @media (max-width: 1024px) {
     .hero-kuliner .hero-title {

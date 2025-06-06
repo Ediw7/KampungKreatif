@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventGrid = document.querySelector('.event-grid');
     const pastEventGalleryGrid = document.querySelector('.past-event-gallery-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('search-input'); 
     const acaraModal = document.getElementById('acara-modal');
     const bookingConfirmModal = document.getElementById('booking-confirm-modal');
     const closeButtons = document.querySelectorAll('.close-button');
     const bookingForm = document.getElementById('booking-form');
     const processBookingBtn = document.getElementById('process-booking-btn');
-
 
     const upcomingEvents = [
         {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             time: '08:00 - 17:00 WIB',
             location: 'Kota Semarang',
             price: 50000,
-            description: 'Dalam rangka menyambut Hari Kedatangan Laksama Zheng He yang ke-619 tahun, maka akan diselenggarakan Festival Arak–Arakan Cheng Ho 2025.Festival Arak–Arakan Cheng Ho 2024 memiliki beragam rangkaian, di antaranya Ritual Sembahyangan sebagai wujud syukur atas kedatangan Laksamana Cheng Ho ke Indonesia, Pertunjukan Seni dan Hiburan dari kolaborasi akulturasi budaya Tiongkok dan Jawa, Arak-arakan Patung Dewa (Kimsien) dari Klenteng Tay Kak Sie menuju Klenteng Sam Poo Kong, Bazar Kuliner, dan lain-lain.'
+            description: 'Dalam rangka menyambut Hari Kedatangan Laksama Zheng He yang ke-619 tahun, maka akan diselenggarakan Festival Arak–Arakan Cheng Ho 2025. Festival Arak–Arakan Cheng Ho 2024 memiliki beragam rangkaian, di antaranya Ritual Sembahyangan sebagai wujud syukur atas kedatangan Laksamana Cheng Ho ke Indonesia, Pertunjukan Seni dan Hiburan dari kolaborasi akulturasi budaya Tiongkok dan Jawa, Arak-arakan Patung Dewa (Kimsien) dari Klenteng Tay Kak Sie menuju Klenteng Sam Poo Kong, Bazar Kuliner, dan lain-lain.'
         },
         {
             id: 'pertunjukan-wayang-orang',
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'semarang-night-carnival',
-            title: 'Semarang Night Carnival ',
+            title: 'Semarang Night Carnival',
             category: 'festival',
             image: 'images/nightCarnival.jpg',
             date: '20 Agustus 2025',
@@ -64,14 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let selectedEvent = null;
 
-    function displayEvents(filter = 'all') {
-        console.log('Displaying events for filter:', filter);
+    function displayEvents(filter = 'all', searchQuery = '') {
+        console.log('Displaying events for filter:', filter, 'with search query:', searchQuery);
         eventGrid.innerHTML = '';
 
-        const filteredEvents = filter === 'all' ? upcomingEvents : upcomingEvents.filter(event => event.category === filter);
+        let filteredEvents = filter === 'all' ? upcomingEvents : upcomingEvents.filter(event => event.category === filter);
+
+        // Filter berdasarkan pencarian
+        if (searchQuery) {
+            filteredEvents = filteredEvents.filter(event => event.title.toLowerCase().includes(searchQuery.toLowerCase()));
+        }
 
         if (filteredEvents.length === 0) {
-            eventGrid.innerHTML = '<p>Tidak ada acara dalam kategori ini.</p>';
+            eventGrid.innerHTML = '<p>Tidak ada acara yang sesuai dengan kriteria ini.</p>';
             return;
         }
 
@@ -145,13 +150,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('booking-message-final').textContent = '';
     }
 
+    // Event listener untuk tombol filter
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             const filter = button.dataset.filter;
-            displayEvents(filter);
+            const searchQuery = searchInput.value;
+            displayEvents(filter, searchQuery);
         });
+    });
+
+    // Event listener untuk input pencarian
+    searchInput.addEventListener('input', () => {
+        const filter = document.querySelector('.filter-btn.active').dataset.filter; 
+        const searchQuery = searchInput.value; 
+        console.log('Search input changed:', searchQuery);
+        displayEvents(filter, searchQuery);
     });
 
     bookingForm.addEventListener('submit', (e) => {
@@ -163,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         openBookingConfirmModal(quantity);
     });
-
 
     processBookingBtn.addEventListener('click', () => {
         const name = document.getElementById('booking-name').value.trim();
@@ -188,13 +202,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     });
 
-
     closeButtons.forEach(button => {
         button.addEventListener('click', () => {
             closeModal(button.closest('.acara-modal') || button.closest('.event-modal'));
         });
     });
-
 
     window.addEventListener('click', (event) => {
         if (event.target === acaraModal) {

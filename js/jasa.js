@@ -1,11 +1,10 @@
-// js/jasa.js
-
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Jasa page JavaScript loaded.');
 
     const jasaGrid = document.querySelector('.jasa-grid');
     const jasaFilterButtons = document.querySelectorAll('.jasa-filters .filter-btn');
     const whyChooseUsGrid = document.querySelector('.why-choose-us-grid');
+    const searchInput = document.getElementById('search-input'); 
 
     const jasaModal = document.getElementById('jasa-modal');
     const closeButton = document.querySelector('.jasa-modal .close-button');
@@ -24,8 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalGuideContact = document.getElementById('modal-guide-contact');
     const modalBookingLink = document.getElementById('modal-booking-link');
 
-
-  
     const jasaData = [
         {
             id: 'tur-desa',
@@ -81,9 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             bookingLink: 'mailto:booking@kampungwisata.com?subject=Pemesanan Pelatihan Tari Tradisional'
         }
-        // Tambahkan lebih banyak jasa di sini...
     ];
-
 
     const whyChooseUsData = [
         {
@@ -104,13 +99,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-
-  
-    function displayJasaItems(category = 'all') {
+    function displayJasaItems(category = 'all', searchQuery = '') {
         jasaGrid.innerHTML = ''; 
-        const filteredData = category === 'all'
-            ? jasaData
-            : jasaData.filter(item => item.category === category);
+        let filteredData = category === 'all' ? jasaData : jasaData.filter(item => item.category === category);
+
+        // Filter berdasarkan pencarian
+        if (searchQuery) {
+            filteredData = filteredData.filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
+        }
+
+        if (filteredData.length === 0) {
+            jasaGrid.innerHTML = '<p>Tidak ada jasa dalam kategori ini.</p>';
+            return;
+        }
 
         filteredData.forEach((item, index) => {
             const card = document.createElement('div');
@@ -128,10 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             jasaGrid.appendChild(card);
 
-       
             card.addEventListener('click', () => openJasaModal(item));
         });
-
 
         const revealElements = document.querySelectorAll('.jasa-card');
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
@@ -174,8 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
         revealFeatures.forEach(el => featureObserver.observe(el));
     }
 
-
-
     function openJasaModal(item) {
         modalImage.src = item.image;
         modalImage.alt = item.name;
@@ -191,32 +188,38 @@ document.addEventListener('DOMContentLoaded', () => {
         modalGuideBio.textContent = item.guide.bio;
         modalGuideContact.textContent = `Kontak: ${item.guide.contact}`;
 
-      
         modalBookingLink.href = item.bookingLink;
 
         jasaModal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
-   
     function closeJasaModal() {
         jasaModal.classList.remove('active');
         document.body.style.overflow = '';
     }
 
-   
+    // Event listener untuk tombol filter
     jasaFilterButtons.forEach(button => {
         button.addEventListener('click', () => {
             jasaFilterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             const category = button.dataset.category;
-            displayJasaItems(category);
+            const searchQuery = searchInput.value; 
+            displayJasaItems(category, searchQuery);
         });
     });
 
+    // Event listener untuk input pencarian
+    searchInput.addEventListener('input', () => {
+        const category = document.querySelector('.jasa-filters .filter-btn.active').dataset.category; 
+        const searchQuery = searchInput.value; 
+        console.log('Search input changed:', searchQuery);
+        displayJasaItems(category, searchQuery);
+    });
 
+    // Event listener untuk menutup modal
     closeButton.addEventListener('click', closeJasaModal);
-
 
     window.addEventListener('click', (event) => {
         if (event.target === jasaModal) {
@@ -224,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
- 
+    // Tampilkan semua jasa dan fitur saat halaman dimuat
     displayJasaItems('all');
     displayWhyChooseUsFeatures();
 });
