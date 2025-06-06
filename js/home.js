@@ -1,4 +1,7 @@
+// js/home.js
+
 document.addEventListener('DOMContentLoaded', () => {
+
     // --- Fungsionalitas Slideshow Hero Section ---
     const slides = document.querySelectorAll('.hero-slide');
     const dotsContainer = document.querySelector('.slide-dots');
@@ -8,52 +11,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentSlide = 0;
     let slideInterval;
-    const slideTitles = ["Kuliner Khas", "Kreasi Batik", "Seni Wayang"]; 
-    // Fungsi untuk menampilkan slide
+    const slideTitles = ["Kuliner Nusantara", "Kerajinan Unggul", "Petualangan Budaya"];
+
     function showSlide(index) {
         slides.forEach((slide, i) => {
             slide.classList.remove('active');
             slide.style.opacity = '0';
             slide.style.transform = 'scale(1.05)';
         });
-
-        const dots = document.querySelectorAll('.slide-dots .dot');
-        dots.forEach(dot => dot.classList.remove('active'));
-
-        currentSlide = index;
-        if (currentSlide >= slides.length) currentSlide = 0;
-        if (currentSlide < 0) currentSlide = slides.length - 1;
-
-        slides[currentSlide].classList.add('active');
-        slides[currentSlide].style.opacity = '1';
-        slides[currentSlide].style.transform = 'scale(1)';
-
-        if (dots[currentSlide]) {
-            dots[currentSlide].classList.add('active');
+        if (dotsContainer) { 
+            document.querySelectorAll('.slide-dots .dot').forEach(dot => dot.classList.remove('active'));
         }
 
+
+        slides[index].classList.add('active');
+        slides[index].style.opacity = '1';
+        slides[index].style.transform = 'scale(1)';
+
+        if (dotsContainer) {
+            const dots = document.querySelectorAll('.slide-dots .dot');
+            if (dots[index]) {
+                dots[index].classList.add('active');
+            }
+        }
+
+
         if (spotlightDisplay) {
-            spotlightDisplay.textContent = slideTitles[currentSlide];
-            spotlightDisplay.style.opacity = '0';
+            spotlightDisplay.textContent = slideTitles[index];
+            spotlightDisplay.style.opacity = '1';
             setTimeout(() => {
-                spotlightDisplay.style.opacity = '1'; 
-            }, 100);
-            setTimeout(() => {
-                spotlightDisplay.style.opacity = '0'; 
+                spotlightDisplay.style.opacity = '0';
             }, 4000);
         }
     }
 
-    // Fungsi untuk slide berikutnya dan sebelumnya
     function nextSlide() {
-        showSlide((currentSlide + 1) % slides.length);
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
     }
 
     function prevSlide() {
-        showSlide((currentSlide - 1 + slides.length) % slides.length);
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
     }
 
-    // Buat dots untuk slideshow
     if (dotsContainer) {
         slides.forEach((_, index) => {
             const dot = document.createElement('span');
@@ -68,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mulai slideshow otomatis
     function startSlideShow() {
         slideInterval = setInterval(nextSlide, 5000);
     }
@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         startSlideShow();
     }
 
-    // Tambahkan event listener untuk tombol prev/next
     if (prevBtn) prevBtn.addEventListener('click', () => {
         prevSlide();
         resetSlideInterval();
@@ -89,14 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
         resetSlideInterval();
     });
 
-    // Mulai slideshow jika ada slide
     if (slides.length > 0) {
         showSlide(currentSlide);
         startSlideShow();
     }
 
-    // --- Animasi On Scroll ---
-    const animateElements = document.querySelectorAll('.animate-fade-in-up, .animate-slide-up, .animate-zoom-in');
+    const revealElements = document.querySelectorAll('.about-image-content, .category-card, .game-option');
 
     const observerOptions = {
         root: null,
@@ -104,16 +101,24 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.1
     };
 
+    
+
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                if (entry.target.classList.contains('about-image-content')) {
+                    entry.target.classList.add('reveal-image');
+                } else if (entry.target.classList.contains('category-card')) {
+                    entry.target.classList.add('reveal-card');
+                } else if (entry.target.classList.contains('game-option')) {
+                     entry.target.classList.add('reveal-card'); 
+                }
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    animateElements.forEach(el => {
+    revealElements.forEach(el => {
         observer.observe(el);
     });
 });
